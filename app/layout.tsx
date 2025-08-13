@@ -77,7 +77,7 @@ export default function RootLayout({
 
         {/* Main Content Area */}
         <main className="flex-1 w-full">
-          <div className="w-full h-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-[5em]">
+          <div className="w-full h-auto mx-auto px-4 sm:px-6 lg:px-22">
             {children}
           </div>
         </main>

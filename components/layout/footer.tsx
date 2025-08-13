@@ -1,11 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="w-full bg-white relative overflow-hidden mt-auto">
       <div className="w-full h-[1em] bg-[#003CE9]"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[5em] py-8 lg:py-12">
+      <div className="mx-auto px-4 sm:px-6 lg:px-22 py-8 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           {/* Contact Us Section */}
           <div className="text-[#003CE9] space-y-4">
