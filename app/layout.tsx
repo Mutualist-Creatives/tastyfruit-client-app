@@ -70,14 +70,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito.variable} ${bricolageGrotesque.variable} ${bricolageGrotesqueCondensed.variable} antialiased min-h-screen flex flex-col`}
+        className={`${nunito.variable} ${bricolageGrotesque.variable} ${bricolageGrotesqueCondensed.variable} antialiased flex flex-col`}
       >
         {/* Header - Fixed positioning handled internally */}
         <Header />
 
         {/* Main Content Area */}
-        <main className="flex-1 w-full">
-          <div className="w-full h-auto mx-auto px-4 sm:px-6 lg:px-22">
+        <main className="flex-1 w-full min-h-screen">
+          <div className="w-full h-auto mx-auto px-4 sm:px-6 lg:px-22 font-nunito py-12 lg:py-20">
             {children}
           </div>
         </main>

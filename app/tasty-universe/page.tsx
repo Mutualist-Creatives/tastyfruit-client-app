@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CharacterCard from "@/components/tasty-universe/character-card"; // Import the new component
 import { characterData } from "@/lib/character-data"; // Assumes you move the data array to its own file
+import { CtaButton } from "@/components/ui/cta-button";
 
 export default function TastyUniverse() {
   return (
@@ -15,7 +16,7 @@ export default function TastyUniverse() {
       />
 
       <Image
-        src="/assets/tasty-universe/star.svg"
+        src="/assets/decorations/star.svg"
         alt=""
         aria-hidden="true"
         width={60}
@@ -24,7 +25,7 @@ export default function TastyUniverse() {
       />
 
       <Image
-        src="/assets/tasty-universe/star.svg"
+        src="/assets/decorations/star.svg"
         alt=""
         aria-hidden="true"
         width={60}
@@ -76,18 +77,7 @@ export default function TastyUniverse() {
         <div className="w-full lg:w-4/5 space-y-8">
           {/* Meet the Pack Button */}
           <div className="flex justify-center lg:justify-end">
-            <button className="group mt-0 lg:mt-3 bg-[#003CE9] hover:bg-[#002bb3] transition-colors duration-200 font-bricolage-grotesque-condensed font-extrabold text-[#B4FC28] py-1 px-3 sm:py-1 sm:px-3 text-lg sm:text-xl lg:text-2xl xl:text-4xl flex items-center gap-2 sm:gap-3 lg:gap-4 transform hover:scale-[1.02] transition-all duration-200">
-              MEET THE PACK!
-              <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 transition-transform group-hover:translate-x-1">
-                <Image
-                  src="/assets/tasty-universe/arrow-right.svg"
-                  alt="Arrow Right"
-                  width={28}
-                  height={28}
-                  className="w-full h-full"
-                />
-              </div>
-            </button>
+            <CtaButton color="blue">MEET THE PACK!</CtaButton>
           </div>
 
           {/* Character Grid */}
