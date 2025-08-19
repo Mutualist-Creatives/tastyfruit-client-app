@@ -4,9 +4,9 @@ import { CtaButton } from "@/components/ui/cta-button";
 
 export default function HeroSection() {
   return (
-    <section className="w-full min-h-screen">
+    <section className="w-full">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] items-center gap-8 sm:gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[4fr_6fr] items-center gap-8 sm:gap-12 lg:gap-16">
           {/* Left Column: Content */}
           <div className="space-y-6 text-center lg:text-left text-[#003CE9]">
             {/* Heart Decorations */}

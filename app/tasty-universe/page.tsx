@@ -1,89 +1,99 @@
+// app/tasty-universe/page.tsx
 import Image from "next/image";
-import CharacterCard from "@/components/tasty-universe/character-card"; // Import the new component
-import { characterData } from "@/lib/character-data"; // Assumes you move the data array to its own file
+import CharacterCardMascot from "@/components/tasty-universe/character-card-mascot";
+import { characterData } from "@/lib/character-data";
 import { CtaButton } from "@/components/ui/cta-button";
 
 export default function TastyUniverse() {
   return (
-    <section className="w-full min-h-screen font-nunito relative overflow-hidden py-20">
+    <section className="w-full font-nunito relative">
+      {/* Decorative images using your original assets */}
       <Image
-        src="/assets/tasty-universe/heart.svg"
+        src="/assets/decorations/star.svg"
         alt=""
         aria-hidden="true"
-        width={80}
-        height={80}
-        className="absolute bottom-[30%] left-[15%] w-20 h-20 -z-10"
+        width={40}
+        height={40}
+        className="absolute top-16 left-20 w-10 h-10 -z-10 hidden lg:block"
       />
-
       <Image
         src="/assets/decorations/star.svg"
         alt=""
         aria-hidden="true"
         width={60}
         height={60}
-        className="absolute top-10 right-[22.5%] w-16 h-16 -z-10"
+        className="absolute top-32 left-8 w-15 h-15 -z-10 hidden lg:block"
       />
-
+      <Image
+        src="/assets/decorations/heart.svg"
+        alt=""
+        aria-hidden="true"
+        width={50}
+        height={50}
+        className="absolute bottom-32 left-16 w-12 h-12 -z-10 hidden lg:block"
+      />
       <Image
         src="/assets/decorations/star.svg"
         alt=""
         aria-hidden="true"
-        width={60}
-        height={60}
-        className="absolute bottom-5 right-1/2 left-1/2 w-12 h-12 -z-10"
+        width={35}
+        height={35}
+        className="absolute top-20 right-32 w-9 h-9 -z-10 hidden lg:block"
       />
-
-      {/* <Image
-        src="/assets/tasty-universe/star.svg"
+      <Image
+        src="/assets/decorations/star.svg"
         alt=""
         aria-hidden="true"
-        width={60}
-        height={60}
-        className="absolute right-0 w-12 h-12 -z-10"
-      /> */}
+        width={45}
+        height={45}
+        className="absolute bottom-16 right-24 w-11 h-11 -z-10 hidden lg:block"
+      />
 
-      {/* Main content grid */}
-      <div className="flex flex-col lg:flex-row gap-12">
-        {/* Left Section */}
+      {/* Main content container with proper padding */}
+      {/* Main content flex container */}
+      <div className="w-full h-auto mx-auto max-w-[1280px] flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+        {/* Left Section - Content */}
+        <div className="w-full lg:w-1/2 lg:pr-4 xl:pr-8 mb-8 lg:mb-0">
+          {/* Title using your original asset */}
+          <div className="relative mb-6 lg:mb-8">
+            <Image
+              src="/assets/tasty-universe/tasty-universe-title.svg"
+              alt="Tasty Universe Title"
+              width={450}
+              height={250}
+              className="w-full max-w-[350px] sm:max-w-[400px] lg:max-w-[450px] h-auto mx-auto lg:mx-0"
+              priority
+            />
+          </div>
 
-        {/* Title Image */}
-        <div className="w-full lg:w-1/5 flex-shrink-0 space-y-6">
-          <Image
-            src="/assets/tasty-universe/tasty-universe-title.svg"
-            alt="Tasty Universe Title"
-            width={225}
-            height={125}
-            className="w-full max-w-[225px] h-auto mx-auto lg:mx-0"
-            priority
-          />
-
-          {/* Description Text */}
-          <div className="space-y-3 lg:space-y-4 text-[#003CE9] max-w-md mx-auto lg:mx-0">
-            <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-center lg:text-justify">
-              Di <span className="font-bold">Tasty Universe</span>, setiap rasa
-              punya wajahnya sendiri. Inilah para bintang Tasty Fruit!
+          {/* Description text */}
+          <div className="space-y-4 text-blue-600 mb-6 lg:mb-8 text-center lg:text-left">
+            <p className="text-base sm:text-lg leading-relaxed">
+              Di Tasty Universe, setiap rasa punya wajahnya sendiri. Inilah para
+              bintang Tasty Fruit!
             </p>
-            <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-center lg:text-justify">
-              Maskot Tasty Fruit{" "}
+            <p className="text-base sm:text-lg leading-relaxed">
+              Maskot Tasty Fruit®{" "}
               <span className="font-bold">penuh semangat</span> dan{" "}
-              <span className="font-bold">karakter yang unik</span>. Mereka
+              <span className="font-bold">karakter</span> yang unik. Mereka
               mewakili setiap gigitan segar yang menutrisi, siap membuat duniamu
               lebih berwarna dan sehat!
             </p>
           </div>
-        </div>
 
-        {/* Right Section */}
-        <div className="w-full lg:w-4/5 space-y-8">
-          {/* Meet the Pack Button */}
-          <div className="flex justify-center lg:justify-end">
+          {/* CTA Button using your component */}
+          <div className="flex justify-center lg:justify-start">
             <CtaButton color="blue">MEET THE PACK!</CtaButton>
           </div>
+        </div>
 
-          {/* Character Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-            {characterData.map((character, index) => (
-              <CharacterCard key={index} character={character} />
+        {/* Right Section - Character Grid using your actual components */}
+        <div className="w-full lg:w-1/2 flex items-center justify-end">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-5 lg:gap-4 xl:gap-5">
+            {characterData.map((character) => (
+              <div key={character.name} className="w-full aspect-[3/4]">
+                <CharacterCardMascot character={character} />
+              </div>
             ))}
           </div>
         </div>

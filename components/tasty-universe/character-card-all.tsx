@@ -16,7 +16,11 @@ type Character = {
 };
 
 // We pass the whole character object as a prop
-export default function CharacterCard({ character }: { character: Character }) {
+export default function CharacterCardAll({
+  character,
+}: {
+  character: Character;
+}) {
   return (
     <div
       className="rounded-2xl sm:rounded-3xl p-3 sm:p-4 transform hover:scale-[1.05] transition-all duration-200 cursor-pointer relative overflow-hidden"

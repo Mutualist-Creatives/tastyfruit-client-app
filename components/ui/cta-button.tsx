@@ -8,6 +8,7 @@ type CtaButtonProps = {
   children: React.ReactNode;
   color?: "blue" | "green";
   href?: string; // Optional href for link behavior
+  fontSize?: string;
 } & (
   | (React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: never })
   | (React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string })
@@ -18,6 +19,7 @@ export const CtaButton = ({
   color = "blue",
   className,
   href,
+  fontSize,
   ...props
 }: CtaButtonProps) => {
   // Define the base styles that apply to all variants
@@ -30,9 +32,12 @@ export const CtaButton = ({
     green: "bg-[#B4FC28] text-[#003CE9] hover:bg-[#9CFF00]",
   };
 
-  // Define responsive styles for text, padding, and gaps
-  const responsiveStyles =
-    "mt-0 lg:mt-3 py-1 px-2 sm:py-1 sm:px-2 text-lg sm:text-xl lg:text-2xl xl:text-3xl gap-2 sm:gap-3 lg:gap-4";
+  // Define responsive spacing (padding, gaps, margins)
+  const spacingStyles = "py-1 px-2 sm:py-1 sm:px-2 gap-2 sm:gap-3 lg:gap-4";
+
+  // Default responsive text sizes; can be overridden via fontSize prop
+  const defaultTextSize = "text-lg sm:text-xl lg:text-2xl xl:text-3xl";
+  const textSizeStyles = fontSize ?? defaultTextSize;
 
   // Determine the correct arrow image source based on the color
   const arrowSrc =
@@ -44,7 +49,8 @@ export const CtaButton = ({
   const combinedClassName = clsx(
     baseStyles,
     colorStyles[color],
-    responsiveStyles,
+    spacingStyles,
+    textSizeStyles,
     className
   );
 

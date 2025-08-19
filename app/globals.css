@@ -123,3 +123,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Make a child element span the full viewport width from within a centered, max-width container */
+  .full-bleed {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+  }
+
+  /* Repeating stripe background (green/blue) */
+  .stripes-bg {
+    background-image: repeating-linear-gradient(
+      to right,
+      #b5fe28 0 10px,
+      #003be2 10px 20px
+    );
+  }
+}

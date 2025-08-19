@@ -48,11 +48,11 @@ export default function Header() {
   };
 
   return (
-    <div className="w-full h-auto relative sticky top-0 z-50">
-      <div className="w-full bg-[#003CE9] font-nunito text-white">
+    <div className="w-full h-auto sticky top-0 z-50">
+      <div className="w-full bg-[#003BE2] font-nunito text-white">
         {/* Main Header Container */}
-        <div className="mx-auto px-4 sm:px-6 lg:px-22">
-          <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-20">
+          <div className="flex justify-between items-center h-auto">
             {/* Logo */}
             <div className="flex-shrink-0 pr-5">
               <Link href="/" className="flex items-center">
@@ -61,7 +61,7 @@ export default function Header() {
                   alt="Tasty Fruit Logo"
                   width={70}
                   height={70}
-                  className="sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+                  className="sm:w-12 sm:h-12 lg:w-16 lg:h-16"
                 />
               </Link>
             </div>
