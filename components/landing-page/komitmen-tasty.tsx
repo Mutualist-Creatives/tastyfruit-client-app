@@ -137,7 +137,7 @@ export default function KomitmenTasty() {
 
             {/* CTA Button */}
             <div className="flex justify-center pt-2 lg:justify-start flex-shrink-0">
-              <CtaButton href="/komitmen" color="blue">
+              <CtaButton href="/komitmen-tasty" color="blue">
                 PELAJARI LEBIH LANJUT
               </CtaButton>
             </div>
