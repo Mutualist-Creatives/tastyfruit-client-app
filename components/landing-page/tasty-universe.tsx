@@ -12,7 +12,7 @@ export default function TastyUniverse() {
       <div className="w-full flex items-center min-h-screen">
         {/* Left content section */}
         <div className="w-[40%] h-screen flex items-center z-20">
-          <div className="flex flex-col justify-center gap-6 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-20 font-nunito mr-10">
+          <div className="flex flex-col justify-center gap-6 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-20 font-nunito mr-">
             {/* Tasty Universe Image */}
             <div className="relative">
               <Image
