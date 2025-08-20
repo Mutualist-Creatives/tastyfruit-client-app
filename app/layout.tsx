@@ -5,6 +5,7 @@ import "./globals.css";
 // local components
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import ConditionalWrapper from "@/components/layout/conditional-wrapper";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -75,12 +76,8 @@ export default function RootLayout({
         {/* Header - Fixed positioning handled internally */}
         <Header />
 
-        {/* Main Content Area */}
-        <main className="flex-1 w-full min-h-screen bg-white">
-          <div className="w-full h-auto mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-20 font-nunito py-12">
-            {children}
-          </div>
-        </main>
+        {/* Main Content Area with conditional wrapper */}
+        <ConditionalWrapper>{children}</ConditionalWrapper>
 
         {/* Footer - Sticky to bottom */}
         <Footer />
