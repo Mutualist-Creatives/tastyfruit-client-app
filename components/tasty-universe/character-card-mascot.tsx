@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-// Define a type for the character props for better TypeScript safety
+// The type definition remains the same
 type Character = {
   name: string;
   title: string;
@@ -11,20 +12,42 @@ type Character = {
   secondaryColor: string;
   tertiaryColor: string;
   pictureBgColor: string;
-  imageHolder: string;
+  imageHolderColor: string;
   image: string;
 };
 
-// We pass the whole character object as a prop
 export default function CharacterCardMascot({
   character,
 }: {
   character: Character;
 }) {
+  const [imageHolderSrc, setImageHolderSrc] = useState(
+    `/assets/tasty-universe/image-holder-${character.imageHolderColor}.svg`
+  );
+
+  useEffect(() => {
+    const computeResponsiveHolder = () => {
+      const base = `/assets/tasty-universe/image-holder-${character.imageHolderColor}`;
+      if (typeof window !== "undefined") {
+        if (window.matchMedia("(min-width: 1280px)").matches) {
+          return `${base}-lg.svg`;
+        }
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+          return `${base}-md.svg`;
+        }
+      }
+      return `${base}.svg`;
+    };
+
+    const update = () => setImageHolderSrc(computeResponsiveHolder());
+    update();
+    window.addEventListener("resize", update, { passive: true } as any);
+    return () => window.removeEventListener("resize", update as any);
+  }, [character.imageHolderColor]);
+
   return (
     <div
-      className="w-full h-full min-h-[160px] sm:min-h-[180px] rounded-lg p-2 md:p-2.5 lg:p-2.5 transform-gpu hover:scale-[1.03] transition-transform duration-200 cursor-pointer relative overflow-hidden"
-      // Using an inline style for the dynamic background color is perfect here
+      className="w-auto h-full min-w-[125px] min-h-[160px] sm:min-h-[180px] rounded-lg p-2 md:p-2.5 lg:p-2.5 transform-gpu hover:scale-[1.03] transition-transform duration-200 cursor-pointer relative overflow-hidden"
       style={{ backgroundColor: character.cardColor }}
     >
       {/* Background Pattern */}
@@ -36,10 +59,9 @@ export default function CharacterCardMascot({
         }}
       />
       <div className="h-full flex items-center justify-center z-10 relative">
-        {/* Character Image Section - Now takes full height */}
         <div
           className="relative w-full h-full bg-contain bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${character.imageHolder})` }}
+          style={{ backgroundImage: `url(${imageHolderSrc})` }}
         >
           {/* Background container with overflow visible */}
           <div
@@ -53,7 +75,7 @@ export default function CharacterCardMascot({
                 alt={`${character.name} character`}
                 fill
                 sizes="(max-width: 640px) 40vw, (max-width: 1024px) 25vw, 18vw"
-                className="object-contain drop-shadow-xl/50"
+                className="object-contain drop-shadow-xl"
               />
             </div>
           </div>
