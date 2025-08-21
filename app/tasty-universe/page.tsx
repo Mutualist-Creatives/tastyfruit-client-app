@@ -11,33 +11,33 @@ import Container from "@/components/layout/container";
 export default function TastyUniverse() {
   return (
     <Container>
-      <section className="w-full font-nunito relative">
+      <section className="w-full font-nunito relative py-8 sm:py-10 lg:py-12">
         {/* Decorative images using your original assets */}
-        <Image
+        {/* <Image
           src="/assets/decorations/star.svg"
           alt=""
           aria-hidden="true"
           width={40}
           height={40}
-          className="absolute top-16 left-20 w-10 h-10 -z-10 hidden lg:block"
-        />
-        <Image
+          className="absolute top-16 left-20 w-10 h-10 -z-10 hidden lg:block pointer-events-none select-none"
+        /> */}
+        {/* <Image
           src="/assets/decorations/star.svg"
           alt=""
           aria-hidden="true"
           width={60}
           height={60}
           className="absolute top-32 left-8 w-15 h-15 -z-10 hidden lg:block"
-        />
+        /> */}
         <Image
           src="/assets/decorations/heart.svg"
           alt=""
           aria-hidden="true"
           width={50}
           height={50}
-          className="absolute bottom-32 left-16 w-12 h-12 -z-10 hidden lg:block"
+          className="absolute bottom-32 left-16 w-12 h-12 -z-10 hidden lg:block pointer-events-none select-none"
         />
-        <Image
+        {/* <Image
           src="/assets/decorations/star.svg"
           alt=""
           aria-hidden="true"
@@ -52,7 +52,7 @@ export default function TastyUniverse() {
           width={45}
           height={45}
           className="absolute bottom-16 right-24 w-11 h-11 -z-10 hidden lg:block"
-        />
+        /> */}
 
         {/* Main content container with proper padding */}
         {/* Main content flex container */}
@@ -68,6 +68,7 @@ export default function TastyUniverse() {
                 height={250}
                 className="w-full max-w-[350px] sm:max-w-[400px] lg:max-w-[450px] h-auto mx-auto lg:mx-0"
                 priority
+                sizes="(max-width: 640px) 350px, (max-width: 1024px) 400px, 450px"
               />
             </div>
 
@@ -93,8 +94,8 @@ export default function TastyUniverse() {
           </div>
 
           {/* Right Section - Character Grid using your actual components */}
-          <div className="w-full lg:w-1/2 flex items-center justify-end">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-5 lg:gap-4 xl:gap-5">
+          <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
+            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-2 sm:gap-5 lg:gap-4 xl:gap-5">
               {characterData.map((character) => (
                 <div key={character.name} className="w-full aspect-[3/4]">
                   <CharacterCardMascot character={character} />

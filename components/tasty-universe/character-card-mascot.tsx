@@ -36,7 +36,7 @@ export default function CharacterCardMascot({
           return `${base}-md.svg`;
         }
       }
-      return `${base}.svg`;
+      return `${base}-md.svg`;
     };
 
     const update = () => setImageHolderSrc(computeResponsiveHolder());
@@ -65,16 +65,15 @@ export default function CharacterCardMascot({
         >
           {/* Background container with overflow visible */}
           <div
-            className="absolute inset-2 sm:inset-3 md:inset-4 lg:inset-4 rounded-lg flex items-center justify-center overflow-visible"
+            className="absolute inset-3 sm:inset-3 md:inset-4 lg:inset-4 rounded-lg flex items-center justify-center overflow-visible"
             style={{ backgroundColor: character.pictureBgColor }}
           >
             {/* Image container that can overflow */}
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full scale-135 mt-5">
               <Image
                 src={character.image}
                 alt={`${character.name} character`}
                 fill
-                sizes="(max-width: 640px) 40vw, (max-width: 1024px) 25vw, 18vw"
                 className="object-contain drop-shadow-xl"
               />
             </div>
