@@ -1,12 +1,15 @@
-// components/landing-page/what-to-cook.tsx
 "use client";
 
 import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
-import { motion } from "motion/react";
+import Marquee from "react-fast-marquee";
 
 // --- Image Data ---
+// We add duplicates to ensure the marquee has enough content to scroll smoothly without gaps.
 const topRowImages = [
+  "/assets/landing-page/what-to-cook/png/photo-1.png",
+  "/assets/landing-page/what-to-cook/png/photo-2.png",
+  "/assets/landing-page/what-to-cook/png/photo-3.png",
   "/assets/landing-page/what-to-cook/png/photo-1.png",
   "/assets/landing-page/what-to-cook/png/photo-2.png",
   "/assets/landing-page/what-to-cook/png/photo-3.png",
@@ -16,95 +19,48 @@ const bottomRowImages = [
   "/assets/landing-page/what-to-cook/png/photo-4.png",
   "/assets/landing-page/what-to-cook/png/photo-5.png",
   "/assets/landing-page/what-to-cook/png/photo-6.png",
+  "/assets/landing-page/what-to-cook/png/photo-4.png",
+  "/assets/landing-page/what-to-cook/png/photo-5.png",
+  "/assets/landing-page/what-to-cook/png/photo-6.png",
 ];
 
 // --- The Component ---
 export default function WhatToCook() {
-  // Create multiple duplicates for smoother infinite scroll
-  const extendedTopRow = [
-    ...topRowImages,
-    ...topRowImages,
-    ...topRowImages,
-    ...topRowImages,
-  ];
-  const extendedBottomRow = [
-    ...bottomRowImages,
-    ...bottomRowImages,
-    ...bottomRowImages,
-    ...bottomRowImages,
-  ];
-
   return (
     <section className="w-full h-auto overflow-hidden">
       <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-10 py-12">
         {/* Left Side: Infinite Image Sliders */}
         <div className="w-full lg:w-[60%] flex flex-col gap-4">
-          {/* Top Row: Slides to the right (content moves left) */}
-          <div className="w-full overflow-hidden">
-            <motion.div
-              className="flex"
-              animate={{
-                x: [`0%`, `-${20 * topRowImages.length}%`],
-              }}
-              transition={{
-                x: {
-                  duration: 8, // Adjust this for speed (lower = faster)
-                  ease: "linear",
-                  repeat: Infinity,
-                  repeatType: "loop",
-                },
-              }}
-            >
-              {extendedTopRow.map((src, index) => (
-                <div key={`top-${index}`} className="flex-shrink-0 w-1/3 px-2">
-                  <Image
-                    src={src}
-                    alt={`Recipe image ${(index % topRowImages.length) + 1}`}
-                    width={400}
-                    height={400}
-                    className="w-[255px] h-[300px] object-cover rounded-2xl"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
+          <Marquee speed={50} direction="left">
+            {topRowImages.map((src, index) => (
+              <div key={`top-${index}`} className="flex-shrink-0 px-2">
+                <Image
+                  src={src}
+                  alt={`Recipe image ${(index % 3) + 1}`}
+                  width={400}
+                  height={400}
+                  className="w-[255px] h-[300px] object-cover rounded-2xl"
+                />
+              </div>
+            ))}
+          </Marquee>
 
-          {/* Bottom Row: Slides to the left (content moves right) */}
-          <div className="w-full overflow-hidden">
-            <motion.div
-              className="flex"
-              animate={{
-                x: [`-${20 * bottomRowImages.length}%`, `0%`],
-              }}
-              transition={{
-                x: {
-                  duration: 10, // Adjust this for speed (lower = faster)
-                  ease: "linear",
-                  repeat: Infinity,
-                  repeatType: "loop",
-                },
-              }}
-            >
-              {extendedBottomRow.map((src, index) => (
-                <div
-                  key={`bottom-${index}`}
-                  className="flex-shrink-0 w-1/3 px-2"
-                >
-                  <Image
-                    src={src}
-                    alt={`Recipe image ${(index % bottomRowImages.length) + 1}`}
-                    width={400}
-                    height={400}
-                    className="w-full h-[300px] object-cover rounded-2xl"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
+          <Marquee speed={50} direction="right">
+            {bottomRowImages.map((src, index) => (
+              <div key={`bottom-${index}`} className="flex-shrink-0 px-2">
+                <Image
+                  src={src}
+                  alt={`Recipe image ${(index % 3) + 4}`}
+                  width={400}
+                  height={400}
+                  className="w-[255px] h-[300px] object-cover rounded-2xl"
+                />
+              </div>
+            ))}
+          </Marquee>
         </div>
 
         {/* Right Side: Text Content */}
-
         <div className="w-full lg:w-[40%] px-4 sm:px-6 lg:px-20 font-nunito relative">
           <div className="flex flex-col items-start gap-6">
             <Image
