@@ -11,11 +11,11 @@ export type Character = {
   secondaryColor: string;
   tertiaryColor: string;
   pictureBgColor: string;
-  imageHolder: string;
+  imageHolderColor: string; // The updated property
   image: string;
 };
 
-// 2. Create and export the array, telling TypeScript it's an array of "Character" types
+// 2. The complete and updated character data array
 export const characterData: Character[] = [
   {
     name: "MR. TASTY",
@@ -27,7 +27,7 @@ export const characterData: Character[] = [
     secondaryColor: "#003CE9",
     tertiaryColor: "#9CFF00",
     pictureBgColor: "#FF00B7",
-    imageHolder: "/assets/tasty-universe/image-holder-green.svg",
+    imageHolderColor: "green",
     image: "/assets/tasty-universe/mascots/png/banana.png",
   },
   {
@@ -40,7 +40,7 @@ export const characterData: Character[] = [
     secondaryColor: "#9CFF00",
     tertiaryColor: "#003CE9",
     pictureBgColor: "#003CE9",
-    imageHolder: "/assets/tasty-universe/image-holder-pink.svg",
+    imageHolderColor: "pink",
     image: "/assets/tasty-universe/mascots/png/endes.png",
   },
   {
@@ -53,7 +53,7 @@ export const characterData: Character[] = [
     secondaryColor: "#003CE9",
     tertiaryColor: "#003CE9",
     pictureBgColor: "#9CFF00",
-    imageHolder: "/assets/tasty-universe/image-holder-blue.svg",
+    imageHolderColor: "blue",
     image: "/assets/tasty-universe/mascots/png/lizzie.png",
   },
   {
@@ -66,7 +66,7 @@ export const characterData: Character[] = [
     secondaryColor: "#9CFF00",
     tertiaryColor: "#003CE9",
     pictureBgColor: "#003CE9",
-    imageHolder: "/assets/tasty-universe/image-holder-pink.svg",
+    imageHolderColor: "pink",
     image: "/assets/tasty-universe/mascots/png/oishi-maru.png",
   },
   {
@@ -79,7 +79,7 @@ export const characterData: Character[] = [
     secondaryColor: "#003CE9",
     tertiaryColor: "#003CE9",
     pictureBgColor: "#9CFF00",
-    imageHolder: "/assets/tasty-universe/image-holder-blue.svg",
+    imageHolderColor: "blue",
     image: "/assets/tasty-universe/mascots/png/matt.png",
   },
   {
@@ -92,7 +92,7 @@ export const characterData: Character[] = [
     secondaryColor: "#003CE9",
     tertiaryColor: "#9CFF00",
     pictureBgColor: "#FF00B7",
-    imageHolder: "/assets/tasty-universe/image-holder-green.svg",
+    imageHolderColor: "green",
     image: "/assets/tasty-universe/mascots/png/nami.png",
   },
   {
@@ -105,7 +105,7 @@ export const characterData: Character[] = [
     secondaryColor: "#003CE9",
     tertiaryColor: "#003CE9",
     pictureBgColor: "#9CFF00",
-    imageHolder: "/assets/tasty-universe/image-holder-blue.svg",
+    imageHolderColor: "blue",
     image: "/assets/tasty-universe/mascots/png/aroi.png",
   },
   {
@@ -118,7 +118,7 @@ export const characterData: Character[] = [
     secondaryColor: "#003CE9",
     tertiaryColor: "#9CFF00",
     pictureBgColor: "#FF00B7",
-    imageHolder: "/assets/tasty-universe/image-holder-green.svg",
+    imageHolderColor: "green",
     image: "/assets/tasty-universe/mascots/png/mishki.png",
   },
   {
@@ -131,7 +131,7 @@ export const characterData: Character[] = [
     secondaryColor: "#9CFF00",
     tertiaryColor: "#003CE9",
     pictureBgColor: "#003CE9",
-    imageHolder: "/assets/tasty-universe/image-holder-pink.svg",
+    imageHolderColor: "pink",
     image: "/assets/tasty-universe/mascots/png/keko.png",
   },
 ];
