@@ -1,4 +1,7 @@
 // app/tasty-universe/page.tsx
+
+"use client";
+
 import Image from "next/image";
 import CharacterCardMascot from "@/components/tasty-universe/character-card-mascot";
 import { characterData } from "@/lib/character-data";
