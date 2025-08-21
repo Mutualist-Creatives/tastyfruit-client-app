@@ -1,0 +1,119 @@
+"use client";
+
+import Image from "next/image";
+import { useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { motion } from "framer-motion"; // Import Framer Motion
+
+// --- Data for the carousel slides ---
+const carouselImages = [
+  {
+    src: "/assets/landing-page/medsos-tasty-fruit/png/post-1.png",
+    alt: "Post 1",
+  },
+  {
+    src: "/assets/landing-page/medsos-tasty-fruit/png/post-2.png",
+    alt: "Post 2",
+  },
+  {
+    src: "/assets/landing-page/medsos-tasty-fruit/png/post-3.png",
+    alt: "Post 3",
+  },
+  {
+    src: "/assets/landing-page/medsos-tasty-fruit/png/post-4.png",
+    alt: "Post 4",
+  },
+  {
+    src: "/assets/landing-page/medsos-tasty-fruit/png/post-5.png",
+    alt: "Post 5",
+  },
+  {
+    src: "/assets/landing-page/medsos-tasty-fruit/png/post-6.png",
+    alt: "Post 6",
+  },
+];
+
+export default function MedsosTastyFruit() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  return (
+    <section className="w-full h-screen bg-linear-to-t from-[#B4FC28] to-transparent mt-20 py-10">
+      <div className="w-full h-auto">
+        <div className="w-full h-auto flex justify-center items-center">
+          <Image
+            src="/assets/landing-page/medsos-tasty-fruit/medsos-tasty-fruit-title.svg"
+            alt="Media Sosial Tasty Fruit"
+            width={400}
+            height={150}
+            className="w-full max-w-2xl h-auto"
+          />
+        </div>
+
+        <div className="w-full max-w-7xl mx-auto mt-8 relative bg-[#003CE2]">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex -ml-4">
+              {carouselImages.map((img, index) => (
+                <div
+                  key={index}
+                  className="flex-grow-0 flex-shrink-0 w-full sm:w-1/3 md:w-1/4 lg:w-1/5 pl-6 py-6"
+                >
+                  <div className="aspect-[4/5] rounded-2xl overflow-hidden drop-shadow-lg/50 my-4">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      width={300}
+                      height={375}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Previous Button - Now a motion.button with hover removed */}
+          <motion.button
+            onClick={scrollPrev}
+            className="absolute top-1/2 left-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+            aria-label="Previous slide"
+            whileTap={{ scale: 0.75 }}
+            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+          >
+            <Image
+              src={"/assets/ui/arrow-right-blue.svg"}
+              alt="Arrow Left"
+              width={28}
+              height={28}
+              className="w-[25px] h-[25px] rotate-180"
+            />
+          </motion.button>
+
+          {/* Next Button - Now a motion.button with hover removed */}
+          <motion.button
+            onClick={scrollNext}
+            className="absolute top-1/2 right-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+            aria-label="Next slide"
+            whileTap={{ scale: 0.75 }}
+            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+          >
+            <Image
+              src={"/assets/ui/arrow-right-blue.svg"}
+              alt="Arrow Right"
+              width={20}
+              height={28}
+              className="w-[25px] h-[25px]"
+            />
+          </motion.button>
+        </div>
+      </div>
+    </section>
+  );
+}
