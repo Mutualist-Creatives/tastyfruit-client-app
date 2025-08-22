@@ -8,22 +8,22 @@ export default function HeroSection() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-[4fr_6fr] items-center gap-8 sm:gap-12 lg:gap-16">
           {/* Left Column: Content */}
-          <div className="space-y-6 text-center lg:text-left text-[#003CE9]">
+          <div className="space-y-6 text-center lg:text-left text-[#003CE9] md:max-w-[65ch] mx-auto lg:mx-0 order-2 lg:order-1">
             {/* Heart Decorations */}
             <Image
               src="/assets/decorations/heart.svg"
               alt="Tasty Fruit Logo"
               width={60}
               height={60}
-              className="mx-auto lg:mx-0 w-12 sm:w-16 lg:w-20 h-auto"
+              className="hidden lg:block mx-auto lg:mx-0 w-12 sm:w-16 lg:w-20 h-auto"
             />
             {/* Text Content */}
             <div className="space-y-4 sm:space-y-6">
-              <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-center lg:text-left">
-                Kami percaya bahwa <span className="font-bold">rasa</span>{" "}
+              <p className="text-sm sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left">
+                Kami percaya bahwa <span className="font-bold">bahagia</span>{" "}
                 dimulai dari <span className="font-bold">rasa</span>.
               </p>
-              <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-center lg:text-left">
+              <p className="text-sm sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left">
                 Tasty Fruit® selalu menyediakan{" "}
                 <span className="font-bold">buah tersegar</span> dan{" "}
                 <span className="font-bold">terlezat</span> untuk kebutuhan
@@ -31,7 +31,7 @@ export default function HeroSection() {
                 menutrisi tubuh dan pikiran, menjadikan lebih sehat, ceria, dan
                 berseri-seri dari luar dan dalam.
               </p>
-              <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-center lg:text-left font-bold">
+              <p className="text-sm sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left font-bold">
                 Tastier, Happier!
               </p>
             </div>
@@ -43,7 +43,7 @@ export default function HeroSection() {
             </div>
           </div>
           {/* Right Column: Main Graphic */}
-          <div className="relative">
+          <div className="relative order-1 lg:order-2">
             {/* Main "Tastier! Happier!" Image */}
             <Image
               src="/assets/landing-page/hero-section/tastier-happier-with-stars.svg"

@@ -32,11 +32,12 @@ export const CtaButton = ({
     green: "bg-[#B4FC28] text-[#003CE9] hover:bg-[#9CFF00]",
   };
 
-  // Define responsive spacing (padding, gaps, margins)
-  const spacingStyles = "py-1 px-2 sm:py-1 sm:px-2 gap-2 sm:gap-3 lg:gap-4";
+  // Define spacing and gaps (mobile & tablet identical; desktop larger)
+  const spacingStyles = "py-2 px-3 gap-2 min-h-[44px] lg:gap-4";
 
-  // Default responsive text sizes; can be overridden via fontSize prop
-  const defaultTextSize = "text-lg sm:text-xl lg:text-2xl xl:text-3xl";
+  // Default text sizes: mobile & tablet identical; desktop scales up
+  const defaultTextSize =
+    "text-2xl sm:text-xl md:text-3xl lg:text-2xl xl:text-3xl";
   const textSizeStyles = fontSize ?? defaultTextSize;
 
   // Determine the correct arrow image source based on the color
@@ -56,7 +57,7 @@ export const CtaButton = ({
 
   // Arrow component to reuse
   const Arrow = () => (
-    <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 transition-transform group-hover:translate-x-1">
+    <div className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 transition-transform group-hover:translate-x-1">
       <Image
         src={arrowSrc}
         alt="Arrow Right"

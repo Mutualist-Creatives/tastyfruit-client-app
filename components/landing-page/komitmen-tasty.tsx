@@ -4,29 +4,30 @@ import { CtaButton } from "@/components/ui/cta-button";
 
 export default function KomitmenTasty() {
   return (
-    <section className="w-full min-h-screen max-h-[700px] flex items-center overflow-hidden">
+    <section className="w-full mt-15 md:mt-20 py-16 sm:py-20 lg:py-24 flex items-center overflow-hidden">
       <div className="mx-auto max-w-7xl w-full h-full">
         {/* Container with responsive layout */}
         <div className="relative flex h-full flex-col items-stretch gap-4 lg:flex-row lg:gap-6">
           {/* Images Section - 70% width on desktop */}
-          <div className="relative order-2 flex-1 min-h-[500px] w-full lg:order-1 lg:w-[65%] lg:flex-none">
+          <div className="relative order-1 flex-1 h-[360px] md:h-[440px] lg:h-[440px] xl:h-[500px] w-full lg:order-1 lg:w-[65%] lg:flex-none">
             {/* Komitmen Tasty Title SVG */}
-            <div className="absolute -top-6 left-0 z-20 md:-top-8 lg:-top-12">
+            <div className="absolute left-0 z-20 -top-12 h-full">
               <Image
                 src="/assets/landing-page/komitmen-tasty/komitmen-tasty-title.svg"
                 alt="Komitmen Tasty"
                 width={275}
                 height={200}
-                className="h-[100px] w-[150px] md:h-[120px] md:w-[180px] lg:h-[200px] lg:w-[275px]"
+                className="h-[140px] w-[180px] md:h-[200px] md:w-[275px] lg:h-[200px] lg:w-[275px]"
                 style={{ objectFit: "contain" }}
               />
             </div>
 
             {/* Image Collage */}
-            <div className="flex h-full gap-2 pl-6 md:gap-3 md:pl-8 lg:gap-5 lg:pl-20">
-              {/* Left Image (Full Height) */}
-              <div className="w-[60%] h-full">
-                <div className="relative w-full h-full">
+            <div className="flex h-full gap-2 pl-0 md:pl-0 md:gap-3 lg:gap-5 lg:pl-20">
+              {/* Left Column (Full Height + Mobile-only image) */}
+              <div className="w-[50%] lg:w-[60%] h-full flex flex-col gap-2 md:gap-3 lg:gap-0">
+                {/* Main Left Image */}
+                <div className="flex-1 relative min-h-[50vh] lg:min-h-full lg:w-full lg:h-full">
                   <Image
                     src="/assets/landing-page/komitmen-tasty/jpg/photo-1.jpg"
                     alt="Workers in banana plantation"
@@ -35,11 +36,20 @@ export default function KomitmenTasty() {
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 30vw"
                   />
                 </div>
+                {/* Fourth image - only visible on mobile, below main left image */}
+                <div className="flex-1 lg:hidden relative">
+                  <Image
+                    src="/assets/landing-page/komitmen-tasty/jpg/photo-2.jpg"
+                    alt="Additional banana plantation view"
+                    fill
+                    className="rounded-2xl object-cover"
+                  />
+                </div>
               </div>
 
               {/* Right Column (Top/Bottom Images) */}
-              <div className="relative flex w-[40%] h-full flex-col gap-1 md:gap-2 lg:gap-5">
-                <div className="flex-[0.3] relative">
+              <div className="relative flex w-[50%] lg:w-[40%] h-full flex-col gap-2 md:gap-3 lg:gap-5 min-h-[50vh] lg:min-h-full">
+                <div className="flex-[0.5] lg:flex-[0.3] relative">
                   <Image
                     src="/assets/landing-page/komitmen-tasty/jpg/photo-2.jpg"
                     alt="Farmer in field - top"
@@ -48,17 +58,17 @@ export default function KomitmenTasty() {
                     sizes="(max-width: 768px) 30vw, (max-width: 1024px) 25vw, 20vw"
                   />
                 </div>
-                <div className="flex-[0.7] relative">
+                <div className="flex-[0.5] lg:flex-[0.7] relative">
                   <Image
                     src="/assets/landing-page/komitmen-tasty/jpg/photo-3.jpg"
                     alt="Banana detail - bottom"
                     fill
                     className="rounded-2xl object-cover lg:rounded-3xl"
-                    sizes="(max-width: 768px) 30vw, (max-width: 1024px) 25vw, 20vw"
                   />
                 </div>
-                {/* Heart decoration positioned between images */}
-                <div className="absolute -left-3 top-[30%] z-10 -translate-x-1/2 -translate-y-1/2 transform lg:-left-4">
+
+                {/* Heart decoration positioned between images (scaled for smaller screens) */}
+                <div className="hidden sm:absolute -left-2 md:-left-3 lg:-left-4 top-[30%] z-10 -translate-x-1/2 -translate-y-1/2 transform">
                   <div className="rounded-full">
                     <Image
                       src="/assets/decorations/heart.svg"
@@ -75,7 +85,7 @@ export default function KomitmenTasty() {
           </div>
 
           {/* Content Section - 30% width on desktop */}
-          <div className="order-1 flex w-full flex-col justify-end space-y-3 lg:order-2 lg:w-[35%] lg:space-y-4 lg:flex-none">
+          <div className="order-2 flex w-full flex-col justify-end space-y-3 md:max-w-[65ch] mx-auto lg:mx-0 lg:order-2 lg:w-[35%] lg:space-y-4 lg:flex-none">
             {/* Quality Badges */}
             <div className="flex justify-center gap-2 lg:justify-start flex-shrink-0">
               <div className="flex-shrink-0">
