@@ -19,11 +19,11 @@ export default function HeroSection() {
             />
             {/* Text Content */}
             <div className="space-y-4 sm:space-y-6">
-              <p className="text-sm sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left">
+              <p className="text-md sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left">
                 Kami percaya bahwa <span className="font-bold">bahagia</span>{" "}
                 dimulai dari <span className="font-bold">rasa</span>.
               </p>
-              <p className="text-sm sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left">
+              <p className="text-md sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left">
                 Tasty Fruit® selalu menyediakan{" "}
                 <span className="font-bold">buah tersegar</span> dan{" "}
                 <span className="font-bold">terlezat</span> untuk kebutuhan
@@ -31,7 +31,7 @@ export default function HeroSection() {
                 menutrisi tubuh dan pikiran, menjadikan lebih sehat, ceria, dan
                 berseri-seri dari luar dan dalam.
               </p>
-              <p className="text-sm sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left font-bold">
+              <p className="text-md sm:text-base md:text-xl lg:text-lg leading-relaxed text-center lg:text-left font-bold">
                 Tastier, Happier!
               </p>
             </div>

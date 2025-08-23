@@ -68,14 +68,14 @@ export default function KomitmenTasty() {
                 </div>
 
                 {/* Heart decoration positioned between images (scaled for smaller screens) */}
-                <div className="hidden sm:absolute -left-2 md:-left-3 lg:-left-4 top-[30%] z-10 -translate-x-1/2 -translate-y-1/2 transform">
+                <div className="absolute -left-1 lg:-left-4 top-[50%] lg:top-[30%] z-10 -translate-x-1/2 -translate-y-1/2 transform">
                   <div className="rounded-full">
                     <Image
                       src="/assets/decorations/heart.svg"
                       alt="Heart"
                       width={24}
                       height={24}
-                      className="h-4 w-4 sm:h-5 sm:w-5 lg:h-24 lg:w-24"
+                      className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24"
                       style={{ objectFit: "contain" }}
                     />
                   </div>
@@ -122,14 +122,14 @@ export default function KomitmenTasty() {
 
             {/* Content Text */}
             <div className="space-y-3 text-center text-[#003CE9] lg:space-y-4 lg:text-left flex-shrink-0">
-              <p className="text-xs leading-relaxed sm:text-sm lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
+              <p className="text-md leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
                 Buah kami tumbuh di kebun{" "}
                 <span className="font-bold">dataran tinggi Sukabumi</span> yang
                 kaya akan <span className="font-bold">mineral</span>. Hasilnya
                 adalah pisang segar dengan rasa manis yang unik dengan tekstur
                 lembut.
               </p>
-              <p className="text-xs leading-relaxed sm:text-sm lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
+              <p className="text-md leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
                 Tasty Fruit® menumbuhkan pisang secara{" "}
                 <span className="font-bold text-[#003CE9]">etis</span>,{" "}
                 <span className="font-bold text-[#003CE9]">
