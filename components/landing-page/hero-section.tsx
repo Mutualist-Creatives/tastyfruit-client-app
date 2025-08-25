@@ -5,7 +5,7 @@ import { CtaButton } from "@/components/ui/cta-button";
 export default function HeroSection() {
   return (
     <section className="w-full">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-[4fr_6fr] items-center gap-8 sm:gap-12 lg:gap-16">
           {/* Left Column: Content */}
           <div className="space-y-6 text-center lg:text-left text-[#003CE9] md:max-w-[65ch] mx-auto lg:mx-0 order-2 lg:order-1">

@@ -48,10 +48,10 @@ export default function Header() {
   };
 
   return (
-    <div className="w-full h-auto sticky top-0 z-50">
-      <div className="w-full bg-[#003BE2] font-nunito text-white">
+    <div className="flex justify-center w-full h-auto sticky top-0 z-50">
+      <div className="w-full max-w-full 2xl:max-w-[1440px] bg-[#003BE2] font-nunito text-white">
         {/* Main Header Container */}
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-20">
           <div className="flex justify-between items-center h-auto">
             {/* Logo */}
             <div className="flex-shrink-0 pr-5">

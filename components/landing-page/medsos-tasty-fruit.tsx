@@ -45,27 +45,28 @@ export default function MedsosTastyFruit() {
   }, [emblaApi]);
 
   return (
-    <section className="w-full h-screen bg-linear-to-t from-[#B4FC28] to-transparent mt-20 py-10">
+    <section className="w-full h-auto bg-linear-to-t from-[#B4FC28] to-transparent mt-20 py-10">
       <div className="w-full h-auto">
-        <div className="w-full h-auto flex justify-center items-center">
+        <div className="w-full h-auto flex justify-center items-center px-4">
           <Image
             src="/assets/landing-page/medsos-tasty-fruit/medsos-tasty-fruit-title.svg"
             alt="Media Sosial Tasty Fruit"
             width={400}
             height={150}
-            className="w-full max-w-2xl h-auto"
+            className="h-auto w-[80%] max-w-md sm:max-w-lg md:max-w-lg lg:max-w-2xl"
+            priority
           />
         </div>
 
         <div className="w-full max-w-7xl mx-auto mt-8 relative bg-[#003CE2]">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex -ml-4">
+            <div className="flex -ml-2 sm:-ml-4">
               {carouselImages.map((img, index) => (
                 <div
                   key={index}
-                  className="flex-grow-0 flex-shrink-0 w-full sm:w-1/3 md:w-1/4 lg:w-1/5 pl-6 py-6"
+                  className="flex-grow-0 flex-shrink-0 w-[75%] sm:w-1/2 md:w-1/3 lg:w-1/5 pl-4 sm:pl-6 py-6"
                 >
-                  <div className="aspect-[4/5] rounded-2xl overflow-hidden drop-shadow-lg/50 my-4">
+                  <div className="aspect-[4/5] rounded-2xl overflow-hidden drop-shadow-lg/50 my-2 sm:my-4">
                     <Image
                       src={img.src}
                       alt={img.alt}
@@ -79,10 +80,10 @@ export default function MedsosTastyFruit() {
             </div>
           </div>
 
-          {/* Previous Button - Now a motion.button with hover removed */}
+          {/* Previous Button */}
           <motion.button
             onClick={scrollPrev}
-            className="absolute top-1/2 left-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+            className="absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
             aria-label="Previous slide"
             whileTap={{ scale: 0.75 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -90,16 +91,16 @@ export default function MedsosTastyFruit() {
             <Image
               src={"/assets/ui/arrow-right-blue.svg"}
               alt="Arrow Left"
-              width={28}
-              height={28}
-              className="w-[25px] h-[25px] rotate-180"
+              width={24}
+              height={24}
+              className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px] rotate-180"
             />
           </motion.button>
 
-          {/* Next Button - Now a motion.button with hover removed */}
+          {/* Next Button */}
           <motion.button
             onClick={scrollNext}
-            className="absolute top-1/2 right-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+            className="absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
             aria-label="Next slide"
             whileTap={{ scale: 0.75 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -107,9 +108,9 @@ export default function MedsosTastyFruit() {
             <Image
               src={"/assets/ui/arrow-right-blue.svg"}
               alt="Arrow Right"
-              width={20}
-              height={28}
-              className="w-[25px] h-[25px]"
+              width={24}
+              height={24}
+              className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px]"
             />
           </motion.button>
         </div>

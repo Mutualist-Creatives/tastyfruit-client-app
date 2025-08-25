@@ -1,6 +1,7 @@
 // app/page.tsx
 
 import Container from "@/components/layout/container";
+import FullContainer from "@/components/layout/full-container";
 
 import HeroSection from "@/components/landing-page/hero-section";
 import KomitmenTasty from "@/components/landing-page/komitmen-tasty";
@@ -15,9 +16,11 @@ export default function LandingPage() {
         <HeroSection />
         <KomitmenTasty />
       </Container>
-      <TastyUniverse />
-      <WhatToCook />
-      <MedsosTastyFruit />
+      <FullContainer>
+        <TastyUniverse />
+        <WhatToCook />
+        <MedsosTastyFruit />
+      </FullContainer>
     </>
   );
 }

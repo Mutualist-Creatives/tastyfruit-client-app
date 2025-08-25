@@ -5,7 +5,7 @@ import { CtaButton } from "@/components/ui/cta-button";
 export default function KomitmenTasty() {
   return (
     <section className="w-full mt-15 md:mt-20 py-16 sm:py-20 lg:py-24 flex items-center overflow-hidden">
-      <div className="mx-auto max-w-7xl w-full h-full">
+      <div className="mx-auto w-full h-full">
         {/* Container with responsive layout */}
         <div className="relative flex h-full flex-col items-stretch gap-4 lg:flex-row lg:gap-6">
           {/* Images Section - 70% width on desktop */}
