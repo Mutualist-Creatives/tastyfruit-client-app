@@ -4,26 +4,16 @@ import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
+import { resepTastyData } from "@/lib/resep-tasty-data";
 
-// --- Image Data ---
-// We add duplicates to ensure the marquee has enough content to scroll smoothly without gaps.
-const topRowImages = [
-  "/assets/landing-page/what-to-cook/png/photo-1.png",
-  "/assets/landing-page/what-to-cook/png/photo-2.png",
-  "/assets/landing-page/what-to-cook/png/photo-3.png",
-  "/assets/landing-page/what-to-cook/png/photo-1.png",
-  "/assets/landing-page/what-to-cook/png/photo-2.png",
-  "/assets/landing-page/what-to-cook/png/photo-3.png",
-];
+// --- Prepare Data from Imported Source ---
+// Slice the imported data to separate it for the top and bottom rows.
+const topRowRecipes = resepTastyData.slice(0, 3);
+const bottomRowRecipes = resepTastyData.slice(3, 6);
 
-const bottomRowImages = [
-  "/assets/landing-page/what-to-cook/png/photo-4.png",
-  "/assets/landing-page/what-to-cook/png/photo-5.png",
-  "/assets/landing-page/what-to-cook/png/photo-6.png",
-  "/assets/landing-page/what-to-cook/png/photo-4.png",
-  "/assets/landing-page/what-to-cook/png/photo-5.png",
-  "/assets/landing-page/what-to-cook/png/photo-6.png",
-];
+// Duplicate the arrays to provide enough content for a seamless marquee scroll.
+const topRow = [...topRowRecipes, ...topRowRecipes];
+const bottomRow = [...bottomRowRecipes, ...bottomRowRecipes];
 
 // --- The Component ---
 export default function WhatToCook() {
@@ -51,11 +41,14 @@ export default function WhatToCook() {
         {/* Left Side: Infinite Image Sliders */}
         <div className="w-full lg:w-[60%] flex flex-col gap-4">
           <Marquee speed={marqueeSpeed} direction="left">
-            {topRowImages.map((src, index) => (
-              <div key={`top-${index}`} className="flex-shrink-0 px-2">
+            {topRow.map((recipe, index) => (
+              <div
+                key={`top-${recipe.id}-${index}`}
+                className="flex-shrink-0 px-2"
+              >
                 <Image
-                  src={src}
-                  alt={`Recipe image ${(index % 3) + 1}`}
+                  src={recipe.image}
+                  alt={recipe.name} // Using recipe name for better accessibility
                   width={400}
                   height={400}
                   className="object-cover rounded-2xl w-40 h-44 sm:w-52 sm:h-60 md:w-60 md:h-72 lg:w-[255px] lg:h-[300px]"
@@ -65,11 +58,14 @@ export default function WhatToCook() {
           </Marquee>
 
           <Marquee speed={marqueeSpeed} direction="right">
-            {bottomRowImages.map((src, index) => (
-              <div key={`bottom-${index}`} className="flex-shrink-0 px-2">
+            {bottomRow.map((recipe, index) => (
+              <div
+                key={`bottom-${recipe.id}-${index}`}
+                className="flex-shrink-0 px-2"
+              >
                 <Image
-                  src={src}
-                  alt={`Recipe image ${(index % 3) + 4}`}
+                  src={recipe.image}
+                  alt={recipe.name} // Using recipe name for better accessibility
                   width={400}
                   height={400}
                   className="object-cover rounded-2xl w-40 h-44 sm:w-52 sm:h-60 md:w-60 md:h-72 lg:w-[255px] lg:h-[300px]"

@@ -9,6 +9,9 @@ type CtaButtonProps = {
   color?: "blue" | "green";
   href?: string; // Optional href for link behavior
   fontSize?: string;
+  // --- Add new props for padding ---
+  py?: string; // Vertical padding
+  px?: string; // Horizontal padding
 } & (
   | (React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: never })
   | (React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string })
@@ -20,6 +23,9 @@ export const CtaButton = ({
   className,
   href,
   fontSize,
+  // --- Destructure new props with default values ---
+  py = "2", // Default vertical padding (py-2)
+  px = "3", // Default horizontal padding (px-3)
   ...props
 }: CtaButtonProps) => {
   // Define the base styles that apply to all variants
@@ -32,8 +38,8 @@ export const CtaButton = ({
     green: "bg-[#B4FC28] text-[#003CE9] hover:bg-[#9CFF00]",
   };
 
-  // Define spacing and gaps (mobile & tablet identical; desktop larger)
-  const spacingStyles = "py-2 px-3 gap-2 min-h-[44px] lg:gap-4";
+  // --- Dynamically generate spacing styles using py and px props ---
+  const spacingStyles = `py-${py} px-${px} gap-2 lg:gap-4`;
 
   // Default text sizes: mobile & tablet identical; desktop scales up
   const defaultTextSize =

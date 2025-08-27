@@ -3,12 +3,19 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import CharacterCardMascot from "@/components/tasty-universe/character-card-mascot";
 import { characterData } from "@/lib/character-data";
 import { CtaButton } from "@/components/ui/cta-button";
 import Container from "@/components/layout/container";
 
 export default function TastyUniverse() {
+  const router = useRouter();
+
+  const handleMascotClick = (slug: string) => {
+    router.push(`/tasty-universe/${slug}`);
+  };
+
   return (
     <Container>
       <section className="w-full font-nunito relative py-8 sm:py-10 lg:py-12">
@@ -97,7 +104,11 @@ export default function TastyUniverse() {
           <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
             <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-2 sm:gap-5 lg:gap-4 xl:gap-5">
               {characterData.map((character) => (
-                <div key={character.name} className="w-full aspect-[3/4]">
+                <div
+                  key={character.name}
+                  className="w-full aspect-[3/4] cursor-pointer"
+                  onClick={() => handleMascotClick(character.slug)}
+                >
                   <CharacterCardMascot character={character} />
                 </div>
               ))}

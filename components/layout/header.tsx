@@ -29,10 +29,10 @@ const navItems = [
     label: "Tasty Universe",
     href: "/tasty-universe",
   },
-  {
-    label: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   label: "Blog",
+  //   href: "/blog",
+  // },
   {
     label: "Hubungi Tasty",
     href: "/hubungi-tasty",
@@ -51,10 +51,10 @@ export default function Header() {
     <div className="flex justify-center w-full h-auto sticky top-0 z-50">
       <div className="w-full max-w-full 2xl:max-w-[1440px] bg-[#003BE2] font-nunito text-white">
         {/* Main Header Container */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-20">
-          <div className="flex justify-between items-center h-auto">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-15">
+          <div className="flex justify-between items-center h-auto py-2">
             {/* Logo */}
-            <div className="flex-shrink-0 pr-5">
+            <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <Image
                   src="/assets/tasty-fruit-logo.svg"
@@ -67,58 +67,20 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-4">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`px-3 py-2 rounded-full text-sm font-semibold transition-colors whitespace-nowrap ${
+                  className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors whitespace-nowrap ${
                     pathname === item.href
-                      ? "bg-white/20 text-white"
-                      : "text-white hover:bg-white/10"
+                      ? "text-[#B5FE28]" // Active link color changed
+                      : "text-white hover:text-gray-200"
                   }`}
                 >
                   {item.label}
                 </Link>
               ))}
-            </nav>
-
-            {/* Large Screen Navigation (fewer items visible) */}
-            <nav className="hidden lg:flex xl:hidden items-center space-x-1">
-              {navItems.slice(0, 5).map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`px-3 py-2 rounded-full text-sm font-semibold transition-colors whitespace-nowrap ${
-                    pathname === item.href
-                      ? "bg-white/20 text-white"
-                      : "text-white hover:bg-white/10"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              {/* More button for remaining items */}
-              <div className="relative group">
-                <button className="px-3 py-2 rounded-full text-sm font-semibold text-white hover:bg-white/10">
-                  Lainnya
-                </button>
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  {navItems.slice(5).map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 first:rounded-t-md last:rounded-b-md ${
-                        pathname === item.href
-                          ? "bg-blue-50 text-[#003CE9]"
-                          : ""
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -163,7 +125,7 @@ export default function Header() {
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
-          <div className="px-4 py-4 bg-[#003CE9] border-t border-white/10">
+          <div className="px-4 py-4 bg-[#003BE2] border-t border-white/10">
             <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
@@ -172,7 +134,7 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${
                     pathname === item.href
-                      ? "bg-white/20 text-white"
+                      ? "bg-white/10 text-[#B5FE28]" // Active link color changed
                       : "text-white hover:bg-white/10"
                   }`}
                 >

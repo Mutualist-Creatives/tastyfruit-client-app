@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // The type definition remains the same
 type Character = {
   name: string;
-  title: string;
+  title?: string;
   species: string;
   tabsColor: string[];
   cardColor: string;
