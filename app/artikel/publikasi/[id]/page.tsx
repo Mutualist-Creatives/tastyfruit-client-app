@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { publikasiData } from "@/lib/publikasi-data";
 import DOMPurify from "isomorphic-dompurify";
 import Container from "@/components/layout/container";
-import ArtikelDetail from "@/components/artikel/artikel-detail";
+import PublikasiDetail from "@/components/artikel/publikasi-detail";
 
 /**
  * This function tells Next.js which article IDs are available
@@ -41,7 +41,7 @@ export default async function PublikasiDetailPage({
   // Pass all the prepared data down to the client component as props
   return (
     <Container>
-      <ArtikelDetail
+      <PublikasiDetail
         artikel={artikel}
         nextArtikel={nextArtikel}
         sanitizedContent={sanitizedContent}
