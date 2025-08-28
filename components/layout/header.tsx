@@ -15,11 +15,11 @@ const navItems = [
   },
   {
     label: "Produk",
-    href: "/works",
+    href: "/produk",
   },
   {
     label: "Komitmen Tasty",
-    href: "/services",
+    href: "/komitmen-tasty",
   },
   {
     label: "Artikel",
