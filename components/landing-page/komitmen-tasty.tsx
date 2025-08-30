@@ -85,12 +85,12 @@ export default function KomitmenTasty() {
           </div>
 
           {/* Content Section - 30% width on desktop */}
-          <div className="order-2 flex w-full flex-col justify-end space-y-3 md:max-w-[65ch] mx-auto lg:mx-0 lg:order-2 lg:w-[35%] lg:space-y-4 lg:flex-none">
+          <div className="order-2 flex w-full flex-col justify-end space-y-3 md:max-w-[65ch] mx-auto lg:mx-0 lg:order-2 lg:w-[35%] lg:space-y-4">
             {/* Quality Badges */}
             <div className="flex justify-center gap-2 lg:justify-start flex-shrink-0">
               <div className="flex-shrink-0">
                 <Image
-                  src="/assets/badges/highland-farm.svg"
+                  src="/assets/badges/highland-farm-blue.svg"
                   alt="Dataran Tinggi"
                   width={56}
                   height={56}
@@ -100,7 +100,7 @@ export default function KomitmenTasty() {
               </div>
               <div className="flex-shrink-0">
                 <Image
-                  src="/assets/badges/pesticide-free.svg"
+                  src="/assets/badges/pesticide-free-blue.svg"
                   alt="Pesticide Free"
                   width={56}
                   height={56}
@@ -110,7 +110,7 @@ export default function KomitmenTasty() {
               </div>
               <div className="flex-shrink-0">
                 <Image
-                  src="/assets/badges/handpicked.svg"
+                  src="/assets/badges/handpicked-blue.svg"
                   alt="Quality Certified"
                   width={56}
                   height={56}

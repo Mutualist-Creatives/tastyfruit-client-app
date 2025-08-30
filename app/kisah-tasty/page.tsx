@@ -1,0 +1,109 @@
+import Image from "next/image";
+import { CtaButton } from "@/components/ui/cta-button";
+import Container from "@/components/layout/container";
+
+export default function KomitmenTasty() {
+  return (
+    <Container>
+      <section className="w-full flex items-center overflow-hidden">
+        <div className="mx-auto w-full h-full">
+          {/* Container with responsive layout - Added min height and padding bottom */}
+          <div className="relative flex flex-col lg:flex-row-reverse lg:gap-10 items-center min-h-[800px] lg:min-h-[600px] pb-8 lg:pb-0">
+            {/* Images Section - Adjusted positioning */}
+            <div className="absolute order-2 w-full lg:w-[60%] flex items-center top-[280px] lg:top-[10.5em]">
+              <div className="flex w-full h-full gap-2 md:gap-4 lg:gap-6 lg:pl-20">
+                {/* Left Column */}
+                <div className="w-1/2 lg:w-[60%] flex flex-col gap-2 md:gap-4">
+                  {/* Main Left Image */}
+                  <div className="relative w-full h-full min-h-[280px] lg:min-h-[430px]">
+                    <Image
+                      src="/assets/landing-page/komitmen-tasty/jpg/photo-1.jpg"
+                      alt="Workers in banana plantation"
+                      fill
+                      className="rounded-2xl lg:rounded-3xl object-cover"
+                      sizes="100vw"
+                    />
+                  </div>
+                  {/* Mobile-only additional image */}
+                  <div className="relative w-full h-[120px] lg:hidden">
+                    <Image
+                      src="/assets/landing-page/komitmen-tasty/jpg/photo-2.jpg"
+                      alt="Additional banana plantation view"
+                      fill
+                      className="rounded-2xl object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Right Column */}
+                <div className="w-1/2 lg:w-[40%] flex flex-col gap-2 md:gap-4 lg:gap-6">
+                  <div className="relative w-full h-[130px] lg:h-[180px]">
+                    <Image
+                      src="/assets/landing-page/komitmen-tasty/jpg/photo-2.jpg"
+                      alt="Farmer in field - top"
+                      fill
+                      className="rounded-2xl lg:rounded-3xl object-cover"
+                      sizes="100vw"
+                    />
+                  </div>
+                  <div className="relative w-full h-[130px] lg:h-[225px]">
+                    <Image
+                      src="/assets/landing-page/komitmen-tasty/jpg/photo-3.jpg"
+                      alt="Banana detail - bottom"
+                      fill
+                      className="rounded-2xl lg:rounded-3xl object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Section */}
+            <div className="order-1 w-full flex flex-col justify-start mt-6 lg:mt-0 relative z-10">
+              <div className="flex flex-col items-center lg:items-start gap-2 w-full">
+                <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl sm:text-3xl lg:text-2xl bg-[#003BE2] px-2 py-0.5 mb-5">
+                  KISAH TASTY
+                </div>
+
+                {/* Full width title */}
+                <div className="text-center lg:text-left mb-3">
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-[#B5FE28] px-3 sm:px-4 py-2">
+                    PERJALANAN DARI DATARAN TINGGI
+                  </div>
+                </div>
+
+                <div className="text-center lg:text-left">
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-6xl bg-[#B5FE28] px-3 sm:px-4 py-2">
+                    HINGGA BRAND MODERN
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="mt-5 w-full lg:w-[40%] text-center lg:text-left">
+                  <p className="font-nunito text-[#003CE9] text-base sm:text-lg md:text-lg mb-5">
+                    Tasty Fruit® adalah brand produk buah-buahan dari PT
+                    Panyindangan, bagian dari DSN Group - perusahaan agribisnis
+                    terintegrasi yang berkomitmen pada keberlanjutan dan
+                    inovasi.
+                  </p>
+                  <p className="font-nunito text-[#003CE9] text-base sm:text-lg md:text-lg">
+                    Fokus utama kami adalah menyediakan buah segar berkualitas
+                    tinggi dari kebun kami yang dikelola dengan standar
+                    internasional, mulai dari pembibitan hingga distribusi.
+                  </p>
+                </div>
+
+                {/* CTA Button */}
+                <div className="flex justify-center lg:justify-start mt-6">
+                  <CtaButton href="/kisah-tasty" color="blue">
+                    PELAJARI LEBIH LANJUT!
+                  </CtaButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Container>
+  );
+}

@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="flex flex-col justify-center items-center w-full bg-white relative overflow-hidden mt-auto">
       <div className="w-full max-w-full 2xl:max-w-[1440px]">
         <div className="w-full h-[1em] bg-[#003CE9]"></div>
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-15 py-8 lg:py-12">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-20 py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             {/* Contact Us Section */}
             <div className="text-[#003CE9] space-y-4">
