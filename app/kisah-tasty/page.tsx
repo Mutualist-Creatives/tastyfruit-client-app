@@ -95,7 +95,7 @@ export default function KomitmenTasty() {
 
                 {/* CTA Button */}
                 <div className="flex justify-center lg:justify-start mt-6">
-                  <CtaButton href="/kisah-tasty" color="blue">
+                  <CtaButton href="/kisah-tasty/perjalanan-kami" color="blue">
                     PELAJARI LEBIH LANJUT!
                   </CtaButton>
                 </div>

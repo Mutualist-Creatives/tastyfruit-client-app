@@ -22,6 +22,7 @@ export type FlipCardEntry = {
   skills: Skill[]; // exactly 3 entries preferred
   kcal: number; // per 100g
   pictureBgColor?: string;
+  image: string; // New field for flip card image
 };
 
 export type Character = {
@@ -83,6 +84,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Kaya serat.", value: 70 },
         ],
         kcal: 160,
+        image: "/assets/tasty-universe/mascots/flip-card/png/mr-tasty.png",
       },
     ],
     funFact: [
@@ -125,6 +127,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Kaya serat.", value: 75 },
         ],
         kcal: 68,
+        image: "/assets/tasty-universe/mascots/flip-card/png/endes.png",
       },
     ],
     funFact: [
@@ -167,6 +170,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Kaya serat.", value: 72 },
         ],
         kcal: 69,
+        image: "/assets/tasty-universe/mascots/flip-card/png/lizzie.png",
       },
     ],
     funFact: [
@@ -209,6 +213,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Tinggi serat.", value: 82 },
         ],
         kcal: 60,
+        image: "/assets/tasty-universe/mascots/flip-card/png/oishi-maru.png",
       },
     ],
     funFact: [
@@ -251,6 +256,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Kaya serat.", value: 88 },
         ],
         kcal: 45,
+        image: "/assets/tasty-universe/mascots/flip-card/png/matt.png",
       },
     ],
     funFact: [
@@ -293,6 +299,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Kaya serat.", value: 85 },
         ],
         kcal: 240,
+        image: "/assets/tasty-universe/mascots/flip-card/png/nami.png",
       },
     ],
     funFact: [
@@ -320,7 +327,7 @@ export const characterData: Character[] = [
     tertiaryColor: "#9CFF00",
     pictureBgColor: "#FF00B7",
     imageHolderColor: "green",
-    image: "/assets/tasty-universe/mascots/png/mishki.png",
+    image: "/assets/tasty-universe/mascots/png/mishku.png",
     flipCard: [
       {
         name: "MISHKU",
@@ -335,6 +342,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Kaya serat.", value: 70 },
         ],
         kcal: 60,
+        image: "/assets/tasty-universe/mascots/flip-card/png/mishku.png",
       },
     ],
     funFact: [
@@ -377,6 +385,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Sumber serat.", value: 80 },
         ],
         kcal: 69,
+        image: "/assets/tasty-universe/mascots/flip-card/png/keko.png",
       },
     ],
     funFact: [
@@ -423,6 +432,7 @@ export const characterData: Character[] = [
           { name: "Fiber", description: "Tinggi serat.", value: 75 },
         ],
         kcal: 43,
+        image: "/assets/tasty-universe/mascots/flip-card/png/aroi.png",
       },
     ],
     funFact: [

@@ -24,8 +24,8 @@ export const CtaButton = ({
   href,
   fontSize,
   // --- Destructure new props with default values ---
-  py = "2", // Default vertical padding (py-2)
-  px = "3", // Default horizontal padding (px-3)
+  py = "1", // Default vertical padding (py-2)
+  px = "2", // Default horizontal padding (px-3)
   ...props
 }: CtaButtonProps) => {
   // Define the base styles that apply to all variants

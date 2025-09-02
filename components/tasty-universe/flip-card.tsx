@@ -30,13 +30,13 @@ export default function FlipCard({
       tabIndex={0}
       onClick={() => setFlipped((s) => !s)}
       onKeyDown={handleKeyDown}
-      className={`relative w-full [perspective:1000px] rounded-2xl shadow-md ${
+      className={`relative w-full [perspective:1000px] rounded-2xl ${
         className || "aspect-[4/3]"
       }`}
       aria-label="Flip nutrition card"
     >
       <div
-        className={`absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] rounded-2xl ${
+        className={`absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] rounded-2xl  shadow-md ${
           flipped ? "[transform:rotateY(180deg)]" : ""
         }`}
       >
