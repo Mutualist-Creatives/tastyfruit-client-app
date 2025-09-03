@@ -30,7 +30,7 @@ export const produkData: ProdukData[] = [
     id: 1,
     slug: "pisang",
     description:
-      "Pisang kami dibudidayakan di dataran tinggi vulkanik, menghasilkan buah dengan rasa manis yang khas dan tekstur yang lembut sempurna.",
+      "Pisang Tasty Fruit® memiliki rasa yang <b>manis</b>, dan <b>kesegaran yang terjamin</b>. Kenali jenis-jenis pisang kami dan pilih yang terbaik untukmu!",
     layoutType: "layout-a",
     fruit: "Pisang",
     fruitType: [
@@ -81,7 +81,7 @@ export const produkData: ProdukData[] = [
     id: 2,
     slug: "melon",
     description:
-      "Melon premium kami ditanam dengan teknik khusus dari Jepang untuk memastikan tingkat kemanisan dan aroma terbaik di setiap buahnya.",
+      "<b>Manis lembut atau manis renyah?</b> <br><br>Tasty Fruit® memiliki dua melon yang istimewa dengan sensasi berbeda. Yuk, cari tahu dan pilih melon Tasty Fruit® yang sesuai dengan seleramu!",
     layoutType: "layout-b",
     fruit: "Melon",
     fruitType: [
@@ -118,7 +118,7 @@ export const produkData: ProdukData[] = [
     id: 3,
     slug: "alpukat",
     description:
-      "Alpukat kami dipetik saat matang sempurna, menjamin tekstur yang creamy dan rasa gurih yang kaya akan nutrisi baik.",
+      "Alpukat Hass Tasty Fruit® memiliki <b>tekstur lembut</b> dan <b>rasa gurih</b> yang segar. Cari tahu dan rasakan  alpukat haas yang tak tertandingi!.",
     layoutType: "layout-a",
     fruit: "Alpukat",
     fruitType: [

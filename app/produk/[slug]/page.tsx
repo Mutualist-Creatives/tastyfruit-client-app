@@ -4,6 +4,7 @@ import Image from "next/image";
 import { produkData } from "@/lib/produk-data";
 import FruitCard from "@/components/produk/fruit-card";
 import NutritionItem from "@/components/produk/nutrition-item";
+import HtmlContent from "@/components/ui/html-content";
 
 interface ProdukDetailPageProps {
   params: {
@@ -46,9 +47,10 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg">
-                      {fruit.description}
-                    </p>
+                    <HtmlContent
+                      className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg"
+                      content={fruit.description}
+                    />
 
                     {/* Quality Badges */}
                     <div className="flex items-center gap-3">
@@ -128,9 +130,10 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg ml-auto">
-                      {fruit.description}
-                    </p>
+                    <HtmlContent
+                      className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg ml-auto"
+                      content={fruit.description}
+                    />
 
                     {/* Quality Badges */}
                     <div className="flex items-center gap-3 justify-end">

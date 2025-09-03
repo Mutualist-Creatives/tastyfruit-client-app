@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CtaButton } from "@/components/ui/cta-button";
+import HtmlContent from "@/components/ui/html-content";
 import FruitCard from "./fruit-card";
 import { ProdukData } from "@/lib/produk-data";
 import Image from "next/image";
@@ -18,9 +19,9 @@ const cardVariants = {
     zIndex: 0,
   },
   left: {
-    opacity: 0.6,
-    scale: 0.75,
-    x: "-50%",
+    opacity: 1,
+    scale: 0.85,
+    x: "-35%",
     zIndex: 1,
   },
   center: {
@@ -30,9 +31,9 @@ const cardVariants = {
     zIndex: 2,
   },
   right: {
-    opacity: 0.6,
-    scale: 0.75,
-    x: "50%",
+    opacity: 1,
+    scale: 0.85,
+    x: "35%",
     zIndex: 1,
   },
 };
@@ -96,7 +97,7 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
             PRODUK TASTY
           </div>
           <h2
-            className="font-bricolage-grotesque-condensed font-extrabold text-5xl md:text-6xl px-4 py-2"
+            className="font-bricolage-grotesque-condensed font-extrabold text-5xl md:text-6xl lg:text-7xl px-4 py-2"
             style={{
               color: textColor,
               backgroundColor: primaryColor,
@@ -105,13 +106,12 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
             {item.fruit.toUpperCase()}
           </h2>
         </div>
-        <p
-          className={`mt-4 text-[#003BE2] max-w-[45ch] leading-relaxed ${
+        <HtmlContent
+          className={`mt-4 text-[#003BE2] max-w-[45ch] leading-relaxed font-nunito w-[60%] text-base md:text-lg ${
             alignRight ? "ml-auto" : ""
           }`}
-        >
-          {item.description}
-        </p>
+          content={item.description}
+        />
         <div
           className={`mt-4 ${
             alignRight ? "flex flex-col items-end" : "flex flex-col items-start"
@@ -120,12 +120,12 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
           <CtaButton
             href={`/produk/${item.slug}`}
             color={item.layoutType === "layout-b" ? "blue" : "green"}
-            py="2"
-            px="3"
+            py="1"
+            px="2"
           >
             PELAJARI LEBIH LANJUT
           </CtaButton>
-          <div className="mt-6">
+          <div className="mt-8">
             <Image
               src="/assets/decorations/heart.svg"
               alt="Heart decoration"
@@ -139,22 +139,27 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
     );
   };
 
-  const CardsCarousel = (
+  const CardsCarousel = (alignStart: boolean) => (
     // ✅ 2. Hapus `ref={emblaRef}` dari sini
-    <div className="relative w-full h-[450px]">
-      <div className="w-full h-full">
+    <div className="relative w-full h-[360px] md:h-[460px] lg:h-[520px]">
+      <div className={`w-full h-full ${alignStart ? "" : "mx-auto"}`}>
         {item.fruitType.map((f, index) => (
           <motion.div
             key={f.slug}
             variants={cardVariants}
             animate={getCardState(index, selectedIndex, item.fruitType.length)}
             transition={{ type: "spring", stiffness: 300, damping: 35 }}
-            className="absolute top-0 bottom-0 left-0 right-0 m-auto w-[320px] h-fit"
+            className={`${
+              alignStart
+                ? "absolute top-0 bottom-0 left-0 right-auto m-0"
+                : "absolute top-0 bottom-0 left-0 right-0 m-auto"
+            } w-[320px] md:w-[420px] lg:w-[500px] h-fit`}
           >
             <FruitCard
               name={f.name}
               image={f.image}
               layoutType={item.layoutType}
+              isActive={index === selectedIndex}
             />
           </motion.div>
         ))}
@@ -164,7 +169,7 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
 
   return (
     <section
-      className={`w-full h-[40em] overflow-hidden max-w-full md:max-w-[1440px] mx-auto ${
+      className={`w-full h-[44em] md:h-[46em] lg:h-[50em] overflow-hidden max-w-full md:max-w-[1440px] mx-auto ${
         item.bgGradient
           ? `bg-gradient-to-br from-transparent via-[${item.bgGradient}] to-transparent`
           : ""
@@ -178,19 +183,21 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
       }
     >
       <div
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-8 w-full h-auto mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 lg:px-20 py-12`}
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-5 w-full h-auto mx-auto max-w-full md:max-w-7xl ${
+          isLayoutA ? "px-4 sm:px-20" : "pl-4 sm:pl-54 pr-20"
+        } py-12`}
       >
         {isLayoutA ? (
           <>
             <div>{TitleBlock(false)}</div>
             <div className="h-full flex items-center justify-center">
-              {CardsCarousel}
+              {CardsCarousel(false)}
             </div>
           </>
         ) : (
           <>
-            <div className="order-2 lg:order-1 h-full flex items-center justify-center">
-              {CardsCarousel}
+            <div className="order-2 lg:order-1 h-full flex items-center justify-start">
+              {CardsCarousel(true)}
             </div>
             <div className="order-1 lg:order-2 lg:text-right">
               {TitleBlock(true)}

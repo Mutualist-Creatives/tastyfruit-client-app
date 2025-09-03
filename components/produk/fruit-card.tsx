@@ -7,9 +7,15 @@ interface FruitCardProps {
   name: string;
   image: string;
   layoutType: Layout;
+  isActive?: boolean;
 }
 
-export default function FruitCard({ name, image, layoutType }: FruitCardProps) {
+export default function FruitCard({
+  name,
+  image,
+  layoutType,
+  isActive = false,
+}: FruitCardProps) {
   const isBlue = layoutType === "layout-a"; // layout-a → blue holder/title, layout-b → green
 
   const holderSrc = isBlue
@@ -22,13 +28,20 @@ export default function FruitCard({ name, image, layoutType }: FruitCardProps) {
 
   const badgeColor = isBlue ? "white" : "blue";
   const cardBg = isBlue ? "bg-[#B5FE28]" : "bg-[#003BE2]";
+  const glowClass = isActive
+    ? isBlue
+      ? "shadow-[0_0_40px_rgba(255,255,255,0.7)]"
+      : "shadow-[0_0_40px_rgba(181,254,40,0.6)]"
+    : "shadow-none";
 
   return (
-    <div className="w-full max-w-[255px]">
+    <div className="w-full max-w-[320px] md:max-w-[420px] lg:max-w-[350px]">
       {/* Card */}
-      <div className={`relative rounded-[28px] p-3 ${cardBg}`}>
+      <div
+        className={`relative rounded-[28px] p-4 md:p-5 ${cardBg} ${glowClass} transition-shadow duration-300`}
+      >
         {/* Image holder - inset style */}
-        <div className="relative rounded-[24px] overflow-hidden h-[320px]">
+        <div className="relative rounded-[24px] overflow-hidden h-[320px] md:h-[400px] lg:h-[425px]">
           <Image
             src={holderSrc}
             alt="holder"
@@ -40,28 +53,28 @@ export default function FruitCard({ name, image, layoutType }: FruitCardProps) {
           {/* Content inside image holder */}
           <div className="relative z-10 h-full flex flex-col">
             {/* Fruit image - perfectly centered within upper area */}
-            <div className="flex-1 flex items-center justify-center px-6">
+            <div className="flex-1 flex items-center justify-center px-6 md:px-8">
               <Image
                 src={image}
                 alt={name}
-                width={200}
-                height={200}
-                className="object-contain object-center max-h-[180px] drop-shadow-lg"
+                width={220}
+                height={220}
+                className="object-contain object-center max-h-[180px] md:max-h-[240px] lg:max-h-[300px] drop-shadow-lg"
                 style={{ objectPosition: "center" }}
               />
             </div>
 
             {/* Bottom section with badges and logo */}
-            <div className="px-6 pb-6">
+            <div className="px-6 md:px-8 pb-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="flex-shrink-0">
                     <Image
                       src={`/assets/badges/highland-farm-${badgeColor}.svg`}
                       alt="badge"
-                      width={56}
-                      height={56}
-                      className="h-6 w-6"
+                      width={80}
+                      height={80}
+                      className="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10"
                       style={{ objectFit: "contain" }}
                     />
                   </div>
@@ -69,9 +82,9 @@ export default function FruitCard({ name, image, layoutType }: FruitCardProps) {
                     <Image
                       src={`/assets/badges/pesticide-free-${badgeColor}.svg`}
                       alt="badge"
-                      width={56}
-                      height={56}
-                      className="h-6 w-6"
+                      width={80}
+                      height={80}
+                      className="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10"
                       style={{ objectFit: "contain" }}
                     />
                   </div>
@@ -79,9 +92,9 @@ export default function FruitCard({ name, image, layoutType }: FruitCardProps) {
                     <Image
                       src={`/assets/badges/handpicked-${badgeColor}.svg`}
                       alt="badge"
-                      width={56}
-                      height={56}
-                      className="h-6 w-6"
+                      width={80}
+                      height={80}
+                      className="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10"
                       style={{ objectFit: "contain" }}
                     />
                   </div>
@@ -89,14 +102,14 @@ export default function FruitCard({ name, image, layoutType }: FruitCardProps) {
                 <Image
                   src="/assets/tasty-fruit-logo.svg"
                   alt="Tasty Fruit"
-                  width={72}
-                  height={20}
-                  className="w-6 h-6"
+                  width={96}
+                  height={24}
+                  className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10"
                 />
               </div>
               {/* Title bar */}
               <div
-                className={`text-center font-bricolage-grotesque-condensed font-extrabold text-lg w-fit mx-auto px-1 mt-3 mb-7 ${titleBg}`}
+                className={`text-center font-bricolage-grotesque-condensed font-extrabold text-xl md:text-2xl w-fit mx-auto px-2 mt-4 mb-8 ${titleBg}`}
               >
                 {name.toUpperCase()}
               </div>

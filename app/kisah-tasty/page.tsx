@@ -18,13 +18,15 @@ export default function KomitmenTasty() {
 
                 {/* Full width title */}
                 <div className="text-center lg:text-left mb-2 md:mb-3">
-                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 md:px-4 md:py-2">
+                  {/* --- CHANGED: Font size adjusted for smoother scaling on smaller devices --- */}
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 md:px-4 md:py-2">
                     PERJALANAN DARI DATARAN TINGGI
                   </div>
                 </div>
 
                 <div className="text-center lg:text-left">
-                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl  lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 sm:px-4">
+                  {/* --- CHANGED: Font size adjusted for smoother scaling on smaller devices --- */}
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 sm:px-4">
                     HINGGA BRAND MODERN
                   </div>
                 </div>
@@ -62,6 +64,7 @@ export default function KomitmenTasty() {
                           alt="Banana detail - bottom"
                           fill
                           className="rounded-2xl lg:rounded-3xl object-cover"
+                          sizes="100vw"
                         />
                       </div>
                     </div>
@@ -70,13 +73,15 @@ export default function KomitmenTasty() {
 
                 {/* Description */}
                 <div className="mt-5 w-full lg:w-[40%] text-center lg:text-left">
-                  <p className="font-nunito text-[#003CE9] text-base sm:text-lg md:text-xl lg:text-lg mb-5">
+                  {/* --- CHANGED: Simplified font scaling for better readability --- */}
+                  <p className="font-nunito text-[#003CE9] text-base md:text-lg mb-5">
                     Tasty Fruit® adalah brand produk buah-buahan dari PT
                     Panyindangan, bagian dari DSN Group - perusahaan agribisnis
                     terintegrasi yang berkomitmen pada keberlanjutan dan
                     inovasi.
                   </p>
-                  <p className="font-nunito text-[#003CE9] text-base sm:text-lg md:text-xl lg:text-lg">
+                  {/* --- CHANGED: Simplified font scaling for better readability --- */}
+                  <p className="font-nunito text-[#003CE9] text-base md:text-lg">
                     Fokus utama kami adalah menyediakan buah segar berkualitas
                     tinggi dari kebun kami yang dikelola dengan standar
                     internasional, mulai dari pembibitan hingga distribusi.
