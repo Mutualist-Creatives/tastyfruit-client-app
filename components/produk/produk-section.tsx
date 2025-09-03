@@ -39,10 +39,8 @@ const cardVariants = {
 };
 
 export default function ProdukSection({ item }: ProdukSectionProps) {
-  // State untuk melacak indeks kartu yang aktif
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  // Helper function untuk menentukan state kartu (tidak ada perubahan)
   const getCardState = (
     index: number,
     selectedIndex: number,
@@ -63,41 +61,41 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
     return "hidden";
   };
 
-  // ✅ 1. useEffect untuk auto-scroll tanpa Embla
   useEffect(() => {
     const totalSlides = item.fruitType.length;
     if (totalSlides === 0) return;
 
-    // Set interval untuk mengubah selectedIndex setiap 3 detik
     const interval = setInterval(() => {
       setSelectedIndex((prevIndex) => (prevIndex + 1) % totalSlides);
     }, 3000);
 
-    // Bersihkan interval saat komponen di-unmount
     return () => clearInterval(interval);
-  }, [item.fruitType.length]); // <-- Dependensi hanya pada jumlah slide
+  }, [item.fruitType.length]);
 
   const isLayoutA = item.layoutType === "layout-a";
 
   const TitleBlock = (alignRight: boolean) => {
-    // Dynamic colors based on layout type
     const isBlue = item.layoutType === "layout-a";
-    const primaryColor = isBlue ? "#B5FE28" : "#003BE2"; // Green for layout-a, Blue for layout-b
-    const secondaryColor = isBlue ? "#003BE2" : "#B5FE28"; // Blue for layout-a, Green for layout-b
-    const textColor = isBlue ? "#003BE2" : "#B5FE28"; // Blue text for layout-a, Green text for layout-b
+    const primaryColor = isBlue ? "#B5FE28" : "#003BE2";
+    const textColor = isBlue ? "#003BE2" : "#B5FE28";
 
     return (
-      <div className={`max-w-xl ${alignRight ? "ml-auto text-right" : ""}`}>
+      // RESPONSIVE CHANGE: Breakpoint diubah ke `md`
+      <div
+        className={`max-w-xl text-center md:text-left ${
+          alignRight ? "ml-auto md:text-right" : ""
+        }`}
+      >
         <div
-          className={`flex flex-col ${
-            alignRight ? "items-end" : "items-start"
+          className={`flex flex-col items-center ${
+            alignRight ? "md:items-end" : "md:items-start"
           } gap-2`}
         >
           <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 mb-5">
             PRODUK TASTY
           </div>
           <h2
-            className="font-bricolage-grotesque-condensed font-extrabold text-5xl md:text-6xl lg:text-7xl px-4 py-2"
+            className="font-bricolage-grotesque-condensed font-extrabold text-5xl md:text-6xl px-4 py-2"
             style={{
               color: textColor,
               backgroundColor: primaryColor,
@@ -107,14 +105,15 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
           </h2>
         </div>
         <HtmlContent
-          className={`mt-4 text-[#003BE2] max-w-[45ch] leading-relaxed font-nunito w-[60%] text-base md:text-lg ${
-            alignRight ? "ml-auto" : ""
+          // RESPONSIVE CHANGE: Breakpoint diubah ke `md`
+          className={`mt-4 text-[#003BE2] max-w-[45ch] leading-relaxed font-nunito w-full md:w-[60%] text-base md:text-lg mx-auto md:mx-0 ${
+            alignRight ? "md:ml-auto" : ""
           }`}
           content={item.description}
         />
         <div
-          className={`mt-4 ${
-            alignRight ? "flex flex-col items-end" : "flex flex-col items-start"
+          className={`mt-4 flex flex-col items-center ${
+            alignRight ? "md:items-end" : "md:items-start"
           }`}
         >
           <CtaButton
@@ -140,20 +139,16 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
   };
 
   const CardsCarousel = (alignStart: boolean) => (
-    // ✅ 2. Hapus `ref={emblaRef}` dari sini
-    <div className="relative w-full h-[360px] md:h-[460px] lg:h-[520px]">
-      <div className={`w-full h-full ${alignStart ? "" : "mx-auto"}`}>
+    <div className="relative w-full h-[360px] md:h-[420px] lg:h-[520px]">
+      <div className={`w-full h-full mx-auto`}>
         {item.fruitType.map((f, index) => (
           <motion.div
             key={f.slug}
             variants={cardVariants}
             animate={getCardState(index, selectedIndex, item.fruitType.length)}
             transition={{ type: "spring", stiffness: 300, damping: 35 }}
-            className={`${
-              alignStart
-                ? "absolute top-0 bottom-0 left-0 right-auto m-0"
-                : "absolute top-0 bottom-0 left-0 right-0 m-auto"
-            } w-[320px] md:w-[420px] lg:w-[500px] h-fit`}
+            // Size sudah diatur per breakpoint
+            className={`absolute top-0 bottom-0 left-0 right-0 m-auto w-[280px] sm:w-[320px] md:w-[420px] lg:w-[500px] h-fit`}
           >
             <FruitCard
               name={f.name}
@@ -169,7 +164,8 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
 
   return (
     <section
-      className={`w-full h-[44em] md:h-[46em] lg:h-[50em] overflow-hidden max-w-full md:max-w-[1440px] mx-auto ${
+      // RESPONSIVE CHANGE: Menambahkan tinggi tetap untuk `md`
+      className={`w-full h-auto md:h-[46em] lg:h-[50em] overflow-hidden max-w-full md:max-w-[1440px] mx-auto ${
         item.bgGradient
           ? `bg-gradient-to-br from-transparent via-[${item.bgGradient}] to-transparent`
           : ""
@@ -183,23 +179,30 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
       }
     >
       <div
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-5 w-full h-auto mx-auto max-w-full md:max-w-7xl ${
-          isLayoutA ? "px-4 sm:px-20" : "pl-4 sm:pl-54 pr-20"
-        } py-12`}
+        // RESPONSIVE CHANGE: Breakpoint diubah ke `md` dan padding disesuaikan
+        className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-5 w-full h-auto mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 
+        ${
+          isLayoutA
+            ? "md:px-12 lg:px-20"
+            : "md:pl-12 lg:pl-54 md:pr-12 lg:pr-20"
+        } 
+        py-12`}
       >
         {isLayoutA ? (
           <>
-            <div>{TitleBlock(false)}</div>
+            <div className="flex items-center justify-center">
+              {TitleBlock(false)}
+            </div>
             <div className="h-full flex items-center justify-center">
               {CardsCarousel(false)}
             </div>
           </>
         ) : (
           <>
-            <div className="order-2 lg:order-1 h-full flex items-center justify-start">
+            <div className="order-2 md:order-1 h-full flex items-center justify-center md:justify-start">
               {CardsCarousel(true)}
             </div>
-            <div className="order-1 lg:order-2 lg:text-right">
+            <div className="order-1 md:order-2 flex items-center justify-center">
               {TitleBlock(true)}
             </div>
           </>

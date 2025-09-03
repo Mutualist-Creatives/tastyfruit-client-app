@@ -1,4 +1,3 @@
-"use client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { produkData } from "@/lib/produk-data";
@@ -28,9 +27,9 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
         return (
           <section
             key={fruit.slug}
-            className="w-full h-[40em] overflow-hidden max-w-full md:max-w-[1440px] mx-auto"
+            className="w-full max-w-full md:max-w-[1440px] mx-auto"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full px-8 lg:px-16 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center px-8 lg:px-20 max-w-7xl mx-auto py-20">
               {isOdd ? (
                 // Left to Right Layout (Odd sections: 0, 2, 4...)
                 <>
@@ -48,7 +47,7 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
 
                     {/* Description */}
                     <HtmlContent
-                      className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg"
+                      className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg font-nunito"
                       content={fruit.description}
                     />
 
@@ -81,7 +80,7 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
                     </div>
 
                     {/* Heart Decoration */}
-                    <div className="mt-4">
+                    <div className="mt-[5em]">
                       <Image
                         src="/assets/decorations/heart.svg"
                         alt="Heart decoration"
@@ -93,28 +92,32 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
                   </div>
 
                   {/* Right Image */}
-                  <div className="h-full flex items-center justify-center">
-                    <Image
-                      src={fruit.image}
-                      alt={fruit.name}
-                      width={400}
-                      height={400}
-                      className="w-full max-w-md h-auto object-contain drop-shadow-lg"
-                    />
+                  <div className="flex items-center justify-center">
+                    <div className="relative w-full max-w-md h-[280px] md:h-[360px] lg:h-[420px]">
+                      <Image
+                        src={fruit.image}
+                        alt={fruit.name}
+                        fill
+                        sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 420px"
+                        className="object-contain object-center drop-shadow-lg"
+                      />
+                    </div>
                   </div>
                 </>
               ) : (
                 // Right to Left Layout (Even sections: 1, 3, 5...)
                 <>
                   {/* Right Content */}
-                  <div className="order-2 lg:order-1 h-full flex items-center justify-center">
-                    <Image
-                      src={fruit.image}
-                      alt={fruit.name}
-                      width={400}
-                      height={400}
-                      className="w-full max-w-md h-auto object-contain drop-shadow-lg"
-                    />
+                  <div className="order-2 lg:order-1 flex items-center justify-center">
+                    <div className="relative w-full max-w-md h-[280px] md:h-[360px] lg:h-[420px]">
+                      <Image
+                        src={fruit.image}
+                        alt={fruit.name}
+                        fill
+                        sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 420px"
+                        className="object-contain object-center drop-shadow-lg"
+                      />
+                    </div>
                   </div>
 
                   {/* Left Content */}
@@ -164,7 +167,7 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
                     </div>
 
                     {/* Heart Decoration */}
-                    <div className="mt-4 flex justify-end">
+                    <div className="mt-[5em] flex justify-end">
                       <Image
                         src="/assets/decorations/heart.svg"
                         alt="Heart decoration"

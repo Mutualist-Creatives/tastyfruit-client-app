@@ -39,28 +39,35 @@ export const produkData: ProdukData[] = [
         slug: "tasty-fruit-volcana",
         image: "/assets/produk/pisang/Tasty Fruit Volcana.png",
         description:
-          "Pisang premium dengan rasa manis intens yang meletup di mulut, laksana letusan volkano.",
+          "Setiap kemasan Tasty Fruit® Volcana berisikan 4-5 pisang premium Grade A, hasil budidaya di dataran tinggi dengan tanah vulkanik yang kaya mineral. Kami menjamin setiap buah aman dikonsumsi dengan proses budidaya yang bebas residu pestisida.",
       },
       {
         name: "Tasty Fruit Pops",
         slug: "tasty-fruit-pops",
         image: "/assets/produk/pisang/Tasty Fruit Pops.png",
         description:
-          "Ukuran pas untuk sekali makan, camilan sehat dan praktis untuk si kecil maupun orang dewasa.",
+          "Tasty Fruit® Pops berisi tiga pisang Grade A berukuran kecil, ideal untuk camilan sehat. Pisang Tasty Fruit® dibudidayakan di dataran tinggi dengan tanah vulkanik, dijamin bebas residu pestisida, memberikan pisang dengan kualitas terbaik<br><br><b>Pop-sized</b> treats, oh-so-<b>sweet!</b>",
       },
       {
         name: "Tasty Fruit Twin",
         slug: "tasty-fruit-twin",
         image: "/assets/produk/pisang/Tasty Fruit Twin.png",
         description:
-          "Dua pisang dalam satu kemasan praktis, ideal untuk berbagi energi bersama teman atau pasangan.",
+          "Dua pisang Cavendish premium dikemas dalam Tasty Fruit® Twin untuk konsumsi snack sehat Anda! Kami memastikan buah kami bebas residu pestisida dan ditumbuhkan di dataran tinggi dengan tanah vulkanik yang menghasilkan buah dengan tekstur dan rasa yang unik.",
       },
       {
         name: "Tasty Fruit Max",
         slug: "tasty-fruit-max",
         image: "/assets/produk/pisang/Tasty Fruit Max.png",
         description:
-          "Ukuran jumbo yang padat nutrisi, memberikan energi maksimal untuk menaklukkan harimu.",
+          "Tasty Fruit® Max berisikan tiga buah pisang Cavendish premium yang dibudidayakan secara etis di dataran tinggi dengan tanah vulkanik dan bebas residu pestisida, sebuah komitmen untuk menjaga keberlanjutan <br><br><b>Three</b>'s the charm, keeps you from <b>harm!</b>",
+      },
+      {
+        name: "Tasty Fruit One",
+        slug: "tasty-fruit-one",
+        image: "/assets/produk/pisang/Tasty Fruit One.png",
+        description:
+          "Tinggal kupas, langsung hap! <br><br>Tasty Fruit® One adalah penyelamat yang hadir di saat-saat paling dibutuhkan. Satu pisang Cavendish premium ini bukan cuma praktis, tapi juga kaya energi dan nutrisi dari dataran tinggi. Dijamin bebas residu pestisida, bikin kamu siap hadapi hari tanpa drama!",
       },
     ],
     nutrition: {
@@ -68,7 +75,7 @@ export const produkData: ProdukData[] = [
       totalFat: "0.3g",
       cholesterol: "0mg",
       fiber: "2.6g",
-      carbohydrates: "23g",
+      carbohydrates: "22.g",
       protein: "1.1g",
       sodium: "1mg",
       magnesium: "27mg",
@@ -90,14 +97,14 @@ export const produkData: ProdukData[] = [
         slug: "aurora-melon",
         image: "/assets/produk/melon/Aurora Melon.png",
         description:
-          "Melon eksotis dengan daging buah berwarna oranye cerah, sangat manis, dan berair melimpah.",
+          "Tasty Fruit® Aurora melon terkenal dengan teksturnya yang renyah dan juicy. Dibudidayakan di dataran tinggi dengan tanah vulkanik, melon ini memiliki keseimbangan sempurna antara rasa manis dan keharuman yang alami. ",
       },
       {
         name: "Fujisawa Melon",
         slug: "fujisawa-melon",
         image: "/assets/produk/melon/Fujisawa Melon.png",
         description:
-          "Melon kelas premium dari bibit asli Fujisawa, Jepang, dengan jaring kulit sempurna dan rasa tak tertandingi.",
+          "Tasty Fruit® Fujisawa Melon adalah hasil dari keseimbangan sempurna antara alam dan budidaya yang presisi. Melon kami memiliki tekstur yang renyah dan rasa manis yang terukur dengan baik, bukan kebetulan, melainkan perpaduan dari tanah vulkanik dataran tinggi dan perawatan buah ahli dan dari hati. ",
       },
     ],
     nutrition: {
@@ -127,7 +134,7 @@ export const produkData: ProdukData[] = [
         slug: "hass-avocado",
         image: "/assets/produk/alpukat/Hass Avocado.png",
         description:
-          "Alpukat Hass klasik yang terkenal dengan teksturnya yang lembut seperti mentega dan rasa gurih yang nikmat.",
+          "Tasty Fruit® Alpukat Hass Grade A adalah pilihan terbaik untuk melengkapi menu sehat Anda. Dibudidayakan secara cermat di dataran tinggi dengan tanah vulkanik, alpukat ini kaya akan lemak tak jenuh tunggal yang baik bagi tubuh.",
       },
     ],
     nutrition: {

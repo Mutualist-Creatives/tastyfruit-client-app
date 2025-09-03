@@ -35,13 +35,13 @@ export default function FruitCard({
     : "shadow-none";
 
   return (
-    <div className="w-full max-w-[320px] md:max-w-[420px] lg:max-w-[350px]">
+    <div className="w-full max-w-[320px] md:max-w-[200px] lg:max-w-[350px]">
       {/* Card */}
       <div
-        className={`relative rounded-[28px] p-4 md:p-5 ${cardBg} ${glowClass} transition-shadow duration-300`}
+        className={`relative md:rounded-2xl lg:rounded-[28px] p-4 md:p-5 ${cardBg} ${glowClass} transition-shadow duration-300`}
       >
         {/* Image holder - inset style */}
-        <div className="relative rounded-[24px] overflow-hidden h-[320px] md:h-[400px] lg:h-[425px]">
+        <div className="relative lg:rounded-[24px] overflow-hidden h-[320px] md:h-[200px] lg:h-[425px]">
           <Image
             src={holderSrc}
             alt="holder"
@@ -53,13 +53,13 @@ export default function FruitCard({
           {/* Content inside image holder */}
           <div className="relative z-10 h-full flex flex-col">
             {/* Fruit image - perfectly centered within upper area */}
-            <div className="flex-1 flex items-center justify-center px-6 md:px-8">
+            <div className="relative flex-1 px-6 md:px-8">
               <Image
                 src={image}
                 alt={name}
-                width={220}
-                height={220}
-                className="object-contain object-center max-h-[180px] md:max-h-[240px] lg:max-h-[300px] drop-shadow-lg"
+                fill
+                sizes="(max-width: 640px) 220px, (max-width: 1024px) 300px, 360px"
+                className="object-contain object-center drop-shadow-lg"
                 style={{ objectPosition: "center" }}
               />
             </div>
