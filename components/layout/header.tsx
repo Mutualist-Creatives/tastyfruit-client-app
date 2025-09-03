@@ -47,6 +47,16 @@ export default function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Fungsi untuk menentukan apakah link aktif
+  const isActiveLink = (href: string) => {
+    // Untuk home page, hanya cocok jika pathname persis "/"
+    if (href === "/") {
+      return pathname === "/";
+    }
+    // Untuk route lainnya, cocok jika pathname dimulai dengan href
+    return pathname.startsWith(href);
+  };
+
   return (
     <div className="flex justify-center w-full h-auto sticky top-0 z-50">
       <div className="w-full max-w-full 2xl:max-w-[1440px] bg-[#003BE2] font-nunito text-white">
@@ -73,8 +83,8 @@ export default function Header() {
                   key={item.label}
                   href={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors whitespace-nowrap ${
-                    pathname === item.href
-                      ? "text-[#B5FE28]" // Active link color changed
+                    isActiveLink(item.href)
+                      ? "text-[#B5FE28]" // Active link color
                       : "text-white hover:text-gray-200"
                   }`}
                 >
@@ -133,8 +143,8 @@ export default function Header() {
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${
-                    pathname === item.href
-                      ? "bg-white/10 text-[#B5FE28]" // Active link color changed
+                    isActiveLink(item.href)
+                      ? "bg-white/10 text-[#B5FE28]" // Active link color
                       : "text-white hover:bg-white/10"
                   }`}
                 >
