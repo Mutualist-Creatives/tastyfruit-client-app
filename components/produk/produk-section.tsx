@@ -11,29 +11,34 @@ interface ProdukSectionProps {
   item: ProdukData;
 }
 
+// Responsive variants dengan x dan y yang berbeda per device
 const cardVariants = {
   hidden: {
     opacity: 0,
     scale: 0.5,
     x: "0%",
+    y: "0%",
     zIndex: 0,
   },
   left: {
     opacity: 1,
     scale: 0.85,
-    x: "-35%",
+    x: "var(--left-x, -35%)",
+    y: "var(--left-y, 0%)",
     zIndex: 1,
   },
   center: {
     opacity: 1,
     scale: 1,
     x: "0%",
+    y: "0%",
     zIndex: 2,
   },
   right: {
     opacity: 1,
     scale: 0.85,
-    x: "35%",
+    x: "var(--right-x, 35%)",
+    y: "var(--right-y, 0%)",
     zIndex: 1,
   },
 };
@@ -80,10 +85,9 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
     const textColor = isBlue ? "#003BE2" : "#B5FE28";
 
     return (
-      // RESPONSIVE CHANGE: Breakpoint diubah ke `md`
       <div
         className={`max-w-xl text-center md:text-left ${
-          alignRight ? "ml-auto md:text-right" : ""
+          alignRight ? "mx-auto dd:ml-auto md:text-right" : ""
         }`}
       >
         <div
@@ -105,8 +109,7 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
           </h2>
         </div>
         <HtmlContent
-          // RESPONSIVE CHANGE: Breakpoint diubah ke `md`
-          className={`mt-4 text-[#003BE2] max-w-[45ch] leading-relaxed font-nunito w-full md:w-[60%] text-base md:text-lg mx-auto md:mx-0 ${
+          className={`mt-4 text-[#003BE2] max-w-[45ch] leading-relaxed font-nunito w-full md:w-[80%] lg:w-[60%] text-base md:text-lg mx-auto md:mx-0 ${
             alignRight ? "md:ml-auto" : ""
           }`}
           content={item.description}
@@ -130,7 +133,7 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
               alt="Heart decoration"
               width={80}
               height={80}
-              className="w-12 sm:w-16 lg:w-20 h-auto"
+              className="hidden md:block md:w-16 lg:w-20 h-auto"
             />
           </div>
         </div>
@@ -140,15 +143,51 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
 
   const CardsCarousel = (alignStart: boolean) => (
     <div className="relative w-full h-[360px] md:h-[420px] lg:h-[520px]">
-      <div className={`w-full h-full mx-auto`}>
+      {/* CSS Custom Properties untuk responsive X values */}
+      <style jsx>{`
+        .carousel-container {
+          /* Mobile: overlap lebih sedikit */
+          --left-x: -25%;
+          --right-x: 25%;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+          .carousel-container {
+            --left-x: -30%;
+            --right-x: 30%;
+          }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+          .carousel-container {
+            --left-x: -35%;
+            --right-x: 35%;
+          }
+        }
+
+        /* Large Desktop - spacing lebih lebar */
+        @media (min-width: 1280px) {
+          .carousel-container {
+            --left-x: -40%;
+            --right-x: 40%;
+          }
+        }
+      `}</style>
+
+      <div
+        className={`carousel-container w-full h-full ${
+          isLayoutA ? "mr-0" : "ml-0"
+        }`}
+      >
         {item.fruitType.map((f, index) => (
           <motion.div
             key={f.slug}
             variants={cardVariants}
             animate={getCardState(index, selectedIndex, item.fruitType.length)}
             transition={{ type: "spring", stiffness: 300, damping: 35 }}
-            // Size sudah diatur per breakpoint
-            className={`absolute top-0 bottom-0 left-0 right-0 m-auto w-[280px] sm:w-[320px] md:w-[420px] lg:w-[500px] h-fit`}
+            className={`absolute top-0 bottom-0 left-0 right-0 m-auto w-[280px] sm:w-[320px] md:w-[300px] lg:w-[300px] xl:w-[350px] h-fit`}
           >
             <FruitCard
               name={f.name}
@@ -164,7 +203,6 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
 
   return (
     <section
-      // RESPONSIVE CHANGE: Menambahkan tinggi tetap untuk `md`
       className={`w-full h-auto md:h-[46em] lg:h-[50em] overflow-hidden max-w-full md:max-w-[1440px] mx-auto ${
         item.bgGradient
           ? `bg-gradient-to-br from-transparent via-[${item.bgGradient}] to-transparent`
@@ -179,27 +217,26 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
       }
     >
       <div
-        // RESPONSIVE CHANGE: Breakpoint diubah ke `md` dan padding disesuaikan
-        className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-5 w-full h-auto mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 
-        ${
-          isLayoutA
-            ? "md:px-12 lg:px-20"
-            : "md:pl-12 lg:pl-54 md:pr-12 lg:pr-20"
-        } 
-        py-12`}
+        className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-5 w-full h-auto mx-auto max-w-full
+          ${
+            isLayoutA
+              ? "mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 lg:px-20"
+              : "mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 lg:px-20"
+          } 
+          py-12`}
       >
         {isLayoutA ? (
           <>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center md:justify-start">
               {TitleBlock(false)}
             </div>
-            <div className="h-full flex items-center justify-center">
+            <div className="h-full flex items-center justify-center md:justify-end md:pr-0">
               {CardsCarousel(false)}
             </div>
           </>
         ) : (
           <>
-            <div className="order-2 md:order-1 h-full flex items-center justify-center md:justify-start">
+            <div className="order-2 md:order-1 h-full flex items-center justify-center md:justify-start md:pl-0">
               {CardsCarousel(true)}
             </div>
             <div className="order-1 md:order-2 flex items-center justify-center">

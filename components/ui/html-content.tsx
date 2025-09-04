@@ -3,11 +3,11 @@ interface HtmlContentProps {
   className?: string;
 }
 
-export default function HtmlContent({ content, className = "" }: HtmlContentProps) {
+export default function HtmlContent({
+  content,
+  className = "",
+}: HtmlContentProps) {
   return (
-    <div 
-      className={className}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
+    <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
   );
 }

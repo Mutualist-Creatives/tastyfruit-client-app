@@ -134,7 +134,7 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
 
                     {/* Description */}
                     <HtmlContent
-                      className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg ml-auto"
+                      className="text-[#003BE2] max-w-[45ch] leading-relaxed text-lg ml-auto font-nunito"
                       content={fruit.description}
                     />
 
@@ -191,7 +191,7 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
           background: `linear-gradient(to bottom, #B5FE2800, #B5FE28)`,
         }}
       >
-        <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto px-8 lg:px-20">
           {/* Top Section - Nutrition Info */}
           <div className="mb-16">
             {/* First Row - 3 Nutrisi + Banner */}

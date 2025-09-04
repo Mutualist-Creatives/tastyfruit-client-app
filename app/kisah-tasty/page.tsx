@@ -19,14 +19,14 @@ export default function KomitmenTasty() {
                 {/* Full width title */}
                 <div className="text-center lg:text-left mb-2 md:mb-3">
                   {/* --- CHANGED: Font size adjusted for smoother scaling on smaller devices --- */}
-                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 md:px-4 md:py-2">
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 md:px-4 md:py-2">
                     PERJALANAN DARI DATARAN TINGGI
                   </div>
                 </div>
 
                 <div className="text-center lg:text-left">
                   {/* --- CHANGED: Font size adjusted for smoother scaling on smaller devices --- */}
-                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 sm:px-4">
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 sm:px-4">
                     HINGGA BRAND MODERN
                   </div>
                 </div>
