@@ -114,11 +114,11 @@ const JourneyContent = ({ journey }: { journey: Journey }) => (
         {journey.year}
       </div>
     </div>
-    <div className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl md:text-4xl xl:text-[40px] bg-[#B5FE28] px-3 py-1 mt-5">
+    <div className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-xl md:text-4xl lg:text-2xl xl:text-[40px] bg-[#B5FE28] px-3 py-1 mt-5">
       {journey.title}
     </div>
     <div className="w-full">
-      <div className="font-nunito text-[#003CE9] text-base md:text-lg mt-5">
+      <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg mt-5">
         {journey.description}
       </div>
     </div>
@@ -136,7 +136,7 @@ const LayoutCContent = ({ journey }: { journey: Journey }) => {
           {journey.year}
         </div>
       </div>
-      <div className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl md:text-4xl xl:text-[40px] bg-[#B5FE28] px-3 py-1 mt-5">
+      <div className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-xl md:text-4xl xl:text-[40px] bg-[#B5FE28] px-3 py-1 mt-5">
         {journey.title}
       </div>
       <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-8 mt-5">
@@ -160,12 +160,12 @@ const LayoutCContent = ({ journey }: { journey: Journey }) => {
 const StaticParagraphContent = () => (
   <>
     <div className="w-full lg:w-[70%] text-center lg:text-left">
-      <div className="font-nunito text-[#003CE9] text-base md:text-lg">
+      <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg">
         Tasty Fruit adalah merek buah modern yang berawal dari dataran tinggi
         yang subur. Dimulai pada tahun 2018, kami terus berinovasi dan
         berkembang, memadukan tradisi kekeluargaan dengan teknologi modern.
       </div>
-      <div className="font-nunito text-[#003CE9] text-base md:text-lg mt-5">
+      <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg mt-5">
         Setiap buah yang kami hasilkan merupakan wujud komitmen kami untuk
         menyajikan kualitas terbaik, dari kebun hingga ke tangan Anda.
       </div>
@@ -261,11 +261,11 @@ export default function PerjalananKami() {
                         </div>
                       </div>
                     </div>
-                    <div className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl md:text-4xl xl:text-[40px] bg-[#B5FE28] px-3 py-1 mt-5">
+                    <div className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-4xl lg:text-3xl xl:text-[40px] bg-[#B5FE28] px-3 py-1 mt-5">
                       {currentJourney.title}
                     </div>
                     <div className="w-full">
-                      <div className="font-nunito text-[#003CE9] text-base md:text-lg mt-5">
+                      <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg mt-5">
                         {currentJourney.description}
                       </div>
                     </div>
