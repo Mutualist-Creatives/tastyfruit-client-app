@@ -11,9 +11,9 @@ interface ProdukDetailPageProps {
   };
 }
 
-export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
+export default async function ProdukDetailPage({ params }: ProdukDetailPageProps) {
   // Find the product data based on slug
-  const product = produkData.find((item) => item.slug === params.slug);
+  const product = produkData.find((item) => item.slug === params?.slug);
 
   if (!product) {
     notFound();
@@ -274,9 +274,9 @@ export default function ProdukDetailPage({ params }: ProdukDetailPageProps) {
                 height={64}
                 className="h-12 md:h-14 lg:h-16 w-auto"
               />
-              {/* Product Cards using FruitCard component */}
-              {produkData
-                .filter((item) => item.slug !== params.slug)
+               {/* Product Cards using FruitCard component */}
+               {produkData
+                 .filter((item) => item.slug !== params?.slug)
                 .sort(() => Math.random() - 0.5)
                 .slice(0, 2)
                 .map((item) => (

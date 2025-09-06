@@ -72,6 +72,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${nunito.variable} ${bricolageGrotesque.variable} ${bricolageGrotesqueCondensed.variable} antialiased flex flex-col`}
+        suppressHydrationWarning={true}
       >
         {/* Header - Fixed positioning handled internally */}
         <Header />
