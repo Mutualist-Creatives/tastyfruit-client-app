@@ -5,7 +5,7 @@ interface ContainerProps {
 
 export default function Container({ children }: ContainerProps) {
   return (
-    <div className="flex flex-col w-full h-auto mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 lg:px-20 font-nunito py-12 justify-center items-center overflow-hidden">
+    <div className="flex flex-col w-full h-auto mx-auto max-w-full 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-20 font-nunito py-12 justify-center items-center overflow-hidden">
       {children}
     </div>
   );

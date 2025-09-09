@@ -1,25 +1,21 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+// Ganti atau sesuaikan path import sesuai struktur proyek Anda
 import { CtaButton } from "@/components/ui/cta-button";
 import HtmlContent from "@/components/ui/html-content";
 import FruitCard from "./fruit-card";
 import { ProdukData } from "@/lib/produk-data";
-import Image from "next/image";
 
 interface ProdukSectionProps {
   item: ProdukData;
 }
 
-// Responsive variants dengan x dan y yang berbeda per device
+// Konfigurasi animasi untuk kartu carousel
 const cardVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.5,
-    x: "0%",
-    y: "0%",
-    zIndex: 0,
-  },
+  hidden: { opacity: 0, scale: 0.5, x: "0%", y: "0%", zIndex: 0 },
   left: {
     opacity: 1,
     scale: 0.85,
@@ -27,13 +23,7 @@ const cardVariants = {
     y: "var(--left-y, 0%)",
     zIndex: 1,
   },
-  center: {
-    opacity: 1,
-    scale: 1,
-    x: "0%",
-    y: "0%",
-    zIndex: 2,
-  },
+  center: { opacity: 1, scale: 1, x: "0%", y: "0%", zIndex: 2 },
   right: {
     opacity: 1,
     scale: 0.85,
@@ -46,39 +36,34 @@ const cardVariants = {
 export default function ProdukSection({ item }: ProdukSectionProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  // Fungsi untuk menentukan posisi kartu (kiri, tengah, kanan)
   const getCardState = (
     index: number,
     selectedIndex: number,
     totalSlides: number
   ) => {
-    if (index === selectedIndex) {
-      return "center";
-    }
+    if (index === selectedIndex) return "center";
     const leftIndex = selectedIndex === 0 ? totalSlides - 1 : selectedIndex - 1;
-    if (index === leftIndex) {
-      return "left";
-    }
+    if (index === leftIndex) return "left";
     const rightIndex =
       selectedIndex === totalSlides - 1 ? 0 : selectedIndex + 1;
-    if (index === rightIndex) {
-      return "right";
-    }
+    if (index === rightIndex) return "right";
     return "hidden";
   };
 
+  // Efek untuk auto-slide carousel setiap 3 detik
   useEffect(() => {
     const totalSlides = item.fruitType.length;
     if (totalSlides === 0) return;
-
     const interval = setInterval(() => {
       setSelectedIndex((prevIndex) => (prevIndex + 1) % totalSlides);
     }, 3000);
-
     return () => clearInterval(interval);
   }, [item.fruitType.length]);
 
   const isLayoutA = item.layoutType === "layout-a";
 
+  // Komponen untuk blok judul dan deskripsi
   const TitleBlock = (alignRight: boolean) => {
     const isBlue = item.layoutType === "layout-a";
     const primaryColor = isBlue ? "#B5FE28" : "#003BE2";
@@ -86,24 +71,25 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
 
     return (
       <div
-        className={`max-w-xl text-center md:text-left ${
-          alignRight ? "mx-auto dd:ml-auto md:text-right" : ""
+        className={`max-w-xl text-center ${
+          alignRight ? "md:text-right" : "md:text-left"
         }`}
       >
         <div
-          className={`flex flex-col items-center ${
+          className={`flex flex-col gap-2 ${
             alignRight ? "md:items-end" : "md:items-start"
-          } gap-2`}
+          }`}
         >
-          <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 mb-5">
+          {/* ================================================================ */}
+          {/* == JUDUL INI DISEMBUNYIKAN DI MOBILE & MUNCUL DI DESKTOP == */}
+          {/* ================================================================ */}
+          <div className="hidden md:block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 w-fit mb-5">
             PRODUK TASTY
           </div>
+          {/* ================================================================ */}
           <h2
-            className="font-bricolage-grotesque-condensed font-extrabold text-5xl md:text-6xl px-4 py-2"
-            style={{
-              color: textColor,
-              backgroundColor: primaryColor,
-            }}
+            className={`font-bricolage-grotesque-condensed font-extrabold text-5xl md:text-6xl px-4 py-2 w-fit self-center md:self-auto`}
+            style={{ color: textColor, backgroundColor: primaryColor }}
           >
             {item.fruit.toUpperCase()}
           </h2>
@@ -141,33 +127,26 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
     );
   };
 
-  const CardsCarousel = (alignStart: boolean) => (
+  // Komponen untuk carousel kartu buah
+  const CardsCarousel = () => (
     <div className="relative w-full h-[360px] md:h-[420px] lg:h-[520px]">
-      {/* CSS Custom Properties untuk responsive X values */}
       <style jsx>{`
         .carousel-container {
-          /* Mobile: overlap lebih sedikit */
           --left-x: -25%;
           --right-x: 25%;
         }
-
-        /* Tablet */
         @media (min-width: 768px) {
           .carousel-container {
             --left-x: -30%;
             --right-x: 30%;
           }
         }
-
-        /* Desktop */
         @media (min-width: 1024px) {
           .carousel-container {
             --left-x: -35%;
             --right-x: 35%;
           }
         }
-
-        /* Large Desktop - spacing lebih lebar */
         @media (min-width: 1280px) {
           .carousel-container {
             --left-x: -40%;
@@ -175,19 +154,14 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
           }
         }
       `}</style>
-
-      <div
-        className={`carousel-container w-full h-full ${
-          isLayoutA ? "mr-0" : "ml-0"
-        }`}
-      >
+      <div className="carousel-container w-full h-full mx-auto">
         {item.fruitType.map((f, index) => (
           <motion.div
             key={f.slug}
             variants={cardVariants}
             animate={getCardState(index, selectedIndex, item.fruitType.length)}
             transition={{ type: "spring", stiffness: 300, damping: 35 }}
-            className={`absolute top-0 bottom-0 left-0 right-0 m-auto w-[280px] sm:w-[320px] md:w-[300px] lg:w-[300px] xl:w-[350px] h-fit`}
+            className="absolute top-0 bottom-0 left-0 right-0 m-auto w-[280px] sm:w-[320px] md:w-[420px] lg:w-[500px] h-fit"
           >
             <FruitCard
               name={f.name}
@@ -201,13 +175,10 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
     </div>
   );
 
+  // Render utama komponen
   return (
     <section
-      className={`w-full h-auto md:h-[46em] lg:h-[50em] overflow-hidden max-w-full md:max-w-[1440px] mx-auto ${
-        item.bgGradient
-          ? `bg-gradient-to-br from-transparent via-[${item.bgGradient}] to-transparent`
-          : ""
-      }`}
+      className="w-full h-auto 2xl:max-w-[1440px] md:h-[46em] lg:h-[50em] overflow-hidden  mx-auto"
       style={
         item.bgGradient
           ? {
@@ -216,30 +187,22 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
           : {}
       }
     >
-      <div
-        className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-5 w-full h-auto mx-auto max-w-full
-          ${
-            isLayoutA
-              ? "mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 lg:px-20"
-              : "mx-auto max-w-full md:max-w-7xl px-4 sm:px-6 lg:px-20"
-          } 
-          py-12`}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-5 w-full h-auto mx-auto max-w-full 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-20 py-12">
         {isLayoutA ? (
           <>
-            <div className="flex items-center justify-center md:justify-start">
+            <div className="flex items-start justify-center md:justify-start">
               {TitleBlock(false)}
             </div>
-            <div className="h-full flex items-center justify-center md:justify-end md:pr-0">
-              {CardsCarousel(false)}
+            <div className="h-full flex items-center justify-center md:justify-end">
+              {CardsCarousel()}
             </div>
           </>
         ) : (
           <>
-            <div className="order-2 md:order-1 h-full flex items-center justify-center md:justify-start md:pl-0">
-              {CardsCarousel(true)}
+            <div className="order-2 md:order-1 h-full flex items-center justify-center md:justify-start">
+              {CardsCarousel()}
             </div>
-            <div className="order-1 md:order-2 flex items-center justify-center">
+            <div className="order-1 md:order-2 flex items-start justify-center md:justify-end">
               {TitleBlock(true)}
             </div>
           </>

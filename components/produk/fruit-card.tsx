@@ -70,7 +70,7 @@ export default function FruitCard({
             </div>
 
             {/* Bottom Section with Badges and Logo */}
-            <div className="px-6 md:px-6 lg:px-6 xl:px-8 pb-6 md:pb-6 lg:pb-6">
+            <div className="px-6 md:px-6 lg:px-6 xl:px-8 pb-8 md:pb-8 lg:pb-12">
               {/* Badges and Logo Row */}
               <div className="flex items-center justify-between mb-2">
                 {/* Badges Group */}

@@ -23,7 +23,7 @@ export default function NutritionItem({
 
   return (
     <div className={`text-center ${alignment}`.trim()}>
-      <div className="bg-[#003BE2] text-2xl text-[#B5FE28] px-1.5 py-0.25 w-fit mx-auto font-bricolage-grotesque-condensed font-bold">
+      <div className="bg-[#003BE2] text-xl lg:text-2xl text-[#B5FE28] px-1.5 py-[0.1em] lg:py-0.25 w-fit mx-auto font-bricolage-grotesque-condensed font-bold">
         {label.toUpperCase()}
       </div>
       <div className="relative">
@@ -32,10 +32,10 @@ export default function NutritionItem({
           alt="Heart decoration"
           width={120}
           height={120}
-          className="w-24 h-24 mx-auto"
+          className="w-20 h-20 lg:w-28 lg:h-28 xl:w-32 xl:h-32 mx-auto"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-          <span className="text-4xl font-bold text-[#003BE2] font-bricolage-grotesque-condensed">
+          <span className="text-4xl lg:text-5xl font-bold text-[#003BE2] font-bricolage-grotesque-condensed">
             {value}
           </span>
           <span className="text-xs text-bold text-[#003BE2] font-nunito -mt-2">

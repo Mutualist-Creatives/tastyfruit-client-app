@@ -1,3 +1,5 @@
+// components/artikel/artikel-card.tsx
+
 "use client";
 
 import Image from "next/image";
@@ -6,13 +8,11 @@ import { usePathname } from "next/navigation";
 import { PublikasiData } from "@/lib/publikasi-data";
 import { ResepTastyData } from "@/lib/resep-tasty-data";
 
-// --- Props Interface (Unchanged) ---
 interface ArtikelCardProps {
   publikasi?: PublikasiData;
   resep?: ResepTastyData;
 }
 
-// --- Category Color Function (Unchanged) ---
 const getCategoryColor = (category: string) => {
   switch (category) {
     case "Event":
@@ -34,13 +34,10 @@ export default function ArtikelCard({ publikasi, resep }: ArtikelCardProps) {
   const pathname = usePathname();
   const isResepPage = pathname.includes("/resep-tasty");
 
-  // Determine common properties to simplify JSX
   const id = isResepPage ? resep!.id : publikasi!.id;
   const image = isResepPage ? resep!.image : publikasi!.image;
   const title = isResepPage ? resep!.name : publikasi!.title;
   const category = isResepPage ? "Resep" : publikasi!.category;
-
-  // Determine the base path for the link
   const basePath = isResepPage ? "/artikel/resep-tasty" : "/artikel/publikasi";
 
   const cardStyles = {
@@ -56,11 +53,9 @@ export default function ArtikelCard({ publikasi, resep }: ArtikelCardProps) {
   return (
     <Link href={`${basePath}/${id}`} className="block">
       <div
-        className={`${cardStyles.bgColor} rounded-3xl p-4 h-full hover:scale-105 transition-transform duration-300 cursor-pointer flex flex-col`}
+        className={`${cardStyles.bgColor} rounded-3xl p-3 sm:p-4 h-full hover:scale-105 transition-transform duration-300 cursor-pointer flex flex-col`}
       >
-        {/* Article Image Wrapper */}
-        <div className="relative mb-4">
-          {/* --- MODIFICATION 1: Conditionally render the category badge --- */}
+        <div className="relative mb-3 sm:mb-4">
           {!isResepPage && (
             <div
               className={`absolute top-2 left-2 z-10 inline-block px-1.5 py-0.5 rounded-full text-xs font-bold ${getCategoryColor(
@@ -70,57 +65,57 @@ export default function ArtikelCard({ publikasi, resep }: ArtikelCardProps) {
               {category}
             </div>
           )}
-
-          {/* Article Image */}
           <Image
             src={image}
             alt={title}
             width={400}
             height={300}
-            className="w-full h-54 object-cover rounded-2xl"
+            className="w-full aspect-[4/3] object-cover rounded-2xl"
           />
         </div>
-
-        {/* Article Content */}
-        <div className="space-y-3 flex flex-col flex-grow">
+        <div className="space-y-2 sm:space-y-3 flex flex-col flex-grow">
           <h3
-            className={`${cardStyles.textColor} font-bold text-lg leading-tight flex-grow`}
+            className={`${cardStyles.textColor} font-bold text-base sm:text-lg leading-tight flex-grow line-clamp-2`}
           >
             {title}
           </h3>
-
           <div className="flex items-center justify-between mt-auto">
-            {/* --- MODIFICATION 2: Conditional layout for bottom text --- */}
             {isResepPage && resep ? (
-              // New layout for Recipe cards
-              <div className={`${cardStyles.textColor} font-medium text-base`}>
+              // ADJUSTED: Font size reduced for better balance
+              <div
+                className={`${cardStyles.textColor} font-medium text-xs sm:text-sm`}
+              >
                 <span>{resep.servings} servings</span>
                 <div className="flex items-center gap-1.5">
                   <Image
-                    src="/assets/artikel/resep-tasty/time.svg" // NOTE: Assumes you have a clock icon here
+                    src="/assets/artikel/resep-tasty/time.svg"
                     alt="Time"
                     width={16}
                     height={16}
+                    className="w-3.5 h-3.5" // Icon size adjusted slightly
                   />
-                  <span className="mt-0.5">{resep.time}</span>
+                  {/* ADJUSTED: Added italic style */}
+                  <span className="mt-0.5 italic">{resep.time}</span>
                 </div>
               </div>
             ) : (
-              // Original layout for Publication cards
-              <span className={`${cardStyles.mutedTextColor} text-sm`}>
+              // ADJUSTED: Font size reduced for consistency
+              <span
+                className={`${cardStyles.mutedTextColor} text-xs sm:text-sm`}
+              >
                 {publikasi?.date}
               </span>
             )}
-
             {/* Read More Arrow */}
+            {/* ADJUSTED: Arrow circle size reduced */}
             <div
-              className={`${cardStyles.arrowCircleBg} rounded-full w-8 h-8 flex items-center justify-center`}
+              className={`${cardStyles.arrowCircleBg} rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center transition-transform`}
             >
               <Image
                 src={cardStyles.arrowSrc}
                 alt="Read more arrow"
-                width={16}
-                height={16}
+                width={12} // Icon size adjusted
+                height={12} // Icon size adjusted
               />
             </div>
           </div>

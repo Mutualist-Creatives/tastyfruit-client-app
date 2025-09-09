@@ -10,7 +10,7 @@ export default function KomitmenTasty() {
           {/* Container with responsive layout - Added min height and padding bottom */}
           <div className="relative flex flex-col lg:flex-row-reverse lg:gap-10 items-start min-h-[800px] lg:min-h-[625px] pb-8 lg:pb-0">
             {/* Content Section */}
-            <div className="w-full flex flex-col justify-start mt-6 lg:mt-0 relative z-10">
+            <div className="w-full flex flex-col justify-start relative z-10">
               <div className="flex flex-col items-start gap-2 w-full">
                 <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl sm:text-3xl lg:text-2xl bg-[#003BE2] px-2 py-0.5 mb-5">
                   KISAH TASTY
