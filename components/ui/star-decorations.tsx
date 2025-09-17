@@ -66,7 +66,7 @@ export default function StarDecorations({
 
   return (
     // Mengubah -z-10 menjadi z-50
-    <div className="absolute top-0 left-0 w-full h-full z-50 pointer-events-none">
+    <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none">
       {stars.map((star, index) => (
         <Image
           key={index}

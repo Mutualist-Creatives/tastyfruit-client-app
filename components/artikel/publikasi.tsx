@@ -1,11 +1,9 @@
-// components/artikel/publikasi.tsx
-
 import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 
 export default function Publikasi() {
   return (
-    <section className="w-full">
+    <section className="w-full h-auto">
       <div className="mx-auto">
         {/* ================================================================== */}
         {/* === MOBILE LAYOUT (<640px) ===                                   */}

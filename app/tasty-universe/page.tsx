@@ -18,7 +18,7 @@ export default function TastyUniverse() {
 
   return (
     <Container>
-      <section className="w-full h-auto min-h-screen font-nunito relative">
+      <section className="w-full h-auto font-nunito relative">
         {/* Decorative images using your original assets */}
         {/* <Image
           src="/assets/decorations/star.svg"

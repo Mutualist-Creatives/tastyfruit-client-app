@@ -1,15 +1,20 @@
 // app/artikel/resep-tasty/page.tsx
 
-
 import Container from "@/components/layout/container";
 import ArtikelCard from "@/components/artikel/artikel-card";
 import { resepTastyData } from "@/lib/resep-tasty-data";
+
+import StarDecorations from "@/components/ui/star-decorations";
 
 export default function ResepTastyPage() {
   // Renamed for clarity
   return (
     <Container>
-      <section className="w-full h-auto">
+      <section className="relative w-full h-auto">
+        <StarDecorations count={1} seed={10} randomRotate={true} />
+        <StarDecorations count={3} seed={50} randomRotate={true} />
+        <StarDecorations count={3} seed={3} randomRotate={true} />
+        <StarDecorations count={1} seed={384284923} randomRotate={true} />
         <div className="mx-auto">
           {/* Header Section */}
           {/* ADJUSTED: Header alignment and font size now match the Publikasi page */}

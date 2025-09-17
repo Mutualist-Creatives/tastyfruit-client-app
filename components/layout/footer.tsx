@@ -140,7 +140,7 @@ function DefaultFooter() {
   ];
 
   return (
-    <footer className="bg-[#003CE9] w-full mx-auto max-w-full px-4 sm:px-6 lg:px-20">
+    <footer className="bg-[#003CE9] w-full mx-auto max-w-full">
       {/* Konten Utama Footer */}
       <div className="flex flex-col sm:flex-row justify-between items-center w-full mx-auto max-w-full 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-20 py-4 gap-4">
         {/* Kiri: Copyright */}

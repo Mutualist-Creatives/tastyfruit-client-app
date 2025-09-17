@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/layout/container";
 import { useRouter } from "next/navigation";
 
+import StarDecorations from "@/components/ui/star-decorations";
+
 // --- Hook untuk mendeteksi ukuran layar ---
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState<{
@@ -270,7 +272,10 @@ export default function PerjalananKami() {
 
   return (
     <Container>
-      <div className="w-full">
+      <div className="relative w-full h-auto">
+        <StarDecorations count={2} seed={5} randomRotate={true} />
+        <StarDecorations count={1} seed={20} randomRotate={true} />
+
         {/* Header Section */}
         <div className="w-full lg:w-1/2 mb-6">
           <div className="flex flex-col items-start gap-2">

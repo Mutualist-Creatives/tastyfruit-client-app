@@ -1,4 +1,3 @@
-
 import Container from "@/components/layout/container";
 // --- PERUBAHAN 1: Impor komponen BasicCard ---
 import BasicCard from "@/components/ui/basic-card";
@@ -59,7 +58,7 @@ export default function InovasiDalamBudidayaPage() {
                     DALAM BUDIDAYA
                   </div>
                 </div>
-                <div className="w-full lg:w-[40%] text-start">
+                <div className="w-full lg:w-[40%] text-start mb-0 md:mb-5">
                   <p className="font-nunito text-[#003CE9] text-base md:text-lg">
                     Di Tasty Fruit®, kami menerapkan praktik pertanian yang
                     ramah lingkungan:
@@ -81,7 +80,6 @@ export default function InovasiDalamBudidayaPage() {
               image={item.image}
               title={item.title}
               footerText={item.footerText} // Gunakan footerText
-              
             />
           ))}
         </div>

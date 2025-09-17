@@ -25,7 +25,7 @@ export default async function Mascots({
 
   return (
     <Container>
-      <section className="w-full h-auto min-h-screen">
+      <section className="w-full h-auto">
         <div className="hidden lg:block">
           <StarDecorations count={4} seed={36276432} randomRotate={true} />
           <StarDecorations count={3} seed={383238} randomRotate={true} />
