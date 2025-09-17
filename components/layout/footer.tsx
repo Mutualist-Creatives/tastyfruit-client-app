@@ -14,7 +14,7 @@ function LandingPageFooter() {
         <div className="w-full h-[1em] bg-[#003CE9] mt-10"></div>
         {/* Blue top border */}
         {/* Banana Image for Tablet/Desktop */}
-        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 2xl:right-1/3 md:top-0">
+        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 md:top-0">
           <Image
             src="/assets/ui/pisang.svg"
             alt="Pisang"

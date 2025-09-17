@@ -6,7 +6,7 @@ export default function HubungiTasty() {
       <section className="relative w-full h-screen overflow-hidden">
         {/* Banana Image for Tablet/Desktop */}
         {/* ADJUSTED: Now explicitly hidden on mobile */}
-        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 2xl:right-1/3 md:top-0">
+        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 md:top-0">
           <Image
             src="/assets/ui/pisang.svg"
             alt="Pisang"
