@@ -8,17 +8,11 @@ import FruitCard from "@/components/produk/fruit-card";
 import NutritionItem from "@/components/produk/nutrition-item";
 import HtmlContent from "@/components/ui/html-content";
 
-interface ProdukDetailPageProps {
-  params: {
-    slug: string;
-  };
-}
 
-export default async function ProdukDetailPage({
-  params,
-}: ProdukDetailPageProps) {
-  // Find the product data based on slug
-  const product = produkData.find((item) => item.slug === params?.slug);
+
+export default async function ProdukDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = produkData.find((item) => item.slug === slug);
 
   if (!product) {
     notFound();
@@ -26,7 +20,7 @@ export default async function ProdukDetailPage({
 
   // Prepare data for "Other Products" section
   const otherProducts = produkData
-    .filter((item) => item.slug !== params?.slug)
+    .filter((item) => item.slug !== slug)
     .sort(() => Math.random() - 0.5)
     .slice(0, 2);
 

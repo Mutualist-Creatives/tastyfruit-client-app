@@ -81,7 +81,7 @@ export default function InovasiDalamBudidayaPage() {
               image={item.image}
               title={item.title}
               footerText={item.footerText} // Gunakan footerText
-              category={item.category} // Berikan kategori
+              
             />
           ))}
         </div>

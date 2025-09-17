@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tiptap/extension-color": "^3.4.3",
+    "@tiptap/extension-highlight": "^3.4.3",
+    "@tiptap/extension-text-align": "^3.4.3",
     "@tiptap/pm": "^3.3.0",
     "@tiptap/react": "^3.3.0",
     "@tiptap/starter-kit": "^3.3.0",
