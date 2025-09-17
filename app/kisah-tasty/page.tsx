@@ -8,7 +8,7 @@ export default function KisahTasty() {
       <section className="relative w-full items-start flex overflow-hidden">
         <div className="mx-auto w-full h-full">
           {/* Container with responsive layout - Added min height and padding bottom */}
-          <div className="relative h-[37.5em] flex flex-col lg:flex-row-reverse lg:gap-10 items-start pb-8 lg:pb-0">
+          <div className="relative h-full lg:h-[37.5em] flex flex-col lg:flex-row-reverse lg:gap-10 items-start pb-8 lg:pb-0">
             {/* Content Section */}
             <div className="w-full flex flex-col justify-start relative z-10">
               <div className="flex flex-col items-start gap-2 w-full">

@@ -116,7 +116,7 @@ export default function HubungiTasty() {
         {/* NEW: Banana image specifically for mobile view, in normal flow */}
         <div className="w-full mt-12 md:hidden">
           <Image
-            src="/assets/ui/pisang-blue.svg"
+            src="/assets/ui/pisang.svg"
             alt="Pisang"
             width={800}
             height={900}
