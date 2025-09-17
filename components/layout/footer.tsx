@@ -10,12 +10,11 @@ import { usePathname } from "next/navigation";
 function LandingPageFooter() {
   return (
     <>
-      <div className="w-full h-[1em] bg-[#003CE9]"></div>
-      <footer className="relative w-full h-auto overflow-hidden mx-auto max-w-[1440px]">
+      <footer className="relative w-full h-auto overflow-hidden mx-auto">
+        <div className="w-full h-[1em] bg-[#003CE9] mt-10"></div>
         {/* Blue top border */}
-
         {/* Banana Image for Tablet/Desktop */}
-        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 md:top-0">
+        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 2xl:right-1/3 md:top-0">
           <Image
             src="/assets/ui/pisang.svg"
             alt="Pisang"
@@ -26,7 +25,7 @@ function LandingPageFooter() {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col w-full h-auto mx-auto max-w-full px-4 sm:px-6 lg:px-20 font-nunito py-12">
+        <div className="flex flex-col w-full h-auto mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-20 font-nunito py-12">
           <div className="flex flex-col w-full md:w-[65%] lg:w-[60%] items-center md:items-start">
             {/* Heading Section */}
             <div className="flex flex-col items-center md:items-start gap-2">
