@@ -37,7 +37,7 @@ export default function WhatToCook() {
 
   return (
     <section className="w-full h-auto overflow-hidden">
-      <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-start gap-10 py-12">
+      <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-start gap-10 py-12 pl-0 2xl:pl-20">
         {/* Left Side: Infinite Image Sliders */}
         <div className="w-full lg:w-[60%] flex flex-col gap-4">
           <Marquee speed={marqueeSpeed} direction="left">

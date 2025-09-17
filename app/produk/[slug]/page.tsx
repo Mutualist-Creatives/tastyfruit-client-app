@@ -8,9 +8,11 @@ import FruitCard from "@/components/produk/fruit-card";
 import NutritionItem from "@/components/produk/nutrition-item";
 import HtmlContent from "@/components/ui/html-content";
 
-
-
-export default async function ProdukDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProdukDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const product = produkData.find((item) => item.slug === slug);
 
@@ -320,7 +322,7 @@ function NutritionSection({
 }) {
   return (
     <section
-      className="relative mx-auto max-w-full 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-20 pt-16"
+      className="relative mx-auto max-w-full px-4 sm:px-6 lg:px-20 pt-16"
       style={{ background: `linear-gradient(to bottom, #B5FE2800, #B5FE28)` }}
     >
       {/* Desktop Ribbon */}

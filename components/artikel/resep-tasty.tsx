@@ -70,7 +70,7 @@ export default function ResepTasty() {
   return (
     <section className="w-full h-auto overflow-hidden">
       <div className="w-full flex flex-col-reverse md:flex-row justify-between items-start gap-12 md:gap-10">
-        <div className="w-full md:w-[60%] flex flex-col gap-4">
+        <div className="w-full md:w-[60%] flex flex-col gap-4 pl-0 2xl:pl-20">
           <Marquee speed={marqueeSpeed} direction="left">
             {topRowImages.map((recipe, index) => (
               <RecipeCard
