@@ -2,7 +2,7 @@
 
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { produkData } from "@/lib/produk-data";
+import { produkData, ProdukData, FruitType } from "@/lib/produk-data";
 import Ribbon from "@/components/produk/ribbon";
 import FruitCard from "@/components/produk/fruit-card";
 import NutritionItem from "@/components/produk/nutrition-item";
@@ -58,7 +58,7 @@ function MobileBadge() {
   );
 }
 
-function ProductSection({ fruit, index }: { fruit: any; index: number }) {
+function ProductSection({ fruit, index }: { fruit: FruitType; index: number }) {
   const isOdd = index % 2 === 0;
 
   return (
@@ -72,7 +72,7 @@ function ProductSection({ fruit, index }: { fruit: any; index: number }) {
   );
 }
 
-function MobileProductLayout({ fruit }: { fruit: any }) {
+function MobileProductLayout({ fruit }: { fruit: FruitType }) {
   return (
     <div className="md:hidden px-4 sm:px-6 pb-12 flex flex-col items-start text-left">
       {/* 1. Fruit Image Container */}
@@ -109,7 +109,7 @@ function DesktopProductLayout({
   fruit,
   isOdd,
 }: {
-  fruit: any;
+  fruit: FruitType;
   isOdd: boolean;
 }) {
   return (
@@ -123,7 +123,7 @@ function DesktopProductLayout({
   );
 }
 
-function LeftToRightLayout({ fruit }: { fruit: any }) {
+function LeftToRightLayout({ fruit }: { fruit: FruitType }) {
   return (
     <>
       {/* Content on the left */}
@@ -141,7 +141,7 @@ function LeftToRightLayout({ fruit }: { fruit: any }) {
   );
 }
 
-function RightToLeftLayout({ fruit }: { fruit: any }) {
+function RightToLeftLayout({ fruit }: { fruit: FruitType }) {
   return (
     <>
       {/* Image on the left */}
@@ -216,7 +216,7 @@ function ProductContent({
   badgeAlign,
   heartJustify,
 }: {
-  fruit: any;
+  fruit: FruitType;
   textAlign: string;
   flexAlign: string;
   badgeAlign: string;
@@ -273,7 +273,7 @@ function ProductContent({
   );
 }
 
-function ProductImage({ fruit }: { fruit: any }) {
+function ProductImage({ fruit }: { fruit: FruitType }) {
   return (
     <div className="flex items-center justify-center">
       <div className="relative w-full max-w-sm md:max-w-md h-[300px] md:h-[380px] lg:h-[450px]">
@@ -321,8 +321,8 @@ function NutritionSection({
   product,
   otherProducts,
 }: {
-  product: any;
-  otherProducts: any[];
+  product: ProdukData;
+  otherProducts: ProdukData[];
 }) {
   return (
     <section
@@ -354,7 +354,7 @@ function NutritionSection({
   );
 }
 
-function NutritionGrid({ product }: { product: any }) {
+function NutritionGrid({ product }: { product: ProdukData }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
       <NutritionItem
@@ -418,8 +418,8 @@ function OtherProductsSection({
   otherProducts,
   product,
 }: {
-  otherProducts: any[];
-  product: any;
+  otherProducts: ProdukData[];
+  product: ProdukData;
 }) {
   return (
     // No longer needs to be "relative"

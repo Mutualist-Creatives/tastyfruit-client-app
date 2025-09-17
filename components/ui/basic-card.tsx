@@ -1,40 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-
-// Helper function untuk warna kategori, membuatnya serbaguna.
-const getCategoryColor = (category: string) => {
-  switch (category) {
-    case "Event":
-      return "bg-[#003BE2] text-white";
-    case "Aktivitas":
-      return "bg-[#E30E75] text-white";
-    case "Produk":
-      return "bg-[#FFE600] text-[#003BE2]";
-    case "Informasi":
-    case "Inovasi": // Menambahkan kategori baru untuk contoh kita
-      return "bg-[#00C896] text-white";
-    case "Resep":
-      return "bg-[#003CE9] text-[#B5FE28]";
-    default:
-      return "bg-[#003BE2] text-[#B5FE28]";
-  }
-};
 
 // Interface untuk props komponen BasicCard
 export interface BasicCardProps {
   image: string;
   title: string;
   footerText: string; // Teks di bagian bawah kiri (bisa tanggal, deskripsi singkat, dll)
-  category?: string; // Kategori ini opsional
 }
 
 export default function BasicCard({
   image,
   title,
   footerText,
-  category,
 }: BasicCardProps) {
   // Styling didefinisikan secara statis sesuai permintaan (gaya "publikasi")
   const cardStyles = {

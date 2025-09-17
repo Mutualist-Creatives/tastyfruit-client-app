@@ -137,9 +137,11 @@ export default async function Mascots({
                       backBg="#003BE2"
                       front={
                         <div className="relative w-full h-full rounded-2xl overflow-hidden">
-                          <img
+                          <Image
                             src={entry?.image || character.image}
                             alt={character.name}
+                            width={210}
+                            height={290}
                             className="w-full h-full object-contain"
                           />
                         </div>
@@ -231,9 +233,11 @@ export default async function Mascots({
                         backBg="#003BE2"
                         front={
                           <div className="relative w-full h-full overflow-hidden">
-                            <img
+                            <Image
                               src={entry?.image || character.image}
                               alt={character.name}
+                              width={160}
+                              height={224}
                               className="w-full h-full object-contain"
                             />
                           </div>

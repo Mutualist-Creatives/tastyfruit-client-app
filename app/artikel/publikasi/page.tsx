@@ -1,6 +1,6 @@
 // components/landing-page/publikasi.tsx
 
-import Image from "next/image";
+
 import Container from "@/components/layout/container";
 import ArtikelCard from "@/components/artikel/artikel-card";
 import { publikasiData } from "@/lib/publikasi-data";

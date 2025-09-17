@@ -227,7 +227,7 @@ export default function PerjalananKami() {
   const isTabletOrBelow = width ? width < 1024 : false;
 
   const currentJourney = journeyData[currentIndex];
-  let effectiveLayout = currentJourney.layout;
+  const effectiveLayout = currentJourney.layout;
 
   const getNextLayoutB = () => {
     for (let i = currentIndex + 1; i < journeyData.length; i++) {

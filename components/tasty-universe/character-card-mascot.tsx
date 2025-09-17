@@ -42,8 +42,8 @@ export default function CharacterCardMascot({
 
     const update = () => setImageHolderSrc(computeResponsiveHolder());
     update();
-    window.addEventListener("resize", update, { passive: true } as any);
-    return () => window.removeEventListener("resize", update as any);
+    window.addEventListener("resize", update, { passive: true });
+    return () => window.removeEventListener("resize", update);
   }, [character.imageHolderColor]);
 
   return (

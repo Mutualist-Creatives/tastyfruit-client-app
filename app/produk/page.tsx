@@ -1,4 +1,4 @@
-import Container from "@/components/layout/container";
+
 import { produkData } from "@/lib/produk-data";
 import ProdukSection from "@/components/produk/produk-section";
 

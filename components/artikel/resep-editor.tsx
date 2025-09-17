@@ -10,7 +10,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
   }
 
   // Helper function for button styling
-  const getButtonClass = (name: string, attributes?: {}) => {
+  const getButtonClass = (name: string, attributes?: object) => {
     return editor.isActive(name, attributes)
       ? "bg-blue-500 text-white p-2 rounded"
       : "bg-gray-200 p-2 rounded";

@@ -1,5 +1,12 @@
 // lib/produk-data.ts
 
+export interface FruitType {
+  name: string;
+  slug: string;
+  image: string;
+  description: string;
+}
+
 export interface ProdukData {
   id: number;
   slug: string;
@@ -8,12 +15,7 @@ export interface ProdukData {
   fruit: string;
   characterSlug: string; // Relates to the character's slug
   gesture: string; // To store the chosen mascot gesture path
-  fruitType: {
-    name: string;
-    slug: string;
-    image: string;
-    description: string;
-  }[];
+  fruitType: FruitType[];
   nutrition: {
     energy: string;
     totalFat: string;

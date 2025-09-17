@@ -1,15 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ResepTastyData, InstructionStep } from "@/lib/resep-tasty-data";
+import { ResepTastyData } from "@/lib/resep-tasty-data";
 
 interface ResepDetailProps {
   resep: ResepTastyData;
-  nextResep: ResepTastyData;
 }
 
-export default function ResepDetail({ resep, nextResep }: ResepDetailProps) {
+export default function ResepDetail({ resep }: ResepDetailProps) {
   return (
     <article className="w-full mx-auto">
       {/* ================================================================== */}

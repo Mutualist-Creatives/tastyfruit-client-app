@@ -1,6 +1,6 @@
 // app/artikel/resep-tasty/page.tsx
 
-import Image from "next/image";
+
 import Container from "@/components/layout/container";
 import ArtikelCard from "@/components/artikel/artikel-card";
 import { resepTastyData } from "@/lib/resep-tasty-data";
