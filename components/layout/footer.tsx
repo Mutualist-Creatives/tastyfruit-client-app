@@ -1,80 +1,182 @@
-import Link from "next/link";
+// Tambahkan ini di baris paling atas untuk menjadikan ini Client Component
+"use client";
 
-export default function Footer() {
+import Image from "next/image";
+// Impor hook usePathname dari next/navigation
+import { usePathname } from "next/navigation";
+
+// KOMPONEN 1: Footer untuk Landing Page ("/")
+// Ini adalah kode footer Anda yang sudah ada, dibungkus dalam komponen sendiri.
+function LandingPageFooter() {
   return (
-    <footer className="flex flex-col justify-center items-center w-full bg-white relative overflow-hidden mt-auto">
-      <div className="w-full max-w-full 2xl:max-w-[1440px]">
-        <div className="w-full h-[1em] bg-[#003CE9]"></div>
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-20 py-8 lg:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            {/* Contact Us Section */}
-            <div className="text-[#003CE9] space-y-4">
-              <div className="bg-[#003CE9] inline-block px-4 py-2">
-                <h2 className="text-xl lg:text-5xl font-bricolage-grotesque-condensed font-extrabold text-[#B4FC28]">
-                  CONTACT US!
-                </h2>
-              </div>
+    <>
+      <div className="w-full h-[1em] bg-[#003CE9]"></div>
+      <footer className="relative w-full h-auto overflow-hidden mx-auto max-w-[1440px]">
+        {/* Blue top border */}
 
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold">GRHA DSN</h3>
-                <p className="text-sm lg:text-base leading-relaxed">
-                  Jl. Pulo Ayang Kav. OR 3, Jatinegara, Cakung,
-                  <br />
-                  East Jakarta City, Jakarta 13930
-                </p>
+        {/* Banana Image for Tablet/Desktop */}
+        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 md:top-0">
+          <Image
+            src="/assets/ui/pisang.svg"
+            alt="Pisang"
+            width={800}
+            height={900}
+            className="object-contain w-[17.5rem] md:w-[40rem] translate-x-[12.5em] md:translate-x-[15em] lg:w-[55rem] lg:translate-x-[20em]"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col w-full h-auto mx-auto max-w-full px-4 sm:px-6 lg:px-20 font-nunito py-12">
+          <div className="flex flex-col w-full md:w-[65%] lg:w-[60%] items-center md:items-start">
+            {/* Heading Section */}
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl lg:text-6xl bg-[#003BE2] px-3 sm:px-4 py-2 -mb-2 tracking-wide -rotate-3">
+                INGIN TAHU LEBIH?
+              </div>
+              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl md:text-6xl lg:text-7xl bg-[#B5FE28] px-3 sm:px-4 py-2 tracking-wide md:ml-7">
+                HUBUNGI KAMI
               </div>
             </div>
 
-            {/* Banana with Logo */}
+            {/* Contact Info */}
+            <div className="mt-8 w-full max-w-2xl">
+              <div className="flex flex-col md:flex-row gap-8">
+                {/* Address Section */}
+                <div className="flex flex-col items-center md:items-start flex-1">
+                  <div className="w-full flex justify-center md:justify-start items-center">
+                    <Image
+                      src="/assets/ui/location-blue.svg"
+                      alt="Location"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6"
+                    />
+                    <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-bold ml-2">
+                      GRAHA DSN
+                    </div>
+                  </div>
+                  <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg text-center md:text-left font-normal ml-0 md:ml-8 mt-1">
+                    Jl. Pulo Ayang Kav. OR3 Kawasan Industri Pulogadung Cakung,
+                    Jakarta Timur DKI Jakarta, 13260
+                  </div>
+                </div>
 
-            {/* Social Media Icons */}
-            <div className="flex justify-center lg:justify-end space-x-4">
-              {/* Email Icon */}
-              <Link
-                href="mailto:contact@tastyfruit.com"
-                className="w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-              >
-                <svg
-                  className="w-6 h-6 lg:w-7 lg:h-7 text-[#003CE9]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                </svg>
-              </Link>
+                {/* Vertical Line for Tablet & Desktop */}
+                <div className="hidden md:block w-px rounded-full bg-[#003CE9]/50 mx-4"></div>
+                {/* Horizontal line for mobile */}
+                <hr className="md:hidden w-full my-2 md:my-4 border-[#003CE9]/20" />
 
-              {/* Phone Icon */}
-              <Link
-                href="tel:+6221234567"
-                className="w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-              >
-                <svg
-                  className="w-6 h-6 lg:w-7 lg:h-7 text-[#003CE9]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
-              </Link>
-
-              {/* Instagram Icon */}
-              <Link
-                href="https://instagram.com/tastyfruit"
-                target="_blank"
-                className="w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-              >
-                <svg
-                  className="w-6 h-6 lg:w-7 lg:h-7 text-[#003CE9]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </Link>
+                {/* Contact Section */}
+                <div className="flex flex-col items-center md:items-start flex-1 gap-2">
+                  <div className="flex items-center">
+                    <Image
+                      src="/assets/ui/telephone-blue.svg"
+                      alt="Phone"
+                      width={20}
+                      height={20}
+                      className="w-5 h-5"
+                    />
+                    <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-normal ml-2">
+                      +62 21 1234 5678
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <Image
+                      src="/assets/ui/instagram-blue.svg"
+                      alt="Instagram"
+                      width={20}
+                      height={20}
+                      className="w-5 h-5"
+                    />
+                    <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-normal ml-2">
+                      tastyfruit.id
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <Image
+                      src="/assets/ui/email-blue.svg"
+                      alt="Email"
+                      width={20}
+                      height={20}
+                      className="w-5 h-5"
+                    />
+                    <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-normal ml-2">
+                      halo@tastyfruit.com
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Banana image specifically for mobile view, in normal flow */}
+        <div className="w-full mt-12 md:hidden">
+          <Image
+            src="/assets/ui/pisang.svg"
+            alt="Pisang"
+            width={800}
+            height={900}
+            className="w-full h-auto"
+          />
+        </div>
+      </footer>
+      {/* Blue bottom border */}
+      <div className="w-full h-[2em] bg-[#003CE9]"></div>
+    </>
+  );
+}
+
+// KOMPONEN 2: Footer baru untuk semua halaman selain landing page
+function DefaultFooter() {
+  // Mengambil tahun saat ini secara dinamis
+  const currentYear = new Date().getFullYear();
+
+  const socialIcons = [
+    { src: "/assets/ui/location-white.svg", alt: "Location" },
+    { src: "/assets/ui/telephone-white.svg", alt: "Telephone" },
+    { src: "/assets/ui/email-white.svg", alt: "Email" },
+    { src: "/assets/ui/instagram-white.svg", alt: "Instagram" },
+  ];
+
+  return (
+    <footer className="bg-[#003CE9] w-full mx-auto max-w-full px-4 sm:px-6 lg:px-20">
+      {/* Konten Utama Footer */}
+      <div className="flex flex-col sm:flex-row justify-between items-center w-full mx-auto max-w-full 2xl:max-w-[1440px] px-4 sm:px-6 lg:px-20 py-4 gap-4">
+        {/* Kiri: Copyright */}
+        <p className="font-nunito text-white text-sm text-center sm:text-left">
+          &copy; {currentYear} Tasty Fruit. All Rights Reserved.
+        </p>
+
+        {/* Kanan: Ikon Sosial Media */}
+        <div className="flex items-center gap-4">
+          {socialIcons.map((icon) => (
+            <a href="#" key={icon.alt} aria-label={icon.alt}>
+              <Image
+                src={icon.src}
+                alt={icon.alt}
+                width={24}
+                height={24}
+                className="w-5 h-5"
+              />
+            </a>
+          ))}
         </div>
       </div>
     </footer>
   );
+}
+
+// KOMPONEN UTAMA: Penyeleksi Footer
+// Komponen ini yang akan di-export dan digunakan di layout Anda.
+export default function Footer() {
+  const pathname = usePathname();
+
+  // Jika pathname adalah landing page ('/'), tampilkan footer besar.
+  // Jika tidak, tampilkan footer default yang simpel.
+  if (pathname === "/") {
+    return <LandingPageFooter />;
+  }
+
+  return <DefaultFooter />;
 }

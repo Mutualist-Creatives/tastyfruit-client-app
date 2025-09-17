@@ -45,21 +45,20 @@ export default function MedsosTastyFruit() {
   }, [emblaApi]);
 
   return (
-    <section className="w-full h-auto bg-linear-to-t from-[#B4FC28] to-transparent mt-20 py-10">
-      <div className="w-full h-auto">
+    <section className="w-full h-auto bg-linear-to-t from-[#B4FC28] to-transparent mt-20 py-10 -mb-12">
+      <div className="w-full h-auto mx-auto">
         <div className="w-full h-auto flex justify-center items-center px-4">
           <Image
             src="/assets/landing-page/medsos-tasty-fruit/medsos-tasty-fruit-title.svg"
             alt="Media Sosial Tasty Fruit"
-            width={400}
-            height={150}
-            className="h-auto w-[80%] max-w-md sm:max-w-lg md:max-w-lg lg:max-w-2xl"
-            priority
+            width={450}
+            height={250}
+            className="object-contain w-full md:w-[80%] lg:w-[70%]"
           />
         </div>
 
         <div className="w-full bg-[#003CE2]">
-          <div className="w-full mx-auto mt-8 relative">
+          <div className="w-full mx-auto mt-8 relative  max-w-[1440px]">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex -ml-2 sm:-ml-4">
                 {carouselImages.map((img, index) => (

@@ -12,6 +12,7 @@ type CtaButtonProps = {
   // --- Add new props for padding ---
   py?: string; // Vertical padding
   px?: string; // Horizontal padding
+  arrowBoxSize?: string; // New prop for arrow size
 } & (
   | (React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: never })
   | (React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string })
@@ -26,6 +27,7 @@ export const CtaButton = ({
   // --- Destructure new props with default values ---
   py = "1", // Default vertical padding (py-2)
   px = "2", // Default horizontal padding (px-3)
+  arrowBoxSize = "5", // Default arrow box size (w-5 h-5)
   ...props
 }: CtaButtonProps) => {
   // Define the base styles that apply to all variants
@@ -52,6 +54,9 @@ export const CtaButton = ({
       ? "/assets/ui/arrow-right-blue.svg" // Blue arrow for green button
       : "/assets/ui/arrow-right-green.svg"; // Green arrow for blue button (matches original)
 
+  // --- Generate arrow box size styles dynamically ---
+  const arrowBoxStyles = `w-${arrowBoxSize} h-${arrowBoxSize} lg:w-6 lg:h-6 xl:w-7 xl:h-7`;
+
   // Combined className
   const combinedClassName = clsx(
     baseStyles,
@@ -63,7 +68,9 @@ export const CtaButton = ({
 
   // Arrow component to reuse
   const Arrow = () => (
-    <div className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 transition-transform group-hover:translate-x-1">
+    <div
+      className={`${arrowBoxStyles} transition-transform group-hover:translate-x-1`}
+    >
       <Image
         src={arrowSrc}
         alt="Arrow Right"

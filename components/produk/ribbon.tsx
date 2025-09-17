@@ -38,7 +38,7 @@ const Ribbon: React.FC<RibbonProps> = ({ fruitName }) => {
         alt="Heart decoration"
         width={120}
         height={120}
-        className="h-auto w-42 lg:w-54 xl:w-84 ml-[5em] lg:ml-[6.75em] xl:ml-[9.25em] md:-mb-1.5 md:-mt-1.75 lg:-mb-2 lg:-mt-2.5 xl:-mb-2.75 xl:-mt-3.5"
+        className="h-auto w-42 lg:w-54 xl:w-84 ml-[5em] lg:ml-[6.75em] xl:ml-[9.25em] -mb-1.5 -mt-1.75 lg:-mb-2 lg:-mt-2.5 xl:-mb-2.75 xl:-mt-3.5"
       />
       {/* 3. Div pita bawah dengan hex code langsung */}
       <div

@@ -1,9 +1,13 @@
+// lib/produk-data.ts
+
 export interface ProdukData {
   id: number;
   slug: string;
   description: string;
   layoutType: "layout-a" | "layout-b";
   fruit: string;
+  characterSlug: string; // Relates to the character's slug
+  gesture: string; // To store the chosen mascot gesture path
   fruitType: {
     name: string;
     slug: string;
@@ -33,6 +37,8 @@ export const produkData: ProdukData[] = [
       "Pisang Tasty Fruit® memiliki rasa yang <b>manis</b>, dan <b>kesegaran yang terjamin</b>. Kenali jenis-jenis pisang kami dan pilih yang terbaik untukmu!",
     layoutType: "layout-a",
     fruit: "Pisang",
+    characterSlug: "mr-tasty",
+    gesture: "/assets/mascots/pisang/pisang-gesture-01.png",
     fruitType: [
       {
         name: "Tasty Fruit Volcana",
@@ -91,6 +97,8 @@ export const produkData: ProdukData[] = [
       "<b>Manis lembut atau manis renyah?</b> <br><br>Tasty Fruit® memiliki dua melon yang istimewa dengan sensasi berbeda. Yuk, cari tahu dan pilih melon Tasty Fruit® yang sesuai dengan seleramu!",
     layoutType: "layout-b",
     fruit: "Melon",
+    characterSlug: "oishi-maru",
+    gesture: "/assets/mascots/melon/melon-gesture-03.png",
     fruitType: [
       {
         name: "Aurora Melon",
@@ -125,9 +133,11 @@ export const produkData: ProdukData[] = [
     id: 3,
     slug: "alpukat",
     description:
-      "Alpukat Hass Tasty Fruit® memiliki <b>tekstur lembut</b> dan <b>rasa gurih</b> yang segar. Cari tahu dan rasakan  alpukat haas yang tak tertandingi!.",
+      "Alpukat Hass Tasty Fruit® memiliki <b>tekstur lembut</b> dan <b>rasa gurih</b> yang segar. Cari tahu dan rasakan  alpukat haas yang tak tertandingi!.",
     layoutType: "layout-a",
     fruit: "Alpukat",
+    characterSlug: "nami",
+    gesture: "/assets/mascots/alpukat/alpukat-gesture-03.png",
     fruitType: [
       {
         name: "Hass Avocado",

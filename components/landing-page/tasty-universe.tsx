@@ -4,6 +4,8 @@ import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import { useState, useEffect } from "react";
 
+import StarDecorations from "@/components/ui/star-decorations";
+
 export default function TastyUniverse() {
   const [stripeColumns, setStripeColumns] = useState(Array.from({ length: 9 }));
 
@@ -32,10 +34,12 @@ export default function TastyUniverse() {
 
   return (
     <section className="w-full relative overflow-hidden">
+      <StarDecorations count={10} seed={2025} randomRotate={true} />
+
       {/* Top blue stripe */}
       <div className="absolute top-0 w-full h-7 md:h-13 bg-[#003BE2] z-10"></div>
 
-      <div className="w-full h-full md:h-[50em] py-20 md:py-0 block md:flex items-center">
+      <div className="w-full h-full md:h-[50em] py-20 md:py-0 block md:flex items-center mx-auto max-w-[1440px]">
         {/* Left content section */}
         <div className="w-full h-auto md:h-auto md:w-[50%] lg:w-[40%]">
           <div className="flex flex-col justify-center gap-6 w-full px-4 sm:px-6 lg:px-20 font-nunito pb-10 md:pb-0">
@@ -113,34 +117,6 @@ export default function TastyUniverse() {
               height={400}
               className="object-contain w-[60vw] h-[60vw] md:w-[50vw] md:h-[50vw] lg:w-[50vw] lg:h-[50vw] xl:w-[40em] xl:h-[40em] drop-shadow-xl"
               priority
-            />
-          </div>
-          {/* Decorative Stars */}
-          <div className="absolute top-[20%] left-[25%] z-10">
-            <Image
-              src="/assets/decorations/star.svg"
-              alt="Star"
-              width={24}
-              height={24}
-              className="w-6 h-6"
-            />
-          </div>
-          <div className="absolute bottom-[30%] right-[25%] z-10">
-            <Image
-              src="/assets/decorations/star.svg"
-              alt="Star"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-          </div>
-          <div className="absolute top-[60%] left-[5%] z-10">
-            <Image
-              src="/assets/decorations/star.svg"
-              alt="Star"
-              width={16}
-              height={16}
-              className="w-4 h-4"
             />
           </div>
         </div>

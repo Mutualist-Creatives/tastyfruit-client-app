@@ -2,9 +2,16 @@ import Container from "@/components/layout/container";
 import { produkData } from "@/lib/produk-data";
 import ProdukSection from "@/components/produk/produk-section";
 
+import StarDecorations from "@/components/ui/star-decorations";
+
 export default function Produk() {
   return (
-    <div className="w-full">
+    <div className="relative w-full">
+      <StarDecorations count={1} seed={9190} randomRotate={true} />
+      <StarDecorations count={2} seed={2022} randomRotate={true} />
+      <StarDecorations count={3} seed={3247012} randomRotate={true} />
+      <StarDecorations count={2} seed={625267} randomRotate={true} />
+
       {/* JUDUL INI HANYA MUNCUL DI MOBILE */}
       <div className="px-4 pt-12 md:hidden">
         <div className="flex justify-start md:justify-center">

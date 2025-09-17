@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function HubungiTasty() {
   return (
     <>
-      <section className="relative w-full h-auto overflow-hidden">
+      <section className="relative w-full h-screen overflow-hidden">
         {/* Banana Image for Tablet/Desktop */}
         {/* ADJUSTED: Now explicitly hidden on mobile */}
         <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 md:top-0">
@@ -36,7 +36,7 @@ export default function HubungiTasty() {
                 <div className="flex flex-col items-center md:items-start flex-1">
                   <div className="w-full flex justify-center md:justify-start items-center">
                     <Image
-                      src="/assets/ui/location.svg"
+                      src="/assets/ui/location-blue.svg"
                       alt="Location"
                       width={24}
                       height={24}
@@ -62,7 +62,7 @@ export default function HubungiTasty() {
                 <div className="flex flex-col items-center md:items-start flex-1 gap-2">
                   <div className="flex items-center">
                     <Image
-                      src="/assets/ui/telephone.svg"
+                      src="/assets/ui/telephone-blue.svg"
                       alt="Phone"
                       width={20}
                       height={20}
@@ -74,7 +74,7 @@ export default function HubungiTasty() {
                   </div>
                   <div className="flex items-center">
                     <Image
-                      src="/assets/ui/instagram.svg"
+                      src="/assets/ui/instagram-blue.svg"
                       alt="Instagram"
                       width={20}
                       height={20}
@@ -86,7 +86,7 @@ export default function HubungiTasty() {
                   </div>
                   <div className="flex items-center">
                     <Image
-                      src="/assets/ui/mail.svg"
+                      src="/assets/ui/email-blue.svg"
                       alt="Email"
                       width={20}
                       height={20}
@@ -116,7 +116,7 @@ export default function HubungiTasty() {
         {/* NEW: Banana image specifically for mobile view, in normal flow */}
         <div className="w-full mt-12 md:hidden">
           <Image
-            src="/assets/ui/pisang.svg"
+            src="/assets/ui/pisang-blue.svg"
             alt="Pisang"
             width={800}
             height={900}

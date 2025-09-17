@@ -97,7 +97,7 @@ export default function WhatToCook() {
                 sekarang juga!
               </p>
             </div>
-            <CtaButton href="/resep" color="blue" fontSize="text-3xl">
+            <CtaButton href="/artikel" color="blue" fontSize="text-3xl">
               LANJUT BERKREASI
             </CtaButton>
             <Image

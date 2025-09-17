@@ -16,11 +16,11 @@ export default function LandingPage() {
         <HeroSection />
         <KomitmenTasty />
       </Container>
+      <TastyUniverse />
       <FullContainer>
-        <TastyUniverse />
         <WhatToCook />
-        <MedsosTastyFruit />
       </FullContainer>
+      <MedsosTastyFruit />
     </>
   );
 }

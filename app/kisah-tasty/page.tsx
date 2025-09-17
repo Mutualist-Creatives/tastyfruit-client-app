@@ -2,13 +2,13 @@ import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import Container from "@/components/layout/container";
 
-export default function KomitmenTasty() {
+export default function KisahTasty() {
   return (
     <Container>
-      <section className="w-full flex items-center overflow-hidden">
+      <section className="w-full items-start flex overflow-hidden">
         <div className="mx-auto w-full h-full">
           {/* Container with responsive layout - Added min height and padding bottom */}
-          <div className="relative flex flex-col lg:flex-row-reverse lg:gap-10 items-start min-h-[800px] lg:min-h-[625px] pb-8 lg:pb-0">
+          <div className="relative min-h-screen flex flex-col lg:flex-row-reverse lg:gap-10 items-start pb-8 lg:pb-0">
             {/* Content Section */}
             <div className="w-full flex flex-col justify-start relative z-10">
               <div className="flex flex-col items-start gap-2 w-full">

@@ -59,9 +59,9 @@ export default function Header() {
 
   return (
     <div className="flex justify-center w-full h-auto sticky top-0 z-50">
-      <div className="w-full max-w-full 2xl:max-w-[1440px] bg-[#003BE2] font-nunito text-white">
+      <div className="w-full max-w-full bg-[#003BE2] font-nunito text-white">
         {/* Main Header Container */}
-        <div className="mx-auto px-4 sm:px-6 lg:px-20 ">
+        <div className="mx-auto px-4 sm:px-6 lg:px-20 2xl:max-w-[1440px]">
           <div className="flex justify-between items-center h-auto py-2">
             {/* Logo */}
             <div className="flex-shrink-0">

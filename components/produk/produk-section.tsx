@@ -178,7 +178,7 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
   // Render utama komponen
   return (
     <section
-      className="w-full h-auto 2xl:max-w-[1440px] md:h-[46em] lg:h-[50em] overflow-hidden  mx-auto"
+      className="w-full h-auto max-w-full md:h-[46em] lg:h-[50em] overflow-hidden  mx-auto"
       style={
         item.bgGradient
           ? {
