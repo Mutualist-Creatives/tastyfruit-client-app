@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 
-// --- Data for the carousel slides ---
+// --- Data untuk carousel slides ---
 const carouselImages = [
   {
     src: "/assets/landing-page/medsos-tasty-fruit/png/post-1.png",
@@ -34,6 +34,9 @@ const carouselImages = [
 ];
 
 export default function MedsosTastyFruit() {
+  // [PERBAIKAN 1] Duplikasi array untuk memastikan slide cukup untuk looping
+  const allCarouselImages = [...carouselImages, ...carouselImages];
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
 
   const scrollPrev = useCallback(() => {
@@ -58,10 +61,11 @@ export default function MedsosTastyFruit() {
         </div>
 
         <div className="w-full bg-[#003CE2]">
-          <div className="w-full mx-auto mt-8 relative  max-w-[1440px]">
+          <div className="w-full mx-auto mt-8 relative max-w-[1440px]">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex -ml-2 sm:-ml-4">
-                {carouselImages.map((img, index) => (
+                {/* [PERBAIKAN 2] Gunakan array yang sudah diduplikasi */}
+                {allCarouselImages.map((img, index) => (
                   <div
                     key={index}
                     className="flex-grow-0 flex-shrink-0 w-[75%] sm:w-1/2 md:w-1/3 lg:w-1/5 pl-4 sm:pl-6 py-6"

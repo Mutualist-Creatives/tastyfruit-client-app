@@ -135,7 +135,7 @@ export const produkData: ProdukData[] = [
     id: 3,
     slug: "alpukat",
     description:
-      "Alpukat Hass Tasty Fruit® memiliki <b>tekstur lembut</b> dan <b>rasa gurih</b> yang segar. Cari tahu dan rasakan  alpukat haas yang tak tertandingi!.",
+      "Alpukat Hass Tasty Fruit® memiliki <b>tekstur lembut</b> dan <b>rasa gurih</b> yang segar. Cari tahu dan rasakan alpukat haas yang tak tertandingi!",
     layoutType: "layout-a",
     fruit: "Alpukat",
     characterSlug: "nami",

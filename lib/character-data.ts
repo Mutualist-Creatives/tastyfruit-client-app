@@ -42,6 +42,7 @@ export type Character = {
   pictureBgColor: string;
   imageHolderColor: string;
   image: string;
+  mascotCardImage: string;
   gestures: string[]; // Added gestures property
   flipCard: FlipCardEntry[];
   funFact: funFactEntry[];
@@ -67,6 +68,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#FF00B7",
     imageHolderColor: "green",
     image: "/assets/tasty-universe/mascots/png/mr-tasty.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/mr-tasty.png",
     gestures: [
       "/assets/mascots/pisang/pisang-gesture-01.png",
       "/assets/mascots/pisang/pisang-gesture-02.png",
@@ -119,6 +122,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#003CE9",
     imageHolderColor: "pink",
     image: "/assets/tasty-universe/mascots/png/endes.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/endes.png",
     gestures: [
       "/assets/mascots/jambu_biji/jambu_biji-gesture-01.png",
       "/assets/mascots/jambu_biji/jambu_biji-gesture-02.png",
@@ -167,6 +172,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#9CFF00",
     imageHolderColor: "blue",
     image: "/assets/tasty-universe/mascots/png/lizzie.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/lizzie.png",
     gestures: [
       "/assets/mascots/anggur/anggur-gesture-01.png",
       "/assets/mascots/anggur/anggur-gesture-02.png",
@@ -215,6 +222,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#003CE9",
     imageHolderColor: "pink",
     image: "/assets/tasty-universe/mascots/png/oishi-maru.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/oishi-maru.png",
     gestures: [
       "/assets/mascots/melon/melon-gesture-01.png",
       "/assets/mascots/melon/melon-gesture-02.png",
@@ -263,6 +272,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#9CFF00",
     imageHolderColor: "blue",
     image: "/assets/tasty-universe/mascots/png/matt.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/matt.png",
     gestures: [
       "/assets/mascots/stroberi/stroberi-gesture-01.png",
       "/assets/mascots/stroberi/stroberi-gesture-02.png",
@@ -311,6 +322,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#FF00B7",
     imageHolderColor: "green",
     image: "/assets/tasty-universe/mascots/png/nami.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/nami.png",
     gestures: [
       "/assets/mascots/alpukat/alpukat-gesture-01.png",
       "/assets/mascots/alpukat/alpukat-gesture-02.png",
@@ -359,6 +372,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#FF00B7",
     imageHolderColor: "green",
     image: "/assets/tasty-universe/mascots/png/mishku.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/mishku.png",
     gestures: [
       "/assets/mascots/buah_naga/buah_naga-gesture-01.png",
       "/assets/mascots/buah_naga/buah_naga-gesture-02.png",
@@ -407,6 +422,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#003CE9",
     imageHolderColor: "pink",
     image: "/assets/tasty-universe/mascots/png/keko.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/keko.png",
     gestures: [
       "/assets/mascots/jeruk/jeruk-gesture-01.png",
       "/assets/mascots/jeruk/jeruk-gesture-02.png",
@@ -455,6 +472,8 @@ export const characterData: Character[] = [
     pictureBgColor: "#9CFF00",
     imageHolderColor: "blue",
     image: "/assets/tasty-universe/mascots/png/aroi.png",
+    mascotCardImage:
+      "/assets/landing-page/tasty-universe/mascots-card/aroi.png",
     gestures: [
       "/assets/mascots/pepaya/pepaya-gesture-01.png",
       "/assets/mascots/pepaya/pepaya-gesture-02.png",

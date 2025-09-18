@@ -83,7 +83,7 @@ export default function WhatToCook() {
               alt="Masak Apa Hari Ini? Title"
               width={400}
               height={150}
-              className="h-auto mx-auto lg:mx-0 w-[70%] max-w-xs sm:max-w-sm md:max-w-md"
+              className="h-auto mx-auto lg:mx-0 w-full max-w-xs sm:max-w-sm md:max-w-md"
             />
             <div className="space-y-4 text-blue-600 font-nunito gap-2 text-center lg:text-left">
               <p className="text-lg leading-6">Pusing? Males ribet? Tenang!</p>

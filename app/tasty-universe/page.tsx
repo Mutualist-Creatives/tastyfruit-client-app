@@ -4,7 +4,6 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import CharacterCardMascot from "@/components/tasty-universe/character-card-mascot";
 import { characterData } from "@/lib/character-data";
 import { CtaButton } from "@/components/ui/cta-button";
 import Container from "@/components/layout/container";
@@ -104,14 +103,21 @@ export default function TastyUniverse() {
 
           {/* Right Section - Character Grid using your actual components */}
           <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-5 lg:gap-4 xl:gap-5">
+            <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-5 lg:gap-4 xl:gap-4">
               {characterData.map((character) => (
                 <div
                   key={character.name}
-                  className="w-full aspect-[3/4] cursor-pointer"
+                  className="w-full cursor-pointer"
                   onClick={() => handleMascotClick(character.slug)}
                 >
-                  <CharacterCardMascot character={character} />
+                  <Image
+                    src={character.mascotCardImage}
+                    alt={character.name}
+                    width={200}
+                    height={266}
+                    className="w-full h-full object-contain rounded-lg transform-gpu hover:scale-[1.03] transition-transform duration-200"
+                    priority={character.slug === "mr-tasty"} // Example priority
+                  />
                 </div>
               ))}
             </div>
