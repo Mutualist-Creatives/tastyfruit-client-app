@@ -61,7 +61,7 @@ export default function Header() {
     <div className="flex justify-center w-full h-auto sticky top-0 z-50">
       <div className="w-full max-w-full bg-[#003BE2] font-nunito text-white">
         {/* Main Header Container */}
-        <div className="mx-auto px-4 sm:px-6 lg:px-20 2xl:max-w-[1440px]">
+        <div className="mx-auto px-6 lg:px-20 2xl:max-w-[1440px]">
           <div className="flex justify-between items-center h-auto py-2">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -97,7 +97,7 @@ export default function Header() {
             <div className="lg:hidden">
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 rounded-md text-white hover:bg-white/10 transition-colors"
+                className="py-2 rounded-md text-white hover:bg-white/10 transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg
@@ -135,14 +135,14 @@ export default function Header() {
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
-          <div className="px-4 py-4 bg-[#003BE2] border-t border-white/10">
+          <div className="px-6 py-4 bg-[#003BE2] border-t border-white/10">
             <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${
+                  className={`px-6 py-3 rounded-lg text-sm font-semibold transition-colors ${
                     isActiveLink(item.href)
                       ? "bg-white/10 text-[#B5FE28]" // Active link color
                       : "text-white hover:bg-white/10"

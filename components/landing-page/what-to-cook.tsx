@@ -37,7 +37,7 @@ export default function WhatToCook() {
 
   return (
     <section className="w-full h-auto overflow-hidden">
-      <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-start gap-10 py-12 pl-0 2xl:pl-20">
+      <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-start gap-10 py-0 lg:py-12 pl-0 2xl:pl-20">
         {/* Left Side: Infinite Image Sliders */}
         <div className="w-full lg:w-[60%] flex flex-col gap-4">
           <Marquee speed={marqueeSpeed} direction="left">
@@ -76,39 +76,53 @@ export default function WhatToCook() {
         </div>
 
         {/* Right Side: Text Content */}
-        <div className="w-full lg:w-[40%] px-4 sm:px-6 lg:px-20 font-nunito relative">
+        <div className="w-[80%] lg:w-[40%] px-6 lg:px-20 font-nunito relative space-y-6 lg:space-y-2">
           <div className="flex flex-col items-center lg:items-start gap-6">
             <Image
               src="/assets/landing-page/what-to-cook/masak-apa-hari-ini.svg"
               alt="Masak Apa Hari Ini? Title"
               width={400}
               height={150}
-              className="h-auto mx-auto lg:mx-0 w-full max-w-xs sm:max-w-sm md:max-w-md"
-            />
-            <div className="space-y-4 text-blue-600 font-nunito gap-2 text-center lg:text-left">
-              <p className="text-lg leading-6">Pusing? Males ribet? Tenang!</p>
-              <p className="text-lg leading-6">
-                Tasty Fruit® punya jawabannya. Di rubrik ini, ada banyak
-                resep-resep yang gak cuma bikin dapurmu rame, tapi juga lidahmu
-                bergoyang gembira.
-              </p>
-              <p className="text-lg leading-6">
-                Yuk, coba kreasi buah-buahan yang unik dari Tasty Fruit®
-                sekarang juga!
-              </p>
-            </div>
-            <CtaButton href="/artikel" color="blue" fontSize="text-3xl">
-              LANJUT BERKREASI
-            </CtaButton>
-            <Image
-              src="/assets/decorations/heart.svg"
-              alt="Heart"
-              width={60}
-              height={60}
-              className="hidden lg:block mt-5 w-20 h-20"
+              className="hidden md:block h-auto mx-auto lg:mx-0 w-full max-w-xs sm:max-w-sm md:max-w-md"
             />
           </div>
-          {/* <Image
+          <div className="flex flex-col items-center lg:items-start gap-6">
+            <Image
+              src="/assets/landing-page/what-to-cook/masak-apa-hari-ini-mobile.svg"
+              alt="Masak Apa Hari Ini? Title"
+              width={400}
+              height={150}
+              className="block md:hidden h-auto mx-auto lg:mx-0 w-full max-w-xs sm:max-w-sm md:max-w-md"
+            />
+          </div>
+          <div className="text-xs md:text-lg space-y-4 text-blue-600 font-nunito gap-2 text-left">
+            <p>Pusing? Males ribet? Tenang!</p>
+            <p>
+              Tasty Fruit® punya jawabannya. Di rubrik ini, ada banyak
+              resep-resep yang gak cuma bikin dapurmu rame, tapi juga lidahmu
+              bergoyang gembira.
+            </p>
+            <p>
+              Yuk, coba kreasi buah-buahan yang unik dari Tasty Fruit® sekarang
+              juga!
+            </p>
+          </div>
+          {/* CTA But
+            ton */}
+          <div className="flex justify-start pt-2">
+            <CtaButton href="/kisah-tasty" color="blue" py="0">
+              LANJUT BERKREASI
+            </CtaButton>
+          </div>
+          <Image
+            src="/assets/decorations/heart.svg"
+            alt="Heart"
+            width={60}
+            height={60}
+            className="hidden lg:block mt-5 w-20 h-20 "
+          />
+        </div>
+        {/* <Image
             src="/assets/decorations/star.svg"
             alt="Star"
             width={40}
@@ -129,7 +143,6 @@ export default function WhatToCook() {
             height={40}
             className="absolute top-1/6 left-1/6 w-12 h-12 rotate-48"
           /> */}
-        </div>
       </div>
     </section>
   );

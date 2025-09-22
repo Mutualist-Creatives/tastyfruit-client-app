@@ -56,7 +56,7 @@ export default function MedsosTastyFruit() {
             alt="Media Sosial Tasty Fruit"
             width={450}
             height={250}
-            className="object-contain w-full md:w-[80em] lg:w-[70em]"
+            className="object-contain w-full md:w-[80em] xl:w-[960px]"
           />
         </div>
 

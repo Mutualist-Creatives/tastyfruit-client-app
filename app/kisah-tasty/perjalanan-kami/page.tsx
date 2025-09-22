@@ -240,25 +240,35 @@ export default function PerjalananKami() {
     return null;
   };
 
-  const nextLayoutBJourney =
+  const getPrevLayoutB = () => {
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      if (journeyData[i].layout === "layout-b") {
+        return journeyData[i];
+      }
+    }
+    return null;
+  };
+
+  // For layout-b, show the paired item (either next or previous layout-b)
+  const pairedLayoutBJourney =
     !isTabletOrBelow && currentJourney.layout === "layout-b"
-      ? getNextLayoutB()
+      ? getNextLayoutB() || getPrevLayoutB()
       : null;
 
   const handleNext = () => {
-    // Jika ini adalah item terakhir, arahkan ke halaman baru.
+    // If this is the last item, navigate to a new page.
     if (currentIndex === journeyData.length - 1) {
       router.push("/kisah-tasty/inovasi-dalam-budidaya");
       return;
     }
 
-    // Jika ini klik pertama di mobile, cukup mulai perjalanannya.
+    // If this is the first click on mobile, just start the journey.
     if (isTabletOrBelow && !isJourneyStarted) {
       setIsJourneyStarted(true);
       return;
     }
 
-    // Logika navigasi slide (dengan modulo untuk mencegah error).
+    // Slide navigation logic (with modulo to prevent errors).
     if (
       !isTabletOrBelow &&
       currentJourney.layout === "layout-b" &&
@@ -270,11 +280,45 @@ export default function PerjalananKami() {
     }
   };
 
+  const handlePrev = () => {
+    // On mobile, if at the first journey item, go back to the intro.
+    if (isTabletOrBelow && isJourneyStarted && currentIndex === 0) {
+      setIsJourneyStarted(false);
+      return;
+    }
+
+    // Don't go back if it's the first item.
+    if (currentIndex === 0) {
+      return;
+    }
+
+    // Special logic for desktop layout-b: jump back by 2 if applicable.
+    // This checks if the current item is layout-b and the previous item is also layout-b,
+    // which means we should jump back by 2 to maintain the pairing logic.
+    const currentJourney = journeyData[currentIndex];
+    const prevJourney = journeyData[currentIndex - 1];
+
+    if (
+      !isTabletOrBelow &&
+      currentJourney.layout === "layout-b" &&
+      prevJourney &&
+      prevJourney.layout === "layout-b"
+    ) {
+      setCurrentIndex((prevIndex) => prevIndex - 2);
+    } else {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  const showBackButton =
+    (isTabletOrBelow && isJourneyStarted) ||
+    (!isTabletOrBelow && currentIndex > 0);
+
   return (
     <Container>
       <div className="relative w-full h-auto">
-        <StarDecorations count={2} seed={5} randomRotate={true} />
-        <StarDecorations count={1} seed={20} randomRotate={true} />
+        {/* <StarDecorations count={2} seed={5} randomRotate={true} />
+        <StarDecorations count={1} seed={20} randomRotate={true} /> */}
 
         {/* Header Section */}
         <div className="w-full lg:w-1/2 mb-6">
@@ -289,7 +333,7 @@ export default function PerjalananKami() {
         </div>
 
         {/* Content Section */}
-        <div className="relative w-full min-h-[300px] pt-[25px]">
+        <div className="relative w-full min-h-[300px]">
           {isTabletOrBelow && !isJourneyStarted ? (
             <motion.div key="intro" {...revealAnimation}>
               <StaticParagraphContent />
@@ -298,7 +342,7 @@ export default function PerjalananKami() {
             <>
               {effectiveLayout === "layout-a" && (
                 <div className="relative w-full">
-                  <div className="w-full flex flex-col lg:flex-row lg:gap-16 items-start relative z-10">
+                  <div className="w-full flex flex-col lg:flex-row items-start relative z-10">
                     <div className="w-full lg:w-1/2 flex flex-col justify-start items-center lg:items-start">
                       <div className="hidden lg:block">
                         <StaticParagraphContent />
@@ -346,7 +390,7 @@ export default function PerjalananKami() {
                   <svg
                     width="120%"
                     height="50"
-                    className="absolute top-0 left-[-10%] w-[120%] z-0"
+                    className="absolute top-0 left-[-50%] w-[300%] z-0"
                   >
                     <motion.line
                       x1="0"
@@ -358,7 +402,7 @@ export default function PerjalananKami() {
                       key={currentIndex}
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
-                      transition={{ duration: 1.5, ease: "easeInOut" }}
+                      transition={{ duration: 2, ease: "easeInOut" }}
                     />
                   </svg>
                   <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-4 items-start relative z-10">
@@ -374,13 +418,13 @@ export default function PerjalananKami() {
                     </div>
                     <div className="w-full lg:w-1/2 flex flex-col justify-start">
                       <AnimatePresence mode="wait">
-                        {nextLayoutBJourney && (
+                        {pairedLayoutBJourney && (
                           <motion.div
-                            key={`${currentIndex}-next`}
+                            key={`${currentIndex}-paired`}
                             {...revealAnimation}
                           >
                             <JourneyContent
-                              journey={nextLayoutBJourney}
+                              journey={pairedLayoutBJourney}
                               isMobile={isTabletOrBelow}
                             />
                           </motion.div>
@@ -396,7 +440,7 @@ export default function PerjalananKami() {
                   <svg
                     width="120%"
                     height="50"
-                    className="absolute top-0 left-[-10%] w-[120%] z-0"
+                    className="absolute top-0 left-[-50%] w-[300%] z-0"
                   >
                     {currentIndex === journeyData.length - 1 ? (
                       <motion.line
@@ -409,7 +453,7 @@ export default function PerjalananKami() {
                         key={currentIndex}
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
                       />
                     ) : (
                       <motion.line
@@ -422,7 +466,7 @@ export default function PerjalananKami() {
                         key={currentIndex}
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
                       />
                     )}
                   </svg>
@@ -452,19 +496,43 @@ export default function PerjalananKami() {
           )}
         </div>
 
-        {/* Navigation Button */}
-        <div className="flex justify-end pt-12 w-full">
-          <div
-            className="block hover:scale-110 transition-transform duration-300 cursor-pointer"
-            onClick={handleNext}
-          >
-            <div className="bg-[#B5FE28] rounded-full w-16 h-16 flex items-center justify-center">
-              <Image
-                src="/assets/ui/arrow-right-blue.svg"
-                alt="Langkah Berikutnya"
-                width={28}
-                height={28}
-              />
+        {/* Navigation Buttons */}
+        <div className="flex justify-between items-center gap-4ll">
+          {/* Back Button - Conditionally Rendered */}
+          <div className="flex justify-start">
+            {showBackButton && (
+              <div
+                className="block hover:scale-110 transition-transform duration-300 cursor-pointer"
+                onClick={handlePrev}
+              >
+                <div className="bg-[#B5FE28] rounded-full w-16 h-16 flex items-center justify-center">
+                  {/* Rotated the existing arrow icon */}
+                  <Image
+                    src="/assets/ui/arrow-right-blue.svg"
+                    alt="Langkah Sebelumnya"
+                    width={28}
+                    height={28}
+                    className="transform rotate-180"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Next Button - Always on the right */}
+          <div className="flex justify-end">
+            <div
+              className="block hover:scale-110 transition-transform duration-300 cursor-pointer"
+              onClick={handleNext}
+            >
+              <div className="bg-[#B5FE28] rounded-full w-16 h-16 flex items-center justify-center">
+                <Image
+                  src="/assets/ui/arrow-right-blue.svg"
+                  alt="Langkah Berikutnya"
+                  width={28}
+                  height={28}
+                />
+              </div>
             </div>
           </div>
         </div>

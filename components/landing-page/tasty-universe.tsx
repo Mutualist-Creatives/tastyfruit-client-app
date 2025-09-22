@@ -34,12 +34,12 @@ export default function TastyUniverse() {
 
   return (
     <section className="w-full relative overflow-hidden">
-      <StarDecorations count={10} seed={2025} randomRotate={true} />
+      {/* <StarDecorations count={10} seed={2025} randomRotate={true} /> */}
 
       {/* Top blue stripe */}
-      <div className="absolute top-0 w-full h-7 md:h-13 bg-[#003BE2] z-10"></div>
+      <div className="hidden md:block absolute top-0 w-full h-7 md:h-13 bg-[#003BE2] z-10"></div>
 
-      <div className="w-full h-full md:h-[50em] py-20 md:py-0 block md:flex items-center mx-auto max-w-[1440px]">
+      <div className="w-full h-full md:h-[50em] pb-20 md:pb-0 flex flex-col-reverse md:flex-row items-center mx-auto max-w-[1440px] gap-8 lg:gap-0">
         {/* Left content section */}
         <div className="w-full h-auto md:h-auto md:w-[50%] lg:w-[40%]">
           <div className="flex flex-col justify-center gap-6 w-full px-4 sm:px-6 lg:px-20 font-nunito pb-10 md:pb-0">
@@ -53,11 +53,11 @@ export default function TastyUniverse() {
             />
 
             {/* Description text */}
-            <div className="space-y-4 text-blue-600">
-              <p className="text-base sm:text-lg leading-relaxed">
+            <div className="text-center md:text-start px-9 md:px-0 space-y-4 text-blue-600">
+              <p className="text-xs leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
                 Kenalan yuk sama maskot Tasty Fruit®!
               </p>
-              <p className="text-base sm:text-lg leading-relaxed">
+              <p className="text-xs leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
                 Dengan kepribadian mereka yang unik dan super{" "}
                 <span className="italic">fun</span>, mereka siap bikin harimu
                 jadi lebih segar dan penuh dengan tawa.
@@ -65,9 +65,18 @@ export default function TastyUniverse() {
             </div>
 
             {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start">
-              <CtaButton href="/kisah-tasty" color="green" fontSize="text-3xl">
+            <div className="hidden lg:flex justify-center lg:justify-start">
+              <CtaButton
+                href="/tasty-universe"
+                color="green"
+                fontSize="text-3xl"
+              >
                 SELANJUTNYA!
+              </CtaButton>
+            </div>
+            <div className="flex lg:hidden justify-center lg:justify-start ">
+              <CtaButton href="/tasty-universe" color="green" py="0">
+                PELAJARI LEBIH LANJUT!
               </CtaButton>
             </div>
           </div>
@@ -80,11 +89,12 @@ export default function TastyUniverse() {
           <div className="absolute inset-0 flex justify-between">
             {stripeColumns.map((_, idx) => (
               <div key={idx} className="flex">
-                <div className="w-5 h-full bg-[#B5FE28]"></div>
-                <div className="w-5 h-full bg-[#003BE2]"></div>
+                <div className="w-4 md:w-5 h-full bg-[#B5FE28]"></div>
+                <div className="w-4 md:w-5 h-full bg-[#003BE2]"></div>
               </div>
             ))}
           </div>
+          <div className="block md:hidden absolute bottom-0 w-full h-7 md:h-13 bg-[#003BE2] z-10"></div>
           {/* Mascot Characters */}
           {/* Lime/Green character - top left - bigger and extending out */}
           <div className="absolute top-5 left-1/6 md:-top-5 md:-left-10 lg:-top-12 lg:-left-20 xl:-left-5 z-20">

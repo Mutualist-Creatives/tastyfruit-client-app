@@ -4,7 +4,7 @@ import { CtaButton } from "@/components/ui/cta-button";
 
 export default function KomitmenTasty() {
   return (
-    <section className="w-full mt-15 md:mt-20 py-16 sm:py-20 lg:py-24 flex items-center overflow-hidden">
+    <section className="w-full mt-15 md:mt-20 py-16 lg:py-24 flex items-center overflow-hidden">
       <div className="mx-auto w-full h-full">
         {/* Container with responsive layout */}
         <div className="relative flex h-full flex-col items-stretch gap-4 lg:flex-row lg:gap-6">
@@ -87,7 +87,7 @@ export default function KomitmenTasty() {
           {/* Content Section - 30% width on desktop */}
           <div className="order-2 flex w-full flex-col justify-end space-y-3 md:max-w-[65ch] mx-auto lg:mx-0 lg:order-2 lg:w-[35%] lg:space-y-4">
             {/* Quality Badges */}
-            <div className="flex justify-center gap-2 lg:justify-start flex-shrink-0">
+            <div className="flex justify-start gap-2">
               <div className="flex-shrink-0">
                 <Image
                   src="/assets/badges/highland-farm-blue.svg"
@@ -121,15 +121,15 @@ export default function KomitmenTasty() {
             </div>
 
             {/* Content Text */}
-            <div className="space-y-3 text-center text-[#003CE9] lg:space-y-4 lg:text-left flex-shrink-0">
-              <p className="text-md leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
+            <div className="w-[80%] lg:w-full space-y-3 text-start text-[#003CE9] lg:space-y-4 lg:text-left flex-shrink-0">
+              <p className="text-xs leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
                 Buah kami tumbuh di kebun{" "}
                 <span className="font-bold">dataran tinggi Sukabumi</span> yang
                 kaya akan <span className="font-bold">mineral</span>. Hasilnya
                 adalah pisang segar dengan rasa manis yang unik dengan tekstur
                 lembut.
               </p>
-              <p className="text-md leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
+              <p className="text-xs leading-relaxed md:text-xl lg:text-lg lg:leading-5 xl:text-base xl:leading-6">
                 Tasty Fruit® menumbuhkan pisang secara{" "}
                 <span className="font-bold text-[#003CE9]">etis</span>,{" "}
                 <span className="font-bold text-[#003CE9]">
@@ -146,8 +146,8 @@ export default function KomitmenTasty() {
             </div>
 
             {/* CTA Button */}
-            <div className="flex justify-center pt-2 lg:justify-start flex-shrink-0">
-              <CtaButton href="/komitmen-tasty" color="blue">
+            <div className="flex justify-start pt-2">
+              <CtaButton href="/komitmen-tasty" color="blue" py="0">
                 PELAJARI LEBIH LANJUT
               </CtaButton>
             </div>
