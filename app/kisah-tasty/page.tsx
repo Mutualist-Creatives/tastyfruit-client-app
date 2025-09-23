@@ -12,21 +12,21 @@ export default function KisahTasty() {
             {/* Content Section */}
             <div className="w-full flex flex-col justify-start relative z-10">
               <div className="flex flex-col items-start gap-2 w-full">
-                <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl sm:text-3xl lg:text-2xl bg-[#003BE2] px-2 py-0.5 mb-5">
+                <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-lg sm:text-3xl lg:text-2xl bg-[#003BE2] px-1.5 py-0 md:px-2 md:py-0.5 mb-2">
                   KISAH TASTY
                 </div>
 
                 {/* Full width title */}
-                <div className="text-center lg:text-left mb-2 md:mb-3">
+                <div className="text-center lg:text-left mb-1 md:mb-3">
                   {/* --- CHANGED: Font size adjusted for smoother scaling on smaller devices --- */}
-                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 md:px-4 md:py-2">
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-2 md:px-4 md:py-2">
                     PERJALANAN DARI DATARAN TINGGI
                   </div>
                 </div>
 
                 <div className="text-center lg:text-left">
                   {/* --- CHANGED: Font size adjusted for smoother scaling on smaller devices --- */}
-                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 sm:px-4">
+                  <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-2 sm:px-4">
                     HINGGA BRAND MODERN
                   </div>
                 </div>
@@ -72,16 +72,16 @@ export default function KisahTasty() {
                 </div>
 
                 {/* Description */}
-                <div className="mt-5 w-full lg:w-[40%] text-center lg:text-left">
+                <div className="mt-5 w-[70%] lg:w-[40%] text-left">
                   {/* --- CHANGED: Simplified font scaling for better readability --- */}
-                  <p className="font-nunito text-[#003CE9] text-base md:text-lg mb-5">
+                  <p className="font-nunito text-[#003CE9] text-xs md:text-lg mb-5">
                     Tasty Fruit® adalah brand produk buah-buahan dari PT
                     Panyindangan, bagian dari DSN Group - perusahaan agribisnis
                     terintegrasi yang berkomitmen pada keberlanjutan dan
                     inovasi.
                   </p>
                   {/* --- CHANGED: Simplified font scaling for better readability --- */}
-                  <p className="font-nunito text-[#003CE9] text-base md:text-lg">
+                  <p className="font-nunito text-[#003CE9] text-xs md:text-lg">
                     Fokus utama kami adalah menyediakan buah segar berkualitas
                     tinggi dari kebun kami yang dikelola dengan standar
                     internasional, mulai dari pembibitan hingga distribusi.
@@ -89,8 +89,12 @@ export default function KisahTasty() {
                 </div>
 
                 {/* CTA Button */}
-                <div className="flex mx-auto lg:mx-0 justify-center lg:justify-start mt-6">
-                  <CtaButton href="/kisah-tasty/perjalanan-kami" color="blue">
+                <div className="flex mx-0 justify-start mt-6">
+                  <CtaButton
+                    href="/kisah-tasty/perjalanan-kami"
+                    color="blue"
+                    py="0"
+                  >
                     PELAJARI LEBIH LANJUT!
                   </CtaButton>
                 </div>
