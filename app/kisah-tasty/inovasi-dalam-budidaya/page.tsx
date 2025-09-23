@@ -1,4 +1,5 @@
 import Container from "@/components/layout/container";
+import SectionBadge from "@/components/ui/section-badge";
 // --- PERUBAHAN 1: Impor komponen BasicCard ---
 import BasicCard from "@/components/ui/basic-card";
 
@@ -45,9 +46,10 @@ export default function InovasiDalamBudidayaPage() {
           <div className="relative flex flex-col lg:flex-row-reverse lg:gap-10 items-start pb-4 lg:pb-0">
             <div className="w-full flex flex-col justify-start relative z-10">
               <div className="flex flex-col items-start gap-2 w-full">
-                <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl sm:text-3xl lg:text-2xl bg-[#003BE2] px-2 py-0.5 mb-3">
-                  KISAH TASTY
-                </div>
+                <SectionBadge
+                  label="KISAH TASTY"
+                  className="text-2xl sm:text-3xl lg:text-2xl px-2 py-0.5 mb-3"
+                />
                 <div className="text-center lg:text-left mb-2 md:mb-3">
                   <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-3 py-1 md:px-4 md:py-2">
                     INOVASI

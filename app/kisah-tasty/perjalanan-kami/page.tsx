@@ -4,9 +4,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/layout/container";
+import SectionBadge from "@/components/ui/section-badge";
 import { useRouter } from "next/navigation";
-
-import StarDecorations from "@/components/ui/star-decorations";
 
 // --- Hook untuk mendeteksi ukuran layar ---
 const useWindowSize = () => {
@@ -82,8 +81,6 @@ const journeyData: Journey[] = [
 ];
 
 // --- Komponen-komponen Pendukung ---
-
-// Komponen judul yang sekarang menangani logika responsif
 const JourneyTitle = ({
   title,
   className,
@@ -93,7 +90,6 @@ const JourneyTitle = ({
   className: string;
   isMobile: boolean;
 }) => {
-  // Jika ini adalah perangkat mobile dan judul berisi newline, pisahkan.
   if (isMobile && title.includes("\n")) {
     const titleParts = title.split("\n").map((part) => part.trim());
     return (
@@ -106,8 +102,6 @@ const JourneyTitle = ({
       </div>
     );
   }
-
-  // Jika tidak, render dalam satu baris dan ganti newline dengan spasi.
   return (
     <div className="flex flex-col items-start mt-5">
       <div className={className}>{title.replace(/\n/g, " ")}</div>
@@ -156,7 +150,7 @@ const JourneyContent = ({
       className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[22px] md:text-4xl lg:text-2xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
     />
     <div className="w-full">
-      <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg mt-5">
+      <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-5">
         {journey.description}
       </div>
     </div>
@@ -166,34 +160,47 @@ const JourneyContent = ({
 const LayoutCContent = ({
   journey,
   isMobile,
+  isLastItem,
 }: {
   journey: Journey;
   isMobile: boolean;
+  isLastItem?: boolean;
 }) => {
   const { leftContent, rightContent } = splitDescriptionForLayoutC(
     journey.description
   );
+
   return (
     <>
-      <div className="flex items-center gap-4">
-        <div className="inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-3 py-1">
-          {journey.year}
+      <div>
+        <div className="flex items-center gap-4">
+          <div className="relative inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-3 py-1 overflow-hidden">
+            {isLastItem && (
+              <motion.div
+                className="absolute inset-0 bg-[#003CE9] z-0"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+              />
+            )}
+            <span className="relative z-10">{journey.year}</span>
+          </div>
         </div>
+        <JourneyTitle
+          title={journey.title}
+          isMobile={isMobile}
+          className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[20px] md:text-4xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
+        />
       </div>
-      <JourneyTitle
-        title={journey.title}
-        isMobile={isMobile}
-        className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[20px] md:text-4xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
-      />
       <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-8 mt-5">
         <div className="w-full lg:w-1/2 text-left">
-          <div className="font-nunito text-[#003CE9] text-base md:text-lg">
+          <div className="font-nunito text-[#003CE9] text-xs md:text-lg">
             {leftContent}
           </div>
         </div>
         {rightContent && (
           <div className="w-full lg:w-1/2 text-left">
-            <div className="font-nunito text-[#003CE9] text-base md:text-lg">
+            <div className="font-nunito text-[#003CE9] text-xs md:text-lg">
               {rightContent}
             </div>
           </div>
@@ -205,15 +212,24 @@ const LayoutCContent = ({
 
 const StaticParagraphContent = () => (
   <>
-    <div className="w-full lg:w-[70%] text-start lg:text-left">
-      <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg">
+    <div className="w-[70%] text-start lg:text-left">
+      <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg">
         Tasty Fruit adalah merek buah modern yang berawal dari dataran tinggi
         yang subur. Dimulai pada tahun 2018, kami terus berinovasi dan
         berkembang, memadukan tradisi kekeluargaan dengan teknologi modern.
       </div>
-      <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg mt-5">
+      <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-5">
         Setiap buah yang kami hasilkan merupakan wujud komitmen kami untuk
         menyajikan kualitas terbaik, dari kebun hingga ke tangan Anda.
+      </div>
+      <div className="pt-8 justify-center md:justify-end block md:hidden">
+        <Image
+          src="/assets/decorations/heart.svg"
+          alt="Heart decoration"
+          width={80}
+          height={80}
+          className="w-12 sm:w-16 lg:w-20 h-auto"
+        />
       </div>
     </div>
   </>
@@ -249,26 +265,20 @@ export default function PerjalananKami() {
     return null;
   };
 
-  // For layout-b, show the paired item (either next or previous layout-b)
   const pairedLayoutBJourney =
     !isTabletOrBelow && currentJourney.layout === "layout-b"
       ? getNextLayoutB() || getPrevLayoutB()
       : null;
 
   const handleNext = () => {
-    // If this is the last item, navigate to a new page.
     if (currentIndex === journeyData.length - 1) {
       router.push("/kisah-tasty/inovasi-dalam-budidaya");
       return;
     }
-
-    // If this is the first click on mobile, just start the journey.
     if (isTabletOrBelow && !isJourneyStarted) {
       setIsJourneyStarted(true);
       return;
     }
-
-    // Slide navigation logic (with modulo to prevent errors).
     if (
       !isTabletOrBelow &&
       currentJourney.layout === "layout-b" &&
@@ -281,23 +291,15 @@ export default function PerjalananKami() {
   };
 
   const handlePrev = () => {
-    // On mobile, if at the first journey item, go back to the intro.
     if (isTabletOrBelow && isJourneyStarted && currentIndex === 0) {
       setIsJourneyStarted(false);
       return;
     }
-
-    // Don't go back if it's the first item.
     if (currentIndex === 0) {
       return;
     }
-
-    // Special logic for desktop layout-b: jump back by 2 if applicable.
-    // This checks if the current item is layout-b and the previous item is also layout-b,
-    // which means we should jump back by 2 to maintain the pairing logic.
     const currentJourney = journeyData[currentIndex];
     const prevJourney = journeyData[currentIndex - 1];
-
     if (
       !isTabletOrBelow &&
       currentJourney.layout === "layout-b" &&
@@ -317,22 +319,18 @@ export default function PerjalananKami() {
   return (
     <Container>
       <div className="relative w-full h-auto">
-        {/* <StarDecorations count={2} seed={5} randomRotate={true} />
-        <StarDecorations count={1} seed={20} randomRotate={true} /> */}
-
-        {/* Header Section */}
         <div className="w-full lg:w-1/2 mb-6">
           <div className="flex flex-col items-start gap-2">
-            <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl md:text-3xl bg-[#003BE2] px-2 py-0.5 mb-5">
-              KISAH TASTY
-            </div>
-            <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl md:text-5xl xl:text-6xl bg-[#B5FE28] px-3 py-1">
+            <SectionBadge
+              label="KISAH TASTY"
+              className="text-xs md:text-3xl lg:text-2xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
+            />
+            <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5">
               PERJALANAN KAMI
             </div>
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="relative w-full min-h-[300px]">
           {isTabletOrBelow && !isJourneyStarted ? (
             <motion.div key="intro" {...revealAnimation}>
@@ -348,13 +346,13 @@ export default function PerjalananKami() {
                         <StaticParagraphContent />
                       </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-start overflow-visible">
                       <AnimatePresence mode="wait">
                         <motion.div key={currentIndex} {...revealAnimation}>
                           <div className="flex items-center">
                             <div className="relative inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-2 py-0">
                               {currentJourney.year}
-                              <div className="absolute left-full top-1/2 -translate-y-1/2 h-[10px] w-[100vw]">
+                              <div className="absolute left-full top-1/2 -translate-y-1/2 h-[10px] w-[44vw] overflow-visible">
                                 <motion.div
                                   className="h-full bg-[#003CE9]"
                                   initial={{ width: 0 }}
@@ -374,7 +372,7 @@ export default function PerjalananKami() {
                             className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[22px] md:text-4xl lg:text-3xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
                           />
                           <div className="w-full">
-                            <div className="font-nunito text-[#003CE9] text-base md:text-lg lg:text-base xl:text-lg mt-5">
+                            <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-5">
                               {currentJourney.description}
                             </div>
                           </div>
@@ -387,24 +385,26 @@ export default function PerjalananKami() {
 
               {effectiveLayout === "layout-b" && (
                 <div className="relative w-full">
-                  <svg
-                    width="120%"
-                    height="50"
-                    className="absolute top-0 left-[-50%] w-[300%] z-0"
-                  >
-                    <motion.line
-                      x1="0"
-                      y1="25"
-                      x2="100%"
-                      y2="25"
-                      stroke="#003CE9"
-                      strokeWidth="10"
-                      key={currentIndex}
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 2, ease: "easeInOut" }}
-                    />
-                  </svg>
+                  <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
+                    <svg
+                      width="100%"
+                      height="50"
+                      className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] z-0"
+                    >
+                      <motion.line
+                        x1="0"
+                        y1="25"
+                        x2="100%"
+                        y2="25"
+                        stroke="#003CE9"
+                        strokeWidth="10"
+                        key={currentIndex}
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
+                      />
+                    </svg>
+                  </div>
                   <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-4 items-start relative z-10">
                     <div className="w-full lg:w-1/2 flex flex-col justify-start">
                       <AnimatePresence mode="wait">
@@ -437,16 +437,20 @@ export default function PerjalananKami() {
 
               {effectiveLayout === "layout-c" && (
                 <div className="relative w-full">
-                  <svg
-                    width="120%"
-                    height="50"
-                    className="absolute top-0 left-[-50%] w-[300%] z-0"
-                  >
-                    {currentIndex === journeyData.length - 1 ? (
+                  <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
+                    <svg
+                      width="100%"
+                      height="50"
+                      className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] z-0"
+                    >
                       <motion.line
                         x1="0"
                         y1="25"
-                        x2="20%"
+                        x2={
+                          currentIndex === journeyData.length - 1
+                            ? "20%"
+                            : "100%"
+                        }
                         y2="25"
                         stroke="#003CE9"
                         strokeWidth="10"
@@ -455,21 +459,9 @@ export default function PerjalananKami() {
                         animate={{ pathLength: 1 }}
                         transition={{ duration: 2, ease: "easeInOut" }}
                       />
-                    ) : (
-                      <motion.line
-                        x1="0"
-                        y1="25"
-                        x2="100%"
-                        y2="25"
-                        stroke="#003CE9"
-                        strokeWidth="10"
-                        key={currentIndex}
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                      />
-                    )}
-                  </svg>
+                    </svg>
+                  </div>
+
                   <div className="w-full flex justify-center relative z-10">
                     <div className="w-full lg:w-4/5 flex flex-col justify-start">
                       <AnimatePresence mode="wait">
@@ -484,6 +476,9 @@ export default function PerjalananKami() {
                             <LayoutCContent
                               journey={currentJourney}
                               isMobile={isTabletOrBelow}
+                              isLastItem={
+                                currentIndex === journeyData.length - 1
+                              }
                             />
                           )}
                         </motion.div>
@@ -496,41 +491,48 @@ export default function PerjalananKami() {
           )}
         </div>
 
-        {/* Navigation Buttons */}
         <div className="flex justify-between items-center gap-4ll">
-          {/* Back Button - Conditionally Rendered */}
           <div className="flex justify-start">
             {showBackButton && (
               <div
                 className="block hover:scale-110 transition-transform duration-300 cursor-pointer"
                 onClick={handlePrev}
               >
-                <div className="bg-[#B5FE28] rounded-full w-16 h-16 flex items-center justify-center">
-                  {/* Rotated the existing arrow icon */}
+                <div className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center">
                   <Image
                     src="/assets/ui/arrow-right-blue.svg"
-                    alt="Langkah Sebelumnya"
+                    alt="Langkah sebelumnya"
                     width={28}
                     height={28}
-                    className="transform rotate-180"
+                    className="w-6 h-6 md:w-10 md:h-10 transform rotate-180"
                   />
                 </div>
               </div>
             )}
           </div>
-
-          {/* Next Button - Always on the right */}
+          {isJourneyStarted && (
+            <div className="flex justify-center">
+              <Image
+                src="/assets/decorations/heart.svg"
+                alt="Heart decoration"
+                width={80}
+                height={80}
+                className="w-12 sm:w-16 lg:w-20 h-auto"
+              />
+            </div>
+          )}
           <div className="flex justify-end">
             <div
               className="block hover:scale-110 transition-transform duration-300 cursor-pointer"
               onClick={handleNext}
             >
-              <div className="bg-[#B5FE28] rounded-full w-16 h-16 flex items-center justify-center">
+              <div className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center">
                 <Image
                   src="/assets/ui/arrow-right-blue.svg"
                   alt="Langkah Berikutnya"
                   width={28}
                   height={28}
+                  className="w-6 h-6 md:w-10 md:h-10"
                 />
               </div>
             </div>

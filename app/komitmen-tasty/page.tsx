@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/layout/container";
 import StarDecorations from "@/components/ui/star-decorations";
+import SectionBadge from "@/components/ui/section-badge";
 
 export default function KomitmenTasty() {
   return (
@@ -17,9 +18,10 @@ export default function KomitmenTasty() {
             <div className="flex flex-col md:flex-row justify-between items-center w-full gap-8 md:gap-4">
               {/* Blok Kiri: Konten Teks */}
               <div className="flex flex-col items-start gap-2 w-full md:w-auto">
-                <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl sm:text-3xl lg:text-2xl bg-[#003BE2] px-2 py-0.5">
-                  KOMITMEN TASTY
-                </div>
+                <SectionBadge
+                  label="KOMITMEN TASTY"
+                  className="text-2xl sm:text-3xl lg:text-2xl px-2 py-0.5"
+                />
                 <div className="flex flex-row items-center gap-4 sm:gap-9 mb-3">
                   <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[56px] bg-[#B5FE28] px-2 md:px-4 py-0.5 md:py-2">
                     BRINGING

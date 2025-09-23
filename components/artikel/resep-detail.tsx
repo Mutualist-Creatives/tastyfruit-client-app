@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import SectionBadge from "@/components/ui/section-badge";
 import { ResepTastyData } from "@/lib/resep-tasty-data";
 
 interface ResepDetailProps {
@@ -16,9 +17,10 @@ export default function ResepDetail({ resep }: ResepDetailProps) {
       <div className="lg:hidden">
         {/* Header */}
         <div className="flex flex-col items-start text-left gap-2 mb-8">
-          <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0-5 mb-5">
-            ARTIKEL TASTY
-          </div>
+          <SectionBadge
+            label="ARTIKEL TASTY"
+            className="text-2xl px-2 py-0.5 mb-5"
+          />
           <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
             RESEP TASTY
           </div>
@@ -114,9 +116,10 @@ export default function ResepDetail({ resep }: ResepDetailProps) {
       {/* ================================================================== */}
       <div className="hidden lg:block">
         <div className="flex flex-col items-start text-left gap-2 mb-8">
-          <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0-5 mb-5">
-            ARTIKEL TASTY
-          </div>
+          <SectionBadge
+            label="ARTIKEL TASTY"
+            className="text-2xl px-2 py-0.5 mb-5"
+          />
           <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
             RESEP TASTY
           </div>

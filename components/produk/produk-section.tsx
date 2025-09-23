@@ -5,6 +5,7 @@ import Image from "next/image";
 
 // Ganti atau sesuaikan path import sesuai struktur proyek Anda
 import { CtaButton } from "@/components/ui/cta-button";
+import SectionBadge from "@/components/ui/section-badge";
 import HtmlContent from "@/components/ui/html-content";
 import FruitCard from "./fruit-card";
 import { ProdukData } from "@/lib/produk-data";
@@ -83,8 +84,11 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
           {/* ================================================================ */}
           {/* == JUDUL INI DISEMBUNYIKAN DI MOBILE & MUNCUL DI DESKTOP == */}
           {/* ================================================================ */}
-          <div className="hidden md:block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 w-fit mb-5">
-            PRODUK TASTY
+          <div className="hidden md:block">
+            <SectionBadge
+              label="PRODUK TASTY"
+              className="text-2xl px-2 py-0.5 w-fit mb-5"
+            />
           </div>
           {/* ================================================================ */}
           <h2

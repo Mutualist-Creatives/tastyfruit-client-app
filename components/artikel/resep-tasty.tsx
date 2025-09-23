@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
+import SectionBadge from "@/components/ui/section-badge";
 import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
 import { resepTastyData, ResepTastyData } from "@/lib/resep-tasty-data";
@@ -98,8 +99,11 @@ export default function ResepTasty() {
         {/* MODIFIED: Added lg:pr-44 for laptop screens */}
         <div className="w-full md:w-[40%] flex flex-col items-center md:items-end text-center md:text-right text-[#003CE9] px-4 lg:pr-20 xl:pr-20">
           <div className="flex flex-col items-center md:items-end gap-2">
-            <div className="hidden md:block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 mb-3">
-              ARTIKEL TASTY
+            <div className="hidden md:block">
+              <SectionBadge
+                label="ARTIKEL TASTY"
+                className="text-2xl px-2 py-0.5 mb-3"
+              />
             </div>
             <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-4xl sm:text-5xl bg-[#B5FE28] px-4 py-2">
               RESEP TASTY

@@ -26,7 +26,7 @@ function LandingPageFooter() {
 
         {/* Content */}
         <div className="flex flex-col w-full h-auto mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-20 font-nunito py-12">
-          <div className="flex flex-col w-full md:w-[65%] lg:w-[60%] items-center md:items-start">
+          <div className="flex md:flex-col w-full md:w-[65%] lg:w-[60%] items-center md:items-start">
             {/* Heading Section */}
             <div className="flex flex-col items-center md:items-start gap-2">
               <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl lg:text-6xl bg-[#003BE2] px-3 sm:px-4 py-2 -mb-2 tracking-wide -rotate-3">

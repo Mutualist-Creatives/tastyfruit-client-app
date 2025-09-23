@@ -7,6 +7,7 @@ import Ribbon from "@/components/produk/ribbon";
 import FruitCard from "@/components/produk/fruit-card";
 import NutritionItem from "@/components/produk/nutrition-item";
 import HtmlContent from "@/components/ui/html-content";
+import SectionBadge from "@/components/ui/section-badge";
 
 export default async function ProdukDetailPage({
   params,
@@ -46,11 +47,11 @@ export default async function ProdukDetailPage({
 
 function MobileBadge() {
   return (
-    <div className="flex justify-start px-6 pt-12 pb-4 md:hidden">
-      <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 w-fit">
-        PRODUK TASTY
-      </div>
-    </div>
+    <SectionBadge
+      label="PRODUK TASTY"
+      wrapperClassName="flex justify-start px-6 pt-12 pb-4 md:hidden"
+      className="text-2xl px-2 py-0.5"
+    />
   );
 }
 
@@ -155,9 +156,7 @@ function RightToLeftLayout({ fruit }: { fruit: FruitType }) {
 
       {/* Content on the right */}
       <div className="order-1 md:order-2 space-y-6 text-center md:text-right flex flex-col items-center md:items-end">
-        <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 w-fit">
-          PRODUK TASTY
-        </div>
+        <SectionBadge label="PRODUK TASTY" className="text-2xl px-2 py-0.5" />
         <h1 className="font-bricolage-grotesque-condensed text-[#003BE2] font-extrabold text-4xl md:text-4xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-4 py-2 w-fit">
           {fruit.name.toUpperCase()}
         </h1>
@@ -220,9 +219,7 @@ function ProductContent({
 }) {
   return (
     <div className={`space-y-6 ${textAlign} flex flex-col ${flexAlign}`}>
-      <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 w-fit">
-        PRODUK TASTY
-      </div>
+      <SectionBadge label="PRODUK TASTY" className="text-2xl px-2 py-0.5" />
       <h1 className="font-bricolage-grotesque-condensed text-[#003BE2] font-extrabold text-4xl md:text-4xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-4 py-2 w-fit">
         {fruit.name.toUpperCase()}
       </h1>

@@ -140,4 +140,13 @@
       #003be2 10px 20px
     );
   }
+
+  /* Hide scrollbars while preserving scroll capability */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 }

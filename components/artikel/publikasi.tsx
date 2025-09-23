@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionBadge from "@/components/ui/section-badge";
 import { CtaButton } from "@/components/ui/cta-button";
 
 export default function Publikasi() {
@@ -10,11 +11,11 @@ export default function Publikasi() {
         {/* ================================================================== */}
         <div className="sm:hidden flex flex-col items-center text-center">
           {/* NEW: "ARTIKEL TASTY" badge added back for mobile, aligned left */}
-          <div className="w-full flex justify-start mb-6">
-            <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5">
-              ARTIKEL TASTY
-            </div>
-          </div>
+          <SectionBadge
+            label="ARTIKEL TASTY"
+            wrapperClassName="w-full flex justify-start mb-6"
+            className="text-2xl px-2 py-0.5"
+          />
 
           <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2 mb-6">
             PUBLIKASI
@@ -58,9 +59,10 @@ export default function Publikasi() {
           {/* ... (Tablet layout remains unchanged) ... */}
           <div className="lg:hidden flex flex-col items-start text-left space-y-6 text-[#003CE9]">
             <div className="flex flex-col items-start gap-2">
-              <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5">
-                ARTIKEL TASTY
-              </div>
+              <SectionBadge
+                label="ARTIKEL TASTY"
+                className="text-2xl px-2 py-0.5"
+              />
               <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
                 PUBLIKASI
               </div>
@@ -112,9 +114,10 @@ export default function Publikasi() {
           {/* ... (Desktop layout remains unchanged) ... */}
           <div className="space-y-6 text-left text-[#003CE9]">
             <div className="flex flex-col items-start gap-2">
-              <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 mb-5">
-                ARTIKEL TASTY
-              </div>
+              <SectionBadge
+                label="ARTIKEL TASTY"
+                className="text-2xl px-2 py-0.5 mb-5"
+              />
               <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
                 PUBLIKASI
               </div>

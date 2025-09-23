@@ -2,6 +2,7 @@ import { produkData } from "@/lib/produk-data";
 import ProdukSection from "@/components/produk/produk-section";
 
 import StarDecorations from "@/components/ui/star-decorations";
+import SectionBadge from "@/components/ui/section-badge";
 
 export default function Produk() {
   return (
@@ -15,13 +16,11 @@ export default function Produk() {
       <StarDecorations count={6} seed={629067} randomRotate={true} />
 
       {/* JUDUL INI HANYA MUNCUL DI MOBILE */}
-      <div className="px-4 pt-12 md:hidden">
-        <div className="flex justify-start md:justify-center">
-          <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 w-fit">
-            PRODUK TASTY
-          </div>
-        </div>
-      </div>
+      <SectionBadge
+        label="PRODUK TASTY"
+        wrapperClassName="px-4 pt-12 md:hidden"
+        className="text-2xl px-2 py-0.5"
+      />
 
       {/* Menampilkan semua bagian produk */}
       {produkData.map((item) => (

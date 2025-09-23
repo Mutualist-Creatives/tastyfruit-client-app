@@ -1,6 +1,7 @@
 // components/landing-page/publikasi.tsx
 
 import Container from "@/components/layout/container";
+import SectionBadge from "@/components/ui/section-badge";
 import ArtikelCard from "@/components/artikel/artikel-card";
 import { publikasiData } from "@/lib/publikasi-data";
 
@@ -17,9 +18,10 @@ export default function Publikasi() {
           {/* Header Section */}
           {/* ADJUSTED: Header is now always left-aligned */}
           <div className="flex flex-col items-start gap-2 mb-8 relative">
-            <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-2xl bg-[#003BE2] px-2 py-0.5 mb-5">
-              ARTIKEL TASTY
-            </div>
+            <SectionBadge
+              label="ARTIKEL TASTY"
+              className="text-2xl px-2 py-0.5 mb-5"
+            />
             <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
               PUBLIKASI
             </div>
