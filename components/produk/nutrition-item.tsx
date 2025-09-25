@@ -31,7 +31,7 @@ export default function NutritionItem({
 
 function NutritionLabel({ label }: { label: string }) {
   return (
-    <div className="bg-[#003BE2] text-xl lg:text-2xl text-[#B5FE28] px-1.5 lg:py-0.25 w-fit mx-auto font-bricolage-grotesque-condensed font-bold">
+    <div className="bg-[#003BE2] text-xs md:text-xl lg:text-2xl text-[#B5FE28] px-1.5 lg:py-0.25 w-fit mx-auto font-bricolage-grotesque-condensed font-bold">
       {label.toUpperCase()}
     </div>
   );
@@ -65,12 +65,12 @@ function ValueOverlay({ value, unit }: { value: string; unit: string }) {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
       {/* Nutrition Value */}
-      <span className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#003BE2] font-bricolage-grotesque-condensed">
+      <span className="text-2xl lg:text-4xl xl:text-5xl font-bold text-[#003BE2] font-bricolage-grotesque-condensed">
         {value}
       </span>
 
       {/* Unit Label */}
-      <span className="text-xs text-bold text-[#003BE2] font-nunito -mt-2">
+      <span className="text-[8px] text-bold text-[#003BE2] font-nunito -mt-2">
         {unit}
       </span>
     </div>

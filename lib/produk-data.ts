@@ -29,6 +29,7 @@ export interface ProdukData {
   };
   fruitCardType: "layout-a" | "layout-b";
   bgGradient?: string;
+  fruitCardImage: string; // <<--- DATA TYPE BARU DITAMBAHKAN DI SINI
 }
 
 export const produkData: ProdukData[] = [
@@ -83,7 +84,7 @@ export const produkData: ProdukData[] = [
       totalFat: "0.3g",
       cholesterol: "0mg",
       fiber: "2.6g",
-      carbohydrates: "22.g",
+      carbohydrates: "22",
       protein: "1.1g",
       sodium: "1mg",
       magnesium: "27mg",
@@ -91,6 +92,7 @@ export const produkData: ProdukData[] = [
     },
     fruitCardType: "layout-a",
     bgGradient: "",
+    fruitCardImage: "/assets/produk/pisang/pisang-card.png", // <<--- DATA BARU
   },
   {
     id: 2,
@@ -130,6 +132,7 @@ export const produkData: ProdukData[] = [
     },
     fruitCardType: "layout-b",
     bgGradient: "#B5FE28",
+    fruitCardImage: "/assets/produk/melon/melon-card.png", // <<--- DATA BARU
   },
   {
     id: 3,
@@ -162,5 +165,6 @@ export const produkData: ProdukData[] = [
     },
     fruitCardType: "layout-b",
     bgGradient: "",
+    fruitCardImage: "/assets/produk/alpukat/alpukat-card.png", // <<--- DATA BARU
   },
 ];

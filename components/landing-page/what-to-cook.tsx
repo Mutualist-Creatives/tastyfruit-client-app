@@ -36,7 +36,7 @@ export default function WhatToCook() {
   }, []);
 
   return (
-    <section className="w-full h-auto overflow-hidden">
+    <section className="w-full h-auto overflow-hidden -mt-24 md:-my-0">
       <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-start gap-10 py-0 lg:py-12 pl-0 2xl:pl-20">
         {/* Left Side: Infinite Image Sliders */}
         <div className="w-full lg:w-[60%] flex flex-col gap-4">

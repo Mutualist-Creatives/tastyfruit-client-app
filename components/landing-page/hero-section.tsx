@@ -41,6 +41,15 @@ export default function HeroSection() {
                 PELAJARI LEBIH LANJUT
               </CtaButton>
             </div>
+            <div className="flex justify-center lg:justify-start pt-2">
+              <Image
+                src="/assets/decorations/heart.svg"
+                alt="Heart decoration"
+                width={80}
+                height={80}
+                className="w-12 sm:w-16 lg:w-20 h-auto"
+              />
+            </div>
           </div>
           {/* Right Column: Main Graphic */}
           <div className="relative order-1 lg:order-2">

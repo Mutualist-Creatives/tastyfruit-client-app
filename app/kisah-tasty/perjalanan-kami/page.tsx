@@ -346,13 +346,13 @@ export default function PerjalananKami() {
                         <StaticParagraphContent />
                       </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start overflow-visible">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-start overflow-hidden">
                       <AnimatePresence mode="wait">
                         <motion.div key={currentIndex} {...revealAnimation}>
                           <div className="flex items-center">
                             <div className="relative inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-2 py-0">
                               {currentJourney.year}
-                              <div className="absolute left-full top-1/2 -translate-y-1/2 h-[10px] w-[44vw] overflow-visible">
+                              <div className="absolute left-full top-1/2 -translate-y-1/2 h-[10px] w-[100vw]">
                                 <motion.div
                                   className="h-full bg-[#003CE9]"
                                   initial={{ width: 0 }}
@@ -511,7 +511,7 @@ export default function PerjalananKami() {
             )}
           </div>
           {isJourneyStarted && (
-            <div className="flex justify-center">
+            <div className="flex justify-center md:hidden">
               <Image
                 src="/assets/decorations/heart.svg"
                 alt="Heart decoration"

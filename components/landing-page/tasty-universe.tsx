@@ -45,11 +45,19 @@ export default function TastyUniverse() {
           <div className="flex flex-col justify-center gap-6 w-full px-4 sm:px-6 lg:px-20 font-nunito pb-10 md:pb-0">
             {/* Tasty Universe Image */}
             <Image
+              src="/assets/tasty-universe/tasty-universe-title-mobile.svg"
+              alt="Tasty Universe Title"
+              width={450}
+              height={250}
+              className="object-contain lg:w-full lg:h-full xl:w-full xl:h-auto block md:hidden"
+            />
+
+            <Image
               src="/assets/tasty-universe/tasty-universe-title.svg"
               alt="Tasty Universe Title"
               width={450}
               height={250}
-              className="object-contain lg:w-full lg:h-full xl:w-full xl:h-auto"
+              className="object-contain lg:w-full lg:h-full xl:w-full xl:h-auto hidden md:block"
             />
 
             {/* Description text */}

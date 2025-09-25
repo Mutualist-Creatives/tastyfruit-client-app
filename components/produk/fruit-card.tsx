@@ -1,5 +1,3 @@
-// components/produk/fruit-card.tsx
-
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,11 +6,12 @@ type Layout = "layout-a" | "layout-b";
 
 interface FruitCardProps {
   name: string;
-  image: string;
+  image: string; // Ini tetap ada, mungkin digunakan oleh DefaultCard
   layoutType: Layout;
   isActive?: boolean;
   variant?: "default" | "simple";
   href?: string;
+  fruitCardImage?: string; // [PERUBAHAN 1] Menambahkan prop baru di interface
 }
 
 export default function FruitCard({
@@ -22,12 +21,19 @@ export default function FruitCard({
   isActive = false,
   variant = "default",
   href,
+  fruitCardImage, // [PERUBAHAN 2] Menerima prop baru
 }: FruitCardProps) {
   const isBlue = layoutType === "layout-a";
 
   const cardContent =
     variant === "simple" ? (
-      <SimpleCard name={name} image={image} isBlue={isBlue} hasHref={!!href} />
+      <SimpleCard
+        name={name}
+        // 'image' di sini sekarang diganti dengan fruitCardImage
+        image={fruitCardImage || image} // [PERUBAHAN 3] Mengirim prop baru ke SimpleCard
+        isBlue={isBlue}
+        hasHref={!!href}
+      />
     ) : (
       <DefaultCard
         name={name}
@@ -38,10 +44,9 @@ export default function FruitCard({
       />
     );
 
-  // If href is provided, wrap content in Link, otherwise use div
   if (href) {
     return (
-      <Link href={href} className="cursor-pointer">
+      <Link href={`/produk/${href}`} className="cursor-pointer">
         {cardContent}
       </Link>
     );
@@ -52,6 +57,7 @@ export default function FruitCard({
 
 // ==================== COMPONENT DEFINITIONS ====================
 
+// [PERUBAHAN 4] SimpleCard sekarang akan menerima fruitCardImage melalui prop 'image'-nya
 function SimpleCard({
   name,
   image,
@@ -59,7 +65,7 @@ function SimpleCard({
   hasHref,
 }: {
   name: string;
-  image: string;
+  image: string; // Prop ini sekarang berisi path ke 'pisang-card.png', dll.
   isBlue: boolean;
   hasHref: boolean;
 }) {
@@ -72,24 +78,18 @@ function SimpleCard({
   return (
     <div
       className={`
-        relative w-full max-w-sm mx-auto aspect-[4/5] 
+        relative w-full mx-auto aspect-[4/5] 
         ${simpleBgColor} 
         rounded-2xl overflow-hidden shadow-lg 
         transform-gpu hover:scale-[1.03] transition-transform duration-100 
         ${hasHref ? "cursor-pointer" : ""}
-        min-h-[175px] lg:min-h-[200px] xl:min-h-[250px]
+        md:max-w-sm md:min-h-[175px] lg:min-h-[200px] xl:min-h-[250px]
       `}
     >
-      {/* Background Pattern */}
       <BackgroundPattern holderSrc={simpleHolderSrc} />
-
-      {/* Card Pattern Overlay */}
       <CardPatternOverlay />
-
-      {/* Fruit Image */}
+      {/* Komponen ini sekarang akan menampilkan gambar dari fruitCardImage */}
       <FruitImage image={image} name={name} />
-
-      {/* Fruit Name Label */}
       <FruitNameLabel
         name={name}
         bgColor={simpleBgColor}
@@ -99,6 +99,7 @@ function SimpleCard({
   );
 }
 
+// ... Sisa dari file tidak ada perubahan ...
 function DefaultCard({
   name,
   image,
@@ -126,7 +127,6 @@ function DefaultCard({
         `}
       >
         <div className="relative rounded-2xl lg:rounded-[24px] overflow-hidden h-[320px] md:h-[275px] lg:h-[350px] xl:h-[425px]">
-          {/* Background Holder */}
           <Image
             src={cardConfig.holderSrc}
             alt="Card background holder"
@@ -134,8 +134,6 @@ function DefaultCard({
             sizes="(max-width: 768px) 320px, 300px, 350px"
             className="object-contain"
           />
-
-          {/* Card Content */}
           <DefaultCardContent
             image={image}
             name={name}
@@ -178,7 +176,7 @@ function CardPatternOverlay() {
 
 function FruitImage({ image, name }: { image: string; name: string }) {
   return (
-    <div className="absolute inset-3 mb-18">
+    <div className="absolute inset-3 mb-10 md:mb-18">
       <div className="relative w-full h-full">
         <Image
           src={image}
@@ -203,10 +201,10 @@ function FruitNameLabel({
 }) {
   return (
     <div
-      className={`absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 px-2 py-0.5 ${bgColor}`}
+      className={`absolute bottom-3 md:bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 px-2 py-0.5 ${bgColor}`}
     >
       <h3
-        className={`font-bricolage-grotesque-condensed font-extrabold text-xl md:text-2xl ${textColor}`}
+        className={`font-bricolage-grotesque-condensed font-extrabold text-lg md:text-xl ${textColor}`}
       >
         {name.toUpperCase()}
       </h3>
@@ -227,7 +225,6 @@ function DefaultCardContent({
 }) {
   return (
     <div className="relative z-10 h-full flex flex-col">
-      {/* Fruit Image Area */}
       <div className="relative flex-1 px-6 md:px-6 lg:px-6 xl:px-8">
         <Image
           src={image}
@@ -237,13 +234,8 @@ function DefaultCardContent({
           className="object-contain object-center drop-shadow-lg"
         />
       </div>
-
-      {/* Bottom Section: Badges and Title */}
       <div className="px-6 md:px-6 lg:px-6 xl:px-8 pb-8 md:pb-8 lg:pb-12">
-        {/* Badges and Logo Row */}
         <BadgesAndLogoRow badgeColor={badgeColor} />
-
-        {/* Fruit Name Title */}
         <div
           className={`text-center font-bricolage-grotesque-condensed font-extrabold text-lg md:text-sm lg:text-xl xl:text-2xl w-fit mx-auto px-2 py-1 ${titleBg}`}
         >
@@ -259,7 +251,6 @@ function BadgesAndLogoRow({ badgeColor }: { badgeColor: string }) {
 
   return (
     <div className="flex items-center justify-between mb-2">
-      {/* Quality Badges */}
       <div className="flex items-center gap-1 md:gap-1 lg:gap-2">
         <Image
           src={`/assets/badges/highland-farm-${badgeColor}.svg`}
@@ -283,8 +274,6 @@ function BadgesAndLogoRow({ badgeColor }: { badgeColor: string }) {
           className={badgeClasses}
         />
       </div>
-
-      {/* Tasty Fruit Logo */}
       <div className="flex-shrink-0">
         <Image
           src="/assets/tasty-fruit-logo.svg"
@@ -297,8 +286,6 @@ function BadgesAndLogoRow({ badgeColor }: { badgeColor: string }) {
     </div>
   );
 }
-
-// ==================== UTILITY FUNCTIONS ====================
 
 function getDefaultCardConfig(isBlue: boolean, isActive: boolean) {
   const holderSrc = isBlue
