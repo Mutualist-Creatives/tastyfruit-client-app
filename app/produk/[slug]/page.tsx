@@ -406,7 +406,7 @@ function OtherProductsSection({
       </div>
 
       <div
-        className="hidden sm:h-[12em] md:h-[14em] lg:h-[20em] xl:h-[24em] sm:flex flex-row
+        className="hidden sm:h-[12em] md:h-[20em] xl:h-[24em] sm:flex flex-row
                    justify-center lg:justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12
                    items-center overflow-hidden"
       >
@@ -446,7 +446,7 @@ function OtherProductsSection({
             alt={`Mascot ${product.fruit}`}
             width={400}
             height={400}
-            className="h-auto w-48 sm:w-56 md:w-72 lg:w-76 xl:w-88 drop-shadow-md translate-y-1/4 sm:translate-y-1/3 md:translate-y-1/2"
+            className="h-auto w-48 sm:w-56 md:w-72 lg:w-76 xl:w-88 drop-shadow-md translate-y-1/4 sm:translate-y-1/3 md:translate-y-1/4"
           />
         </div>
       </div>
