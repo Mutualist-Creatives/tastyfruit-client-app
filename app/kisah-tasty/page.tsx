@@ -15,7 +15,7 @@ export default function KisahTasty() {
               <div className="flex flex-col items-start gap-2 w-full">
                 <SectionBadge
                   label="KISAH TASTY"
-                  className="text-xs md:text-3xl lg:text-2xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
+                  className="text-xs md:text-2xl lg:text-xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
                 />
 
                 {/* Full width title */}

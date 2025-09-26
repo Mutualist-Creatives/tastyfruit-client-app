@@ -316,6 +316,14 @@ export default function PerjalananKami() {
     (isTabletOrBelow && isJourneyStarted) ||
     (!isTabletOrBelow && currentIndex > 0);
 
+  // Cleanup timeline line when component unmounts or currentIndex changes
+  useEffect(() => {
+    return () => {
+      const existingLine = document.getElementById("timeline-line-2018");
+      if (existingLine) existingLine.remove();
+    };
+  }, [currentIndex]);
+
   return (
     <Container>
       <div className="relative w-full h-auto">
@@ -323,7 +331,7 @@ export default function PerjalananKami() {
           <div className="flex flex-col items-start gap-2">
             <SectionBadge
               label="KISAH TASTY"
-              className="text-xs md:text-3xl lg:text-2xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
+              className="text-xs md:text-2xl lg:text-xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
             />
             <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5">
               PERJALANAN KAMI
@@ -339,31 +347,60 @@ export default function PerjalananKami() {
           ) : (
             <>
               {effectiveLayout === "layout-a" && (
-                <div className="relative w-full">
-                  <div className="w-full flex flex-col lg:flex-row items-start relative z-10">
+                <div className="relative w-full overflow-visible">
+                  <div className="w-full flex flex-col lg:flex-row items-start relative z-10 overflow-visible">
                     <div className="w-full lg:w-1/2 flex flex-col justify-start items-center lg:items-start">
                       <div className="hidden lg:block">
                         <StaticParagraphContent />
                       </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start overflow-hidden">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-start overflow-visible">
                       <AnimatePresence mode="wait">
                         <motion.div key={currentIndex} {...revealAnimation}>
                           <div className="flex items-center">
-                            <div className="relative inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-2 py-0">
+                            <div
+                              className="relative inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-2 py-0"
+                              ref={(el) => {
+                                // Always clean up existing line first
+                                const existingLine =
+                                  document.getElementById("timeline-line-2018");
+                                if (existingLine) existingLine.remove();
+
+                                if (el && currentIndex === 0) {
+                                  // Wait for element to be fully rendered
+                                  setTimeout(() => {
+                                    const rect = el.getBoundingClientRect();
+                                    const line = document.createElement("div");
+                                    line.id = "timeline-line-2018";
+
+                                    // Start more to the left for better visual connection
+                                    const startX = rect.right - 40;
+                                    line.style.cssText = `
+                                      position: fixed;
+                                      top: ${rect.top + rect.height / 2 - 5}px;
+                                      left: ${startX}px;
+                                      width: ${
+                                        window.innerWidth - startX + 12
+                                      }px;
+                                      height: 10px;
+                                      background: #003CE9;
+                                      z-index: 1;
+                                      pointer-events: none;
+                                      transform-origin: left center;
+                                      transform: scaleX(0);
+                                      transition: transform 2s ease-in-out;
+                                    `;
+                                    document.body.appendChild(line);
+
+                                    // Trigger animation
+                                    setTimeout(() => {
+                                      line.style.transform = "scaleX(1)";
+                                    }, 100);
+                                  }, 50);
+                                }
+                              }}
+                            >
                               {currentJourney.year}
-                              <div className="absolute left-full top-1/2 -translate-y-1/2 h-[10px] w-[100vw]">
-                                <motion.div
-                                  className="h-full bg-[#003CE9]"
-                                  initial={{ width: 0 }}
-                                  animate={{ width: "100%" }}
-                                  transition={{
-                                    duration: 2,
-                                    ease: "easeInOut",
-                                  }}
-                                  key={currentIndex}
-                                />
-                              </div>
                             </div>
                           </div>
                           <JourneyTitle
@@ -491,23 +528,42 @@ export default function PerjalananKami() {
           )}
         </div>
 
-        <div className="flex justify-between items-center gap-4ll">
+        <div className="flex justify-between items-center gap-4">
           <div className="flex justify-start">
             {showBackButton && (
-              <div
-                className="block hover:scale-110 transition-transform duration-300 cursor-pointer"
+              <motion.div
+                className="cursor-pointer"
                 onClick={handlePrev}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <div className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center">
-                  <Image
-                    src="/assets/ui/arrow-right-blue.svg"
-                    alt="Langkah sebelumnya"
-                    width={28}
-                    height={28}
-                    className="w-6 h-6 md:w-10 md:h-10 transform rotate-180"
-                  />
-                </div>
-              </div>
+                <motion.div
+                  className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center shadow-lg"
+                  whileHover={{
+                    boxShadow: "0 8px 25px rgba(181, 254, 40, 0.4)",
+                    backgroundColor: "#A5EE18",
+                  }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.div
+                    whileHover={{ x: -2 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 17,
+                    }}
+                  >
+                    <Image
+                      src="/assets/ui/arrow-right-blue.svg"
+                      alt="Langkah sebelumnya"
+                      width={28}
+                      height={28}
+                      className="w-6 h-6 md:w-10 md:h-10 transform rotate-180"
+                    />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
             )}
           </div>
           {isJourneyStarted && (
@@ -522,20 +578,35 @@ export default function PerjalananKami() {
             </div>
           )}
           <div className="flex justify-end">
-            <div
-              className="block hover:scale-110 transition-transform duration-300 cursor-pointer"
+            <motion.div
+              className="cursor-pointer"
               onClick={handleNext}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <div className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center">
-                <Image
-                  src="/assets/ui/arrow-right-blue.svg"
-                  alt="Langkah Berikutnya"
-                  width={28}
-                  height={28}
-                  className="w-6 h-6 md:w-10 md:h-10"
-                />
-              </div>
-            </div>
+              <motion.div
+                className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center shadow-lg"
+                whileHover={{
+                  boxShadow: "0 8px 25px rgba(181, 254, 40, 0.4)",
+                  backgroundColor: "#A5EE18",
+                }}
+                transition={{ duration: 0.2 }}
+              >
+                <motion.div
+                  whileHover={{ x: 2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <Image
+                    src="/assets/ui/arrow-right-blue.svg"
+                    alt="Langkah Berikutnya"
+                    width={28}
+                    height={28}
+                    className="w-6 h-6 md:w-10 md:h-10"
+                  />
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>
