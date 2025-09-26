@@ -4,8 +4,6 @@ import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import { useState, useEffect } from "react";
 
-import StarDecorations from "@/components/ui/star-decorations";
-
 export default function TastyUniverse() {
   const [stripeColumns, setStripeColumns] = useState(Array.from({ length: 9 }));
 
@@ -34,8 +32,6 @@ export default function TastyUniverse() {
 
   return (
     <section className="w-full relative overflow-hidden">
-      {/* <StarDecorations count={10} seed={2025} randomRotate={true} /> */}
-
       {/* Top blue stripe */}
       <div className="hidden md:block absolute top-0 w-full h-7 md:h-13 bg-[#003BE2] z-10"></div>
 

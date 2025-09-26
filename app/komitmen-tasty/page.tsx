@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Container from "@/components/layout/container";
-import StarDecorations from "@/components/ui/star-decorations";
 import SectionBadge from "@/components/ui/section-badge";
 
 export default function KomitmenTasty() {
@@ -8,11 +7,6 @@ export default function KomitmenTasty() {
     <>
       <Container>
         <section className="relative w-full h-auto">
-          {/* <StarDecorations count={1} seed={9} randomRotate={true} />
-          <StarDecorations count={1} seed={39110} randomRotate={true} />
-          <StarDecorations count={1} seed={1947} randomRotate={true} />
-          <StarDecorations count={1} seed={9684635} randomRotate={true} />
-          <StarDecorations count={1} seed={2} randomRotate={true} /> */}
           <div className="mx-auto">
             {/* Wrapper Utama untuk Judul dan Gambar */}
             <div className="flex flex-col md:flex-row justify-between items-center w-full gap-8 md:gap-4">
