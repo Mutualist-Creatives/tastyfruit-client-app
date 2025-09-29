@@ -26,16 +26,16 @@ export default async function Mascots({
   return (
     <Container>
       <section className="w-full h-auto">
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <StarDecorations count={4} seed={36276432} randomRotate={true} />
           <StarDecorations count={3} seed={383238} randomRotate={true} />
-        </div>
+        </div> */}
 
-        <div className="block lg:hidden">
+        {/* <div className="block lg:hidden">
           <StarDecorations count={3} seed={383238} randomRotate={true} />
           <StarDecorations count={1} seed={213} randomRotate={true} />
           <StarDecorations count={1} seed={32894} randomRotate={true} />
-        </div>
+        </div> */}
 
         <div className="max-w-7xl relative">
           {/* Desktop Layout */}
@@ -196,14 +196,14 @@ export default async function Mascots({
               <div className="w-4/6 md:w-1/2 flex flex-col">
                 {/* MEET THE PACK button di pojok kiri atas */}
                 <div className="mb-4">
-                  <CtaButton px="2" py="0" href="/tasty-universe" color="blue">
+                  <CtaButton py="0" href="/tasty-universe" color="blue">
                     MEET THE PACK!
                   </CtaButton>
                 </div>
 
                 {/* Nama mascot */}
                 <div className="mb-4">
-                  <h1 className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl md:text-7xl bg-[#B5FE28] px-3 py-2 inline-block">
+                  <h1 className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-4xl md:text-7xl bg-[#B5FE28] px-3 py-2 inline-block">
                     {character.name}
                   </h1>
                 </div>
@@ -290,7 +290,7 @@ export default async function Mascots({
             <div className="w-4/5 md:w-4/7 space-y-6">
               {/* Introduction */}
               {character.introduction && (
-                <p className="text-blue-700 text-base md:text-lg leading-relaxed">
+                <p className="text-blue-700 text-xs md:text-lg leading-relaxed">
                   {(() => {
                     const nameRegex = new RegExp(character.name, "gi");
                     const parts = character.introduction.split(nameRegex);
@@ -311,7 +311,7 @@ export default async function Mascots({
 
               {/* Description */}
               {character.description && (
-                <p className="text-blue-700 text-base md:text-lg leading-relaxed">
+                <p className="text-blue-700 text-xs md:text-lg leading-relaxed">
                   {character.description}
                 </p>
               )}

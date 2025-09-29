@@ -6,73 +6,41 @@ export default function Publikasi() {
   return (
     <section className="w-full h-auto">
       <div className="mx-auto">
-        {/* ================================================================== */}
-        {/* === MOBILE LAYOUT (<640px) ===                                   */}
-        {/* ================================================================== */}
-        <div className="sm:hidden flex flex-col items-center text-center">
-          {/* NEW: "ARTIKEL TASTY" badge added back for mobile, aligned left */}
-          <SectionBadge
-            label="ARTIKEL TASTY"
-            wrapperClassName="w-full flex justify-start mb-6"
-            className="text-2xl px-2 py-0.5"
-          />
-
-          <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2 mb-6">
-            PUBLIKASI
+        <div className="flex flex-col items-center gap-8 sm:grid sm:grid-cols-2 sm:items-start lg:grid-cols-[4fr_6fr] sm:gap-12">
+          {/* === Blok 1: Judul & Badge === */}
+          {/* Diubah: w-full, px-4, items-start untuk mobile rata kiri */}
+          <div className="w-full flex flex-col items-start text-left">
+            <SectionBadge
+              label="ARTIKEL TASTY"
+              className="text-xs md:text-2xl px-1 py-0.5 md:px-2 mb-3"
+            />
+            <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl bg-[#B5FE28] px-2 md:px-4 py-0.5 md:py-2">
+              PUBLIKASI
+            </div>
           </div>
 
-          <div className="relative w-full h-[300px] rounded-4xl overflow-hidden mb-8">
+          {/* === Blok 2: Gambar === */}
+          {/* Tetap di tengah (default) pada mobile */}
+          <div className="relative w-full h-[250px] sm:h-full sm:col-start-2 sm:row-start-1 sm:row-span-2 lg:max-w-[475px] lg:ml-auto rounded-3xl lg:rounded-4xl overflow-hidden">
             <Image
               src="/assets/artikel/farmer.jpg"
               alt="Tasty Fruit Farmer"
               fill
               className="object-cover"
-              sizes="100vw"
+              sizes="(min-width: 1024px) 475px, 50vw, 100vw"
               priority
             />
           </div>
 
-          <div className="space-y-4 text-center text-[#003CE9] mb-8 max-w-prose">
-            <p className="text-lg leading-relaxed">
-              Mau tau informasi terbaru mengenai Tasty Fruit? Rubrik ini buat
-              kalian!
-            </p>
-            <p className="text-lg leading-relaxed">
-              Dari acara pop-up booth Tasty Fruit®, tips memilih pisang terbaik,
-              hingga <span className="italic">behind the scenes</span>, pastikan
-              kamu selalu terhubung agar tidak ketinggalan informasi terbaru
-              dari Tasty Fruit®.
-            </p>
-          </div>
-
-          <div className="flex justify-center">
-            <CtaButton py="1" px="2" href="/artikel/publikasi" color="blue">
-              PELAJARI LEBIH LANJUT!
-            </CtaButton>
-          </div>
-        </div>
-
-        {/* ================================================================== */}
-        {/* === TABLET LAYOUT (640px - 1023px) ===                           */}
-        {/* ================================================================== */}
-        <div className="hidden sm:grid grid-cols-2 gap-12 items-center">
-          {/* ... (Tablet layout remains unchanged) ... */}
-          <div className="lg:hidden flex flex-col items-start text-left space-y-6 text-[#003CE9]">
-            <div className="flex flex-col items-start gap-2">
-              <SectionBadge
-                label="ARTIKEL TASTY"
-                className="text-2xl px-2 py-0.5"
-              />
-              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
-                PUBLIKASI
-              </div>
-            </div>
-            <div className="space-y-4 max-w-prose">
-              <p className="text-lg leading-relaxed">
+          {/* === Blok 3: Deskripsi, CTA, & Dekorasi === */}
+          {/* Tetap di tengah pada mobile */}
+          <div className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-8">
+            <div className="w-[80%] sm:w-full lg:w-[70%] max-w-prose space-y-4 text-[#003CE9]">
+              <p className="text-xs md:text-lg leading-relaxed">
                 Mau tau informasi terbaru mengenai Tasty Fruit? Rubrik ini buat
                 kalian!
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-xs md:text-lg leading-relaxed">
                 Dari acara pop-up booth Tasty Fruit®, tips memilih pisang
                 terbaik, hingga{" "}
                 <span className="italic">behind the scenes</span>, pastikan kamu
@@ -80,63 +48,9 @@ export default function Publikasi() {
                 Tasty Fruit®.
               </p>
             </div>
-            <div className="flex flex-col items-start gap-4 pt-2">
-              <CtaButton py="1" px="2" href="/artikel/publikasi" color="blue">
-                PELAJARI LEBIH LANJUT!
-              </CtaButton>
-              <div className="hidden md:block">
-                <Image
-                  src="/assets/decorations/heart.svg"
-                  alt="Heart decoration"
-                  width={64}
-                  height={64}
-                  className="w-16 h-auto"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="lg:hidden relative w-full h-[450px] rounded-4xl overflow-hidden">
-            <Image
-              src="/assets/artikel/farmer.jpg"
-              alt="Tasty Fruit Farmer"
-              fill
-              className="object-cover"
-              sizes="(min-width: 640px) 50vw, 100vw"
-              priority
-            />
-          </div>
-        </div>
 
-        {/* ================================================================== */}
-        {/* === DESKTOP LAYOUT (>=1024px) ===                                */}
-        {/* ================================================================== */}
-        <div className="hidden lg:grid grid-cols-[4fr_6fr] items-start gap-16">
-          {/* ... (Desktop layout remains unchanged) ... */}
-          <div className="space-y-6 text-left text-[#003CE9]">
-            <div className="flex flex-col items-start gap-2">
-              <SectionBadge
-                label="ARTIKEL TASTY"
-                className="text-2xl px-2 py-0.5 mb-5"
-              />
-              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
-                PUBLIKASI
-              </div>
-            </div>
-            <div className="max-w-prose xl:w-[70%] space-y-6">
-              <p className="text-lg leading-relaxed">
-                Mau tau informasi terbaru mengenai Tasty Fruit? Rubrik ini buat
-                kalian!
-              </p>
-              <p className="text-lg leading-relaxed">
-                Dari acara pop-up booth Tasty Fruit®, tips memilih pisang
-                terbaik, hingga{" "}
-                <span className="italic">behind the scenes</span>, pastikan kamu
-                selalu terhubung agar tidak ketinggalan informasi terbaru dari
-                Tasty Fruit®.
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-4 xl:gap-8 pt-2">
-              <CtaButton py="1" px="2" href="/artikel/publikasi" color="blue">
+            <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-8">
+              <CtaButton py="0" href="/artikel/publikasi" color="blue">
                 PELAJARI LEBIH LANJUT!
               </CtaButton>
               <Image
@@ -144,19 +58,9 @@ export default function Publikasi() {
                 alt="Heart decoration"
                 width={80}
                 height={80}
-                className="w-20 h-auto"
+                className="w-16 h-auto lg:w-20"
               />
             </div>
-          </div>
-          <div className="relative ml-auto">
-            <Image
-              src="/assets/artikel/farmer.jpg"
-              alt="Tasty Fruit Farmer"
-              width={600}
-              height={400}
-              className="object-cover w-[475px] h-[550px] rounded-4xl"
-              priority
-            />
           </div>
         </div>
       </div>

@@ -39,9 +39,9 @@ export default function ArtikelDetail({
       <div className="flex flex-col items-start gap-2 mb-8 relative">
         <SectionBadge
           label="ARTIKEL TASTY"
-          className="text-2xl px-2 py-0.5 mb-5"
+          className="text-xs md:text-2xl px-1 py-0.5 md:px-2 mb-1"
         />
-        <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl bg-[#B5FE28] px-4 py-2">
+        <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl bg-[#B5FE28] px-2 md:px-4 py-0.5 md:py-2">
           PUBLIKASI
         </div>
       </div>

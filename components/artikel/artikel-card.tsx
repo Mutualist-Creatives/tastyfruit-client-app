@@ -58,7 +58,7 @@ export default function ArtikelCard({ publikasi, resep }: ArtikelCardProps) {
         <div className="relative mb-3 sm:mb-4">
           {!isResepPage && (
             <div
-              className={`absolute top-2 left-2 z-10 inline-block px-1.5 py-0.5 rounded-full text-xs font-bold ${getCategoryColor(
+              className={`absolute top-2 left-2 z-10 inline-block px-1.5 py-0.5 rounded-full text-[8px] md:text-xs font-bold ${getCategoryColor(
                 category
               )}`}
             >
@@ -70,12 +70,12 @@ export default function ArtikelCard({ publikasi, resep }: ArtikelCardProps) {
             alt={title}
             width={400}
             height={300}
-            className="w-full aspect-[4/3] object-cover rounded-2xl"
+            className="w-full aspect-[4/4] sm:aspect-[4/3] md:aspect-[4/3] object-cover rounded-2xl"
           />
         </div>
         <div className="space-y-2 sm:space-y-3 flex flex-col flex-grow">
           <h3
-            className={`${cardStyles.textColor} font-bold text-base sm:text-lg leading-tight flex-grow line-clamp-2`}
+            className={`${cardStyles.textColor} font-bold text-xs  md:text-base sm:text-lg leading-tight flex-grow line-clamp-2`}
           >
             {title}
           </h3>
@@ -83,16 +83,16 @@ export default function ArtikelCard({ publikasi, resep }: ArtikelCardProps) {
             {isResepPage && resep ? (
               // ADJUSTED: Font size reduced for better balance
               <div
-                className={`${cardStyles.textColor} font-medium text-xs sm:text-sm`}
+                className={`${cardStyles.textColor} font-medium text-[8px] sm:text-sm`}
               >
                 <span>{resep.servings} servings</span>
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-0 md:gap-1.5">
                   <Image
                     src="/assets/artikel/resep-tasty/time.svg"
                     alt="Time"
                     width={16}
                     height={16}
-                    className="w-3.5 h-3.5" // Icon size adjusted slightly
+                    className="w-2 h-2 md:w-3.5 md:h-3.5" // Icon size adjusted slightly
                   />
                   {/* ADJUSTED: Added italic style */}
                   <span className="mt-0.5 italic">{resep.time}</span>
@@ -101,7 +101,7 @@ export default function ArtikelCard({ publikasi, resep }: ArtikelCardProps) {
             ) : (
               // ADJUSTED: Font size reduced for consistency
               <span
-                className={`${cardStyles.mutedTextColor} text-xs sm:text-sm`}
+                className={`${cardStyles.mutedTextColor} text-[8px] sm:text-sm`}
               >
                 {publikasi?.date}
               </span>

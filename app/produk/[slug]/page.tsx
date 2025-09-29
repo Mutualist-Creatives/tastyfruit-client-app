@@ -85,7 +85,7 @@ function MobileProductLayout({
         className="text-[#003BE2] max-w-[75%] md:max-w-[45ch] leading-relaxed text-xs font-nunito text-center mx-auto"
         content={fruit.description}
       />
-      <QualityBadges alignment="self-center" />
+      <QualityBadges alignment="self-center gap-4" />
     </div>
   );
 }
@@ -269,7 +269,7 @@ function NutritionSection({
             <div className="hidden md:block absolute right-10 -top-20 lg:right-10 xl:right-20 lg:-top-20 xl:-top-25 z-20 pointer-events-none">
               <Ribbon fruitName={product.fruit} />
             </div>
-            <div className="w-full h-auto block md:hidden flex justify-end pointer-events-none z-30">
+            <div className="w-full h-auto md:hidden flex justify-end pointer-events-none z-30">
               <Ribbon fruitName={product.fruit} />
             </div>
           </div>
