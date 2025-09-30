@@ -6,6 +6,38 @@ import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/layout/container";
 import SectionBadge from "@/components/ui/section-badge";
 import { useRouter } from "next/navigation";
+import BasicCard from "@/components/ui/basic-card";
+
+// --- DATA INOVASI BARU ---
+const innovations = [
+  {
+    image: "/assets/kisah-tasty/photo-2.jpg",
+    title: "Sistem irigasi tetes",
+    footerText: "Dengan air alami dari mata air pegunungan",
+    category: "Inovasi",
+  },
+  {
+    image: "/assets/kisah-tasty/photo-1.jpg",
+    title: "Pengendalian hama berbasis drone",
+    footerText: "Untuk perlindungan taman",
+    category: "Inovasi",
+  },
+  {
+    image: "/assets/kisah-tasty/photo-2.jpg",
+    title: "Sistem kabel (cableway)",
+    footerText:
+      "Yang terintegrasi untuk sistem pengangkutan buah dari kebun ke Packing House",
+    category: "Inovasi",
+  },
+  {
+    image: "/assets/landing-page/komitmen-tasty/jpg/photo-3.jpg",
+    title: "Biosecurity",
+    footerText:
+      "Ketat untuk mencegah kontaminasi dan menjamin mutu buah serta tanaman",
+    category: "Inovasi",
+  },
+];
+// --- AKHIR DATA INOVASI BARU ---
 
 // --- Hook untuk mendeteksi ukuran layar ---
 const useWindowSize = () => {
@@ -34,7 +66,7 @@ const useWindowSize = () => {
   return windowSize;
 };
 
-// --- Interface dan Data ---
+// --- Interface dan Data Perjalanan ---
 interface Journey {
   year: string;
   title: string;
@@ -81,6 +113,7 @@ const journeyData: Journey[] = [
 ];
 
 // --- Komponen-komponen Pendukung ---
+
 const JourneyTitle = ({
   title,
   className,
@@ -147,10 +180,10 @@ const JourneyContent = ({
     <JourneyTitle
       title={journey.title}
       isMobile={isMobile}
-      className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[22px] md:text-4xl lg:text-2xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
+      className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[22px] md:text-4xl lg:text-2xl xl:text-[36px] bg-[#B5FE28] px-2 py-0"
     />
     <div className="w-full">
-      <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-5">
+      <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-[5em] lg:mt-5">
         {journey.description}
       </div>
     </div>
@@ -212,7 +245,7 @@ const LayoutCContent = ({
 
 const StaticParagraphContent = () => (
   <>
-    <div className="w-[70%] text-start lg:text-left">
+    <div className="w-[70%] text-start lg:text-left mt-6">
       <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg">
         Tasty Fruit adalah merek buah modern yang berawal dari dataran tinggi
         yang subur. Dimulai pada tahun 2018, kami terus berinovasi dan
@@ -235,6 +268,51 @@ const StaticParagraphContent = () => (
   </>
 );
 
+// --- KOMPONEN KONTEN INOVASI BARU ---
+const InovasiContent = () => {
+  return (
+    <motion.div key="inovasi-content" {...revealAnimation}>
+      <section className="w-full flex flex-col items-start pt-4 pb-16">
+        <div className="w-full flex flex-col justify-start relative z-10 mb-8">
+          <div className="flex flex-col items-start gap-2 w-full">
+            <div className="text-center lg:text-left mb-2 md:mb-3">
+              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5 md:px-4 md:py-2">
+                INOVASI
+              </div>
+            </div>
+            <div className="text-center lg:text-left mb-2 md:mb-3">
+              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-3xl md:text-5xl lg:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5 md:px-4 md:py-2">
+                DALAM BUDIDAYA
+              </div>
+            </div>
+            <div className="w-full lg:w-[40%] text-start mb-0 md:mb-5">
+              <p className="font-nunito text-[#003CE9] text-xs md:text-lg">
+                Di Tasty Fruit®, kami menerapkan praktik pertanian yang ramah
+                lingkungan:
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Grid Kartu Inovasi */}
+        <div className="w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {innovations.map((item) => (
+              <BasicCard
+                key={item.title}
+                image={item.image}
+                title={item.title}
+                footerText={item.footerText} // Gunakan footerText
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    </motion.div>
+  );
+};
+// --- END KOMPONEN KONTEN INOVASI BARU ---
+
 // --- Komponen Utama ---
 export default function PerjalananKami() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -244,8 +322,11 @@ export default function PerjalananKami() {
   const { width } = useWindowSize();
   const isTabletOrBelow = width ? width < 1024 : false;
 
+  // Cek apakah sudah di konten inovasi (tahap akhir)
+  const isFinalContent = currentIndex === journeyData.length;
+
   const currentJourney = journeyData[currentIndex];
-  const effectiveLayout = currentJourney.layout;
+  const effectiveLayout = currentJourney ? currentJourney.layout : null;
 
   const getNextLayoutB = () => {
     for (let i = currentIndex + 1; i < journeyData.length; i++) {
@@ -266,31 +347,42 @@ export default function PerjalananKami() {
   };
 
   const pairedLayoutBJourney =
-    !isTabletOrBelow && currentJourney.layout === "layout-b"
+    !isTabletOrBelow && currentJourney && currentJourney.layout === "layout-b"
       ? getNextLayoutB() || getPrevLayoutB()
       : null;
 
   const handleNext = () => {
+    // LOGIKA PERBAIKAN: Jika di item terakhir, pindahkan currentIndex ke tahap Inovasi (index = length)
     if (currentIndex === journeyData.length - 1) {
-      router.push("/kisah-tasty/inovasi-dalam-budidaya");
+      setCurrentIndex(journeyData.length);
       return;
     }
+
+    // Logika navigasi awal mobile (ke item 2018)
     if (isTabletOrBelow && !isJourneyStarted) {
       setIsJourneyStarted(true);
       return;
     }
+
+    // Logika navigasi desktop/tablet
     if (
       !isTabletOrBelow &&
       currentJourney.layout === "layout-b" &&
       getNextLayoutB()
     ) {
-      setCurrentIndex((prevIndex) => (prevIndex + 2) % journeyData.length);
+      setCurrentIndex((prevIndex) => prevIndex + 2);
     } else {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % journeyData.length);
+      setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   };
 
   const handlePrev = () => {
+    // Jika di konten Inovasi, kembali ke item terakhir (2025)
+    if (isFinalContent) {
+      setCurrentIndex(journeyData.length - 1);
+      return;
+    }
+
     // Logic: Jika mobile dan di item pertama (0), kembali ke intro statis
     if (isTabletOrBelow && isJourneyStarted && currentIndex === 0) {
       setIsJourneyStarted(false);
@@ -315,10 +407,15 @@ export default function PerjalananKami() {
     }
   };
 
-  const showBackButton =
-    (isTabletOrBelow && isJourneyStarted) || currentIndex > 0;
+  // --- PERBAIKAN LOGIKA showNextButton ---
+  // Tombol Next terlihat jika BELUM di tahap Inovasi
+  const showNextButton = !isFinalContent;
 
-  // Cleanup timeline line (kode lama sudah dihapus, tapi return ini dibiarkan sebagai best practice)
+  // Tombol Back terlihat jika sudah masuk Journey, atau di Final Content
+  const showBackButton =
+    isFinalContent || (isTabletOrBelow && isJourneyStarted) || currentIndex > 0;
+
+  // Cleanup timeline line
   useEffect(() => {
     return () => {
       const existingLine = document.getElementById("timeline-line-2018");
@@ -331,27 +428,34 @@ export default function PerjalananKami() {
     <div className="overflow-x-hidden">
       <Container>
         <div className="relative w-full h-auto">
-          <div className="w-full lg:w-1/2 mb-6">
+          <div className="w-full lg:w-1/2">
             <div className="flex flex-col items-start gap-2">
               <SectionBadge
                 label="KISAH TASTY"
                 className="text-xs md:text-2xl lg:text-xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
               />
-              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5">
-                PERJALANAN KAMI
-              </div>
+              {/* PERBAIKAN: Hanya tampilkan 'PERJALANAN KAMI' jika BUKAN Final Content */}
+              {!isFinalContent && (
+                <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5">
+                  PERJALANAN KAMI
+                </div>
+              )}
             </div>
           </div>
 
-          <div className="relative w-full min-h-[300px]">
+          <div className="relative w-full min-h-[200px]">
             {isTabletOrBelow && !isJourneyStarted ? (
               <motion.div key="intro" {...revealAnimation}>
                 <StaticParagraphContent />
               </motion.div>
+            ) : isFinalContent ? (
+              // --- Tampilkan Komponen Inovasi di sini ---
+              <InovasiContent />
             ) : (
               <>
-                {effectiveLayout === "layout-a" && (
-                  <div className="relative w-full overflow-visible">
+                {/* Pastikan currentJourney ada sebelum mengakses layout */}
+                {currentJourney && effectiveLayout === "layout-a" && (
+                  <div className="relative w-full overflow-visible mt-6">
                     <div className="w-full flex flex-col lg:flex-row items-start relative z-10 overflow-visible">
                       <div className="w-full lg:w-1/2 flex flex-col justify-start items-center lg:items-start">
                         <div className="hidden lg:block">
@@ -389,7 +493,7 @@ export default function PerjalananKami() {
                               className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[22px] md:text-4xl lg:text-3xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
                             />
                             <div className="w-full">
-                              <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-5">
+                              <div className="font-nunito w-[70%] text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-[5em] lg:mt-5">
                                 {currentJourney.description}
                               </div>
                             </div>
@@ -400,8 +504,8 @@ export default function PerjalananKami() {
                   </div>
                 )}
 
-                {effectiveLayout === "layout-b" && (
-                  <div className="relative w-full">
+                {currentJourney && effectiveLayout === "layout-b" && (
+                  <div className="relative w-full mt-6">
                     <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
                       <svg
                         width="100%"
@@ -452,8 +556,8 @@ export default function PerjalananKami() {
                   </div>
                 )}
 
-                {effectiveLayout === "layout-c" && (
-                  <div className="relative w-full">
+                {currentJourney && effectiveLayout === "layout-c" && (
+                  <div className="relative w-full mt-6">
                     <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
                       <svg
                         width="100%"
@@ -512,7 +616,6 @@ export default function PerjalananKami() {
         </div>
       </Container>
 
-      {/* FIXED ARROWS BARU (di luar Container untuk fixed positioning) */}
       <div className="fixed bottom-[15vh] md:bottom-16 left-0 w-full p-4 md:p-8 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-4">
           {/* Previous Button */}
@@ -536,8 +639,14 @@ export default function PerjalananKami() {
             )}
           </div>
 
+          {/* HEART DECORATION - PERBAIKAN DI SINI */}
           {isJourneyStarted && (
-            <div className="flex justify-center md:hidden">
+            <div
+              // Tambahkan absolute positioning hanya jika tombol next tidak ada
+              className={`flex justify-center md:hidden ${
+                !showNextButton ? "absolute left-1/2 -translate-x-1/2" : ""
+              }`}
+            >
               <Image
                 src="/assets/decorations/heart.svg"
                 alt="Heart decoration"
@@ -550,21 +659,27 @@ export default function PerjalananKami() {
 
           {/* Next Button */}
           <div className="flex justify-end">
-            <motion.button
-              onClick={handleNext}
-              className="bg-[#B5FE28] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
-              aria-label="Langkah Berikutnya"
-              whileTap={{ scale: 0.75 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            >
-              <Image
-                src={"/assets/ui/arrow-right-blue.svg"}
-                alt="Arrow Right"
-                width={24}
-                height={24}
-                className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px]"
-              />
-            </motion.button>
+            {showNextButton && (
+              <motion.button
+                onClick={handleNext}
+                className="bg-[#B5FE28] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+                aria-label={
+                  currentIndex === journeyData.length - 1
+                    ? "Lihat Inovasi"
+                    : "Langkah Berikutnya"
+                }
+                whileTap={{ scale: 0.75 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              >
+                <Image
+                  src={"/assets/ui/arrow-right-blue.svg"}
+                  alt="Arrow Right"
+                  width={24}
+                  height={24}
+                  className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px]"
+                />
+              </motion.button>
+            )}
           </div>
         </div>
       </div>

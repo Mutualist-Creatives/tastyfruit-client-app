@@ -13,48 +13,48 @@ function LandingPageFooter() {
       <footer className="relative w-full h-auto overflow-hidden mx-auto">
         <div className="w-full h-[1em] bg-[#003CE9] mt-10"></div>
         {/* Blue top border */}
-        {/* Banana Image for Tablet/Desktop */}
-        <div className="hidden md:block -z-10 absolute -bottom-10 md:-right-15 md:top-0">
+        {/* Banana Image - positioned differently for mobile vs desktop */}
+        <div className="w-full h-full -z-10 absolute top-[30rem] md:top-0">
           <Image
             src="/assets/ui/pisang.svg"
             alt="Pisang"
             width={800}
             height={900}
-            className="object-contain w-[17.5rem] md:w-[40rem] translate-x-[12.5em] md:translate-x-[15em] lg:w-[55rem] lg:translate-x-[20em]"
+            className="object-contain w-full h-[20rem] md:w-[40rem] md:h-auto lg:w-[55rem] translate-x-[20vw] md:translate-x-[50vw]"
           />
         </div>
 
         {/* Content */}
-        <div className="flex flex-col w-full h-auto mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-20 font-nunito py-12">
-          <div className="flex md:flex-col w-full md:w-[65%] lg:w-[60%] items-center md:items-start">
+        <div className="flex flex-col w-full h-[40em] md:h-auto mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-20 font-nunito py-12">
+          <div className="flex md:flex-col w-full md:w-[65%] lg:w-[60%] items-start">
             {/* Heading Section */}
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl lg:text-6xl bg-[#003BE2] px-3 sm:px-4 py-2 -mb-2 tracking-wide -rotate-3">
+            <div className="w-[50%] md:w-full flex flex-col items-start gap-2">
+              <div className="font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-xl md:text-5xl lg:text-6xl bg-[#003BE2] px-3 sm:px-4 py-2 -mb-2 tracking-wide -rotate-3">
                 INGIN TAHU LEBIH?
               </div>
-              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-5xl md:text-6xl lg:text-7xl bg-[#B5FE28] px-3 sm:px-4 py-2 tracking-wide md:ml-7">
+              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-xl md:text-6xl lg:text-7xl bg-[#B5FE28] px-3 sm:px-4 py-2 tracking-wide md:ml-7">
                 HUBUNGI KAMI
               </div>
             </div>
 
             {/* Contact Info */}
-            <div className="mt-8 w-full max-w-2xl">
+            <div className="mt-8 w-[50%] md:w-full max-w-2xl">
               <div className="flex flex-col md:flex-row gap-8">
                 {/* Address Section */}
-                <div className="flex flex-col items-center md:items-start flex-1">
-                  <div className="w-full flex justify-center md:justify-start items-center">
+                <div className="flex flex-col items-start flex-1">
+                  <div className="w-full flex justify-start items-center">
                     <Image
                       src="/assets/ui/location-blue.svg"
                       alt="Location"
                       width={24}
                       height={24}
-                      className="w-6 h-6"
+                      className="hidden md:block w-6 h-6"
                     />
-                    <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-bold ml-2">
+                    <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-bold ml-0 md:ml-2">
                       GRAHA DSN
                     </div>
                   </div>
-                  <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg text-center md:text-left font-normal ml-0 md:ml-8 mt-1">
+                  <div className="text-[#003CE9] text-base sm:text-lg md:text-sm lg:text-base xl:text-lg text-left font-normal ml-0 md:ml-8 mt-1">
                     Jl. Pulo Ayang Kav. OR3 Kawasan Industri Pulogadung Cakung,
                     Jakarta Timur DKI Jakarta, 13260
                   </div>
@@ -66,7 +66,7 @@ function LandingPageFooter() {
                 <hr className="md:hidden w-full my-2 md:my-4 border-[#003CE9]/20" />
 
                 {/* Contact Section */}
-                <div className="flex flex-col items-center md:items-start flex-1 gap-2">
+                <div className="flex flex-col items-start flex-1 gap-2">
                   <div className="flex items-center">
                     <Image
                       src="/assets/ui/telephone-blue.svg"
@@ -107,17 +107,6 @@ function LandingPageFooter() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Banana image specifically for mobile view, in normal flow */}
-        <div className="w-full mt-12 md:hidden">
-          <Image
-            src="/assets/ui/pisang.svg"
-            alt="Pisang"
-            width={800}
-            height={900}
-            className="w-full h-auto"
-          />
         </div>
       </footer>
       {/* Blue bottom border */}
