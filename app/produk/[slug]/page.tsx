@@ -57,7 +57,7 @@ function MobileProductLayout({
   const alignRight = !isOdd;
 
   return (
-    <div className="md:hidden px-4 sm:px-6 pb-12 flex flex-col gap-2">
+    <div className="md:hidden px-6 pb-12 flex flex-col gap-2">
       <SectionBadge
         label="PRODUK TASTY"
         className="text-xs md:text-3xl lg:text-2xl px-1 py-0.5 md:px-2 md:py-0.5"
@@ -260,7 +260,7 @@ function NutritionSection({
 }) {
   return (
     <section
-      className="relative mx-auto max-w-full px-4 sm:px-6 lg:px-20 pt-16 pb-0"
+      className="relative mx-auto max-w-full px-6 lg:px-20 pt-16 pb-0"
       style={{ background: `linear-gradient(to bottom, #B5FE2800, #B5FE28)` }}
     >
       <div className="w-full h-auto mx-auto 2xl:max-w-[1440px]">

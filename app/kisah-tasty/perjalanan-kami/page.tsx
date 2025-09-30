@@ -291,6 +291,7 @@ export default function PerjalananKami() {
   };
 
   const handlePrev = () => {
+    // Logic: Jika mobile dan di item pertama (0), kembali ke intro statis
     if (isTabletOrBelow && isJourneyStarted && currentIndex === 0) {
       setIsJourneyStarted(false);
       return;
@@ -298,6 +299,8 @@ export default function PerjalananKami() {
     if (currentIndex === 0) {
       return;
     }
+
+    // Logic navigasi ganda untuk Layout B di desktop
     const currentJourney = journeyData[currentIndex];
     const prevJourney = journeyData[currentIndex - 1];
     if (
@@ -313,10 +316,9 @@ export default function PerjalananKami() {
   };
 
   const showBackButton =
-    (isTabletOrBelow && isJourneyStarted) ||
-    (!isTabletOrBelow && currentIndex > 0);
+    (isTabletOrBelow && isJourneyStarted) || currentIndex > 0;
 
-  // Cleanup timeline line when component unmounts or currentIndex changes
+  // Cleanup timeline line (kode lama sudah dihapus, tapi return ini dibiarkan sebagai best practice)
   useEffect(() => {
     return () => {
       const existingLine = document.getElementById("timeline-line-2018");
@@ -325,247 +327,215 @@ export default function PerjalananKami() {
   }, [currentIndex]);
 
   return (
-    <Container>
-      <div className="relative w-full h-auto">
-        <div className="w-full lg:w-1/2 mb-6">
-          <div className="flex flex-col items-start gap-2">
-            <SectionBadge
-              label="KISAH TASTY"
-              className="text-xs md:text-2xl lg:text-xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
-            />
-            <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5">
-              PERJALANAN KAMI
+    // Tambahkan overflow-x-hidden untuk mengatasi scrollbar vertikal di mobile
+    <div className="overflow-x-hidden">
+      <Container>
+        <div className="relative w-full h-auto">
+          <div className="w-full lg:w-1/2 mb-6">
+            <div className="flex flex-col items-start gap-2">
+              <SectionBadge
+                label="KISAH TASTY"
+                className="text-xs md:text-2xl lg:text-xl px-1 py-0.5 md:px-2 md:py-0.5 mb-1"
+              />
+              <div className="font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-2xl md:text-5xl xl:text-6xl bg-[#B5FE28] px-2 py-0.5">
+                PERJALANAN KAMI
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="relative w-full min-h-[300px]">
-          {isTabletOrBelow && !isJourneyStarted ? (
-            <motion.div key="intro" {...revealAnimation}>
-              <StaticParagraphContent />
-            </motion.div>
-          ) : (
-            <>
-              {effectiveLayout === "layout-a" && (
-                <div className="relative w-full overflow-visible">
-                  <div className="w-full flex flex-col lg:flex-row items-start relative z-10 overflow-visible">
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start items-center lg:items-start">
-                      <div className="hidden lg:block">
-                        <StaticParagraphContent />
+          <div className="relative w-full min-h-[300px]">
+            {isTabletOrBelow && !isJourneyStarted ? (
+              <motion.div key="intro" {...revealAnimation}>
+                <StaticParagraphContent />
+              </motion.div>
+            ) : (
+              <>
+                {effectiveLayout === "layout-a" && (
+                  <div className="relative w-full overflow-visible">
+                    <div className="w-full flex flex-col lg:flex-row items-start relative z-10 overflow-visible">
+                      <div className="w-full lg:w-1/2 flex flex-col justify-start items-center lg:items-start">
+                        <div className="hidden lg:block">
+                          <StaticParagraphContent />
+                        </div>
+                      </div>
+                      <div className="w-full lg:w-1/2 flex flex-col justify-start overflow-visible">
+                        <AnimatePresence mode="wait">
+                          <motion.div key={currentIndex} {...revealAnimation}>
+                            {/* Garis Timeline Layout A (2018) diubah menjadi Absolute */}
+                            <div className="flex items-center relative">
+                              {/* Garis Absolute (Menggantikan Fixed) */}
+                              <div className="absolute top-3/8 h-2.5 w-[100vw] z-0">
+                                <motion.div
+                                  className="bg-[#003CE9] h-full"
+                                  key="timeline-2018"
+                                  initial={{ width: 0 }}
+                                  animate={{ width: "100%" }}
+                                  transition={{
+                                    duration: 2,
+                                    ease: "easeInOut",
+                                  }}
+                                />
+                              </div>
+
+                              {/* Konten Tahun */}
+                              <div className="relative inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-2 py-0 z-10">
+                                {currentJourney.year}
+                              </div>
+                            </div>
+
+                            <JourneyTitle
+                              title={currentJourney.title}
+                              isMobile={isTabletOrBelow}
+                              className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[22px] md:text-4xl lg:text-3xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
+                            />
+                            <div className="w-full">
+                              <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-5">
+                                {currentJourney.description}
+                              </div>
+                            </div>
+                          </motion.div>
+                        </AnimatePresence>
                       </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start overflow-visible">
-                      <AnimatePresence mode="wait">
-                        <motion.div key={currentIndex} {...revealAnimation}>
-                          <div className="flex items-center">
-                            <div
-                              className="relative inline-block font-bricolage-grotesque-condensed text-[#B5FE28] font-extrabold text-4xl md:text-5xl bg-[#003BE2] px-2 py-0"
-                              ref={(el) => {
-                                // Always clean up existing line first
-                                const existingLine =
-                                  document.getElementById("timeline-line-2018");
-                                if (existingLine) existingLine.remove();
-
-                                if (el && currentIndex === 0) {
-                                  // Wait for element to be fully rendered
-                                  setTimeout(() => {
-                                    const rect = el.getBoundingClientRect();
-                                    const line = document.createElement("div");
-                                    line.id = "timeline-line-2018";
-
-                                    // Start more to the left for better visual connection
-                                    const startX = rect.right - 40;
-                                    line.style.cssText = `
-                                      position: fixed;
-                                      top: ${rect.top + rect.height / 2 - 5}px;
-                                      left: ${startX}px;
-                                      width: ${
-                                        window.innerWidth - startX + 12
-                                      }px;
-                                      height: 10px;
-                                      background: #003CE9;
-                                      z-index: 1;
-                                      pointer-events: none;
-                                      transform-origin: left center;
-                                      transform: scaleX(0);
-                                      transition: transform 2s ease-in-out;
-                                    `;
-                                    document.body.appendChild(line);
-
-                                    // Trigger animation
-                                    setTimeout(() => {
-                                      line.style.transform = "scaleX(1)";
-                                    }, 100);
-                                  }, 50);
-                                }
-                              }}
-                            >
-                              {currentJourney.year}
-                            </div>
-                          </div>
-                          <JourneyTitle
-                            title={currentJourney.title}
-                            isMobile={isTabletOrBelow}
-                            className="inline-block font-bricolage-grotesque-condensed text-[#003CE9] font-extrabold text-[22px] md:text-4xl lg:text-3xl xl:text-[40px] bg-[#B5FE28] px-2 py-0"
-                          />
-                          <div className="w-full">
-                            <div className="font-nunito text-[#003CE9] text-xs md:text-lg lg:text-base xl:text-lg mt-5">
-                              {currentJourney.description}
-                            </div>
-                          </div>
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {effectiveLayout === "layout-b" && (
-                <div className="relative w-full">
-                  <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
-                    <svg
-                      width="100%"
-                      height="50"
-                      className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] z-0"
-                    >
-                      <motion.line
-                        x1="0"
-                        y1="25"
-                        x2="100%"
-                        y2="25"
-                        stroke="#003CE9"
-                        strokeWidth="10"
-                        key={currentIndex}
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                      />
-                    </svg>
-                  </div>
-                  <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-4 items-start relative z-10">
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start">
-                      <AnimatePresence mode="wait">
-                        <motion.div key={currentIndex} {...revealAnimation}>
-                          <JourneyContent
-                            journey={currentJourney}
-                            isMobile={isTabletOrBelow}
-                          />
-                        </motion.div>
-                      </AnimatePresence>
+                {effectiveLayout === "layout-b" && (
+                  <div className="relative w-full">
+                    <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
+                      <svg
+                        width="100%"
+                        height="50"
+                        className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] z-0"
+                      >
+                        <motion.line
+                          x1="0"
+                          y1="25"
+                          x2="100%"
+                          y2="25"
+                          stroke="#003CE9"
+                          strokeWidth="10"
+                          key={currentIndex}
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 2, ease: "easeInOut" }}
+                        />
+                      </svg>
                     </div>
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start">
-                      <AnimatePresence mode="wait">
-                        {pairedLayoutBJourney && (
-                          <motion.div
-                            key={`${currentIndex}-paired`}
-                            {...revealAnimation}
-                          >
+                    <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-4 items-start relative z-10">
+                      <div className="w-full lg:w-1/2 flex flex-col justify-start">
+                        <AnimatePresence mode="wait">
+                          <motion.div key={currentIndex} {...revealAnimation}>
                             <JourneyContent
-                              journey={pairedLayoutBJourney}
+                              journey={currentJourney}
                               isMobile={isTabletOrBelow}
                             />
                           </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {effectiveLayout === "layout-c" && (
-                <div className="relative w-full">
-                  <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
-                    <svg
-                      width="100%"
-                      height="50"
-                      className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] z-0"
-                    >
-                      <motion.line
-                        x1="0"
-                        y1="25"
-                        x2={
-                          currentIndex === journeyData.length - 1
-                            ? "20%"
-                            : "100%"
-                        }
-                        y2="25"
-                        stroke="#003CE9"
-                        strokeWidth="10"
-                        key={currentIndex}
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                      />
-                    </svg>
-                  </div>
-
-                  <div className="w-full flex justify-center relative z-10">
-                    <div className="w-full lg:w-4/5 flex flex-col justify-start">
-                      <AnimatePresence mode="wait">
-                        <motion.div key={currentIndex} {...revealAnimation}>
-                          {currentJourney.layout === "layout-b" &&
-                          isTabletOrBelow ? (
-                            <JourneyContent
-                              journey={currentJourney}
-                              isMobile={isTabletOrBelow}
-                            />
-                          ) : (
-                            <LayoutCContent
-                              journey={currentJourney}
-                              isMobile={isTabletOrBelow}
-                              isLastItem={
-                                currentIndex === journeyData.length - 1
-                              }
-                            />
+                        </AnimatePresence>
+                      </div>
+                      <div className="w-full lg:w-1/2 flex flex-col justify-start">
+                        <AnimatePresence mode="wait">
+                          {pairedLayoutBJourney && (
+                            <motion.div
+                              key={`${currentIndex}-paired`}
+                              {...revealAnimation}
+                            >
+                              <JourneyContent
+                                journey={pairedLayoutBJourney}
+                                isMobile={isTabletOrBelow}
+                              />
+                            </motion.div>
                           )}
-                        </motion.div>
-                      </AnimatePresence>
+                        </AnimatePresence>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </>
-          )}
-        </div>
+                )}
 
-        <div className="flex justify-between items-center gap-4">
-          <div className="flex justify-start">
-            {showBackButton && (
-              <motion.div
-                className="cursor-pointer"
-                onClick={handlePrev}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <motion.div
-                  className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center shadow-lg"
-                  whileHover={{
-                    boxShadow: "0 8px 25px rgba(181, 254, 40, 0.4)",
-                    backgroundColor: "#A5EE18",
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <motion.div
-                    whileHover={{ x: -2 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 17,
-                    }}
-                  >
-                    <Image
-                      src="/assets/ui/arrow-right-blue.svg"
-                      alt="Langkah sebelumnya"
-                      width={28}
-                      height={28}
-                      className="w-6 h-6 md:w-10 md:h-10 transform rotate-180"
-                    />
-                  </motion.div>
-                </motion.div>
-              </motion.div>
+                {effectiveLayout === "layout-c" && (
+                  <div className="relative w-full">
+                    <div className="absolute top-0 left-0 w-full h-[50px] overflow-visible">
+                      <svg
+                        width="100%"
+                        height="50"
+                        className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] z-0"
+                      >
+                        <motion.line
+                          x1="0"
+                          y1="25"
+                          x2={
+                            currentIndex === journeyData.length - 1
+                              ? isTabletOrBelow // Logic: mobile 10%, desktop 20%
+                                ? "10%"
+                                : "20%"
+                              : "100%"
+                          }
+                          y2="25"
+                          stroke="#003CE9"
+                          strokeWidth="10"
+                          key={currentIndex}
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 2, ease: "easeInOut" }}
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="w-full flex justify-center relative z-10">
+                      <div className="w-full lg:w-4/5 flex flex-col justify-start">
+                        <AnimatePresence mode="wait">
+                          <motion.div key={currentIndex} {...revealAnimation}>
+                            {currentJourney.layout === "layout-b" &&
+                            isTabletOrBelow ? (
+                              <JourneyContent
+                                journey={currentJourney}
+                                isMobile={isTabletOrBelow}
+                              />
+                            ) : (
+                              <LayoutCContent
+                                journey={currentJourney}
+                                isMobile={isTabletOrBelow}
+                                isLastItem={
+                                  currentIndex === journeyData.length - 1
+                                }
+                              />
+                            )}
+                          </motion.div>
+                        </AnimatePresence>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </div>
+        </div>
+      </Container>
+
+      {/* FIXED ARROWS BARU (di luar Container untuk fixed positioning) */}
+      <div className="fixed bottom-[15vh] md:bottom-16 left-0 w-full p-4 md:p-8 z-50">
+        <div className="max-w-7xl mx-auto flex justify-between items-center gap-4">
+          {/* Previous Button */}
+          <div className="flex justify-start">
+            {showBackButton && (
+              <motion.button
+                onClick={handlePrev}
+                className="bg-[#B5FE28] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+                aria-label="Langkah sebelumnya"
+                whileTap={{ scale: 0.75 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              >
+                <Image
+                  src={"/assets/ui/arrow-right-blue.svg"}
+                  alt="Arrow Left"
+                  width={24}
+                  height={24}
+                  className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px] rotate-180"
+                />
+              </motion.button>
+            )}
+          </div>
+
           {isJourneyStarted && (
             <div className="flex justify-center md:hidden">
               <Image
@@ -577,39 +547,27 @@ export default function PerjalananKami() {
               />
             </div>
           )}
+
+          {/* Next Button */}
           <div className="flex justify-end">
-            <motion.div
-              className="cursor-pointer"
+            <motion.button
               onClick={handleNext}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="bg-[#B5FE28] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+              aria-label="Langkah Berikutnya"
+              whileTap={{ scale: 0.75 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
             >
-              <motion.div
-                className="bg-[#B5FE28] rounded-full w-10 h-10 md:w-16 md:h-16 flex items-center justify-center shadow-lg"
-                whileHover={{
-                  boxShadow: "0 8px 25px rgba(181, 254, 40, 0.4)",
-                  backgroundColor: "#A5EE18",
-                }}
-                transition={{ duration: 0.2 }}
-              >
-                <motion.div
-                  whileHover={{ x: 2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Image
-                    src="/assets/ui/arrow-right-blue.svg"
-                    alt="Langkah Berikutnya"
-                    width={28}
-                    height={28}
-                    className="w-6 h-6 md:w-10 md:h-10"
-                  />
-                </motion.div>
-              </motion.div>
-            </motion.div>
+              <Image
+                src={"/assets/ui/arrow-right-blue.svg"}
+                alt="Arrow Right"
+                width={24}
+                height={24}
+                className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px]"
+              />
+            </motion.button>
           </div>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }

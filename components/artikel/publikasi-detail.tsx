@@ -49,7 +49,7 @@ export default function ArtikelDetail({
         {/* Main Article Content Wrapper */}
         <div className="mx-auto w-full font-nunito text-[#003BE2]">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-4xl font-bold text-[#003CE9] text-center font-bricolage-grotesque leading-tight">
+            <h1 className="text-xl md:text-4xl font-bold text-[#003CE9] text-center font-bricolage-grotesque leading-tight">
               {artikel.title}
             </h1>
 
@@ -78,7 +78,7 @@ export default function ArtikelDetail({
             </div>
 
             <article
-              className="prose lg:prose-lg max-w-none text-justify"
+              className="text-xs md:text-base prose lg:prose-lg max-w-none text-justify"
               dangerouslySetInnerHTML={{ __html: sanitizedContent }}
             />
           </div>

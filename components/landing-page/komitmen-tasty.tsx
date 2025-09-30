@@ -9,7 +9,7 @@ export default function KomitmenTasty() {
         {/* Container with responsive layout */}
         <div className="relative flex h-full flex-col items-stretch gap-4 lg:flex-row lg:gap-6">
           {/* Images Section - 70% width on desktop */}
-          <div className="relative order-1 flex-1 h-[360px] md:h-[440px] lg:h-[440px] xl:h-[500px] w-full lg:order-1 lg:w-[65%] lg:flex-none">
+          <div className="relative flex-1 h-[360px] md:h-[440px] lg:h-[440px] xl:h-[500px] w-full lg:w-[65%] lg:flex-none">
             {/* Komitmen Tasty Title SVG */}
             <div className="absolute left-0 z-20 -top-12 h-full">
               <Image
@@ -85,7 +85,7 @@ export default function KomitmenTasty() {
           </div>
 
           {/* Content Section - 30% width on desktop */}
-          <div className="order-2 flex w-full flex-col justify-end space-y-3 md:max-w-[65ch] mx-auto lg:mx-0 lg:order-2 lg:w-[35%] lg:space-y-4">
+          <div className="flex w-full flex-col justify-end space-y-3 md:max-w-[65ch] mx-auto lg:mx-0 lg:w-[35%] lg:space-y-4">
             {/* Quality Badges */}
             <div className="flex justify-start gap-2">
               <div className="flex-shrink-0">
