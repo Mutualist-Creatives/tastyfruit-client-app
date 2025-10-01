@@ -1,7 +1,8 @@
-"use client"; // This directive marks it as a Client Component
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import SectionBadge from "@/components/ui/section-badge";
 import { publikasiData } from "@/lib/publikasi-data";
 
@@ -9,7 +10,9 @@ type Artikel = (typeof publikasiData)[0];
 
 interface ArtikelDetailProps {
   artikel: Artikel;
-  nextArtikel: Artikel;
+  // Ubah tipe agar bisa menerima null
+  nextArtikel?: Artikel | null;
+  prevArtikel?: Artikel | null;
   sanitizedContent: string;
 }
 
@@ -31,6 +34,7 @@ const getCategoryColor = (category: string) => {
 export default function ArtikelDetail({
   artikel,
   nextArtikel,
+  prevArtikel,
   sanitizedContent,
 }: ArtikelDetailProps) {
   return (
@@ -66,7 +70,7 @@ export default function ArtikelDetail({
                 alt={artikel.title}
                 width={896}
                 height={504}
-                className="w-full h-[25em] object-cover rounded-2xl"
+                className="w-full h-auto md:h-[25em] object-cover rounded-2xl"
               />
             </div>
 
@@ -84,21 +88,63 @@ export default function ArtikelDetail({
           </div>
         </div>
 
-        {/* Next Article Navigation Button (Aligned right) */}
-        <div className="flex justify-end pt-8 w-full">
-          <Link
-            href={`/artikel/publikasi/${nextArtikel.id}`}
-            className="block hover:scale-110 transition-transform duration-300"
-          >
-            <div className="bg-[#B5FE28] rounded-full w-16 h-16 flex items-center justify-center">
-              <Image
-                src="/assets/ui/arrow-right-blue.svg"
-                alt="Next article"
-                width={24}
-                height={24}
-              />
+        {/* Fixed Navigation Buttons */}
+        <div className="fixed bottom-[15vh] md:bottom-16 left-0 w-full p-4 md:p-8 z-50 pointer-events-none">
+          <div className="max-w-7xl mx-auto flex justify-between items-center gap-4">
+            {/* Previous Button - Always show, but link changes */}
+            <div className="flex justify-start pointer-events-auto">
+              {/* PERBAIKAN: href sekarang benar-benar dinamis berdasarkan keberadaan prevArtikel */}
+              <Link
+                href={
+                  prevArtikel
+                    ? `/artikel/publikasi/${prevArtikel.id}`
+                    : "/artikel/publikasi"
+                }
+                className="block"
+                aria-label={
+                  prevArtikel ? "Artikel Sebelumnya" : "Kembali ke Publikasi"
+                }
+              >
+                <motion.div
+                  className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors"
+                  whileTap={{ scale: 0.75 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                >
+                  <Image
+                    src="/assets/ui/arrow-right-blue.svg"
+                    alt={prevArtikel ? "Previous article" : "Back to articles"}
+                    width={20}
+                    height={20}
+                    className="rotate-180"
+                  />
+                </motion.div>
+              </Link>
             </div>
-          </Link>
+
+            {/* Next Article Button - PERBAIKAN: Hanya muncul jika nextArtikel ada (bukan null/undefined) */}
+            {nextArtikel && (
+              <div className="flex justify-end pointer-events-auto">
+                <Link
+                  href={`/artikel/publikasi/${nextArtikel.id}`}
+                  className="block"
+                  aria-label="Artikel Selanjutnya"
+                >
+                  <motion.div
+                    className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors"
+                    whileTap={{ scale: 0.75 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  >
+                    <Image
+                      src="/assets/ui/arrow-right-blue.svg"
+                      alt="Next article"
+                      width={20}
+                      height={20}
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

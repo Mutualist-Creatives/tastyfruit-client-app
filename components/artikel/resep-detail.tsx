@@ -1,14 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import SectionBadge from "@/components/ui/section-badge";
 import { ResepTastyData } from "@/lib/resep-tasty-data";
 
 interface ResepDetailProps {
   resep: ResepTastyData;
+  nextResep?: ResepTastyData;
+  prevResep?: ResepTastyData;
 }
 
-export default function ResepDetail({ resep }: ResepDetailProps) {
+export default function ResepDetail({
+  resep,
+  nextResep,
+  prevResep,
+}: ResepDetailProps) {
   return (
     <article className="w-full mx-auto">
       {/* ================================================================== */}
@@ -197,6 +205,60 @@ export default function ResepDetail({ resep }: ResepDetailProps) {
               </ol>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Fixed Navigation Buttons - Similar to publikasi-detail */}
+      <div className="fixed bottom-[15vh] md:bottom-16 left-0 w-full p-4 md:p-8 z-50">
+        <div className="max-w-7xl mx-auto flex justify-between items-center gap-4">
+          {/* Previous Button - Always show */}
+          <div className="flex justify-start">
+            <Link
+              href={
+                prevResep
+                  ? `/artikel/resep-tasty/${prevResep.id}`
+                  : "/artikel/resep-tasty"
+              }
+              className="block"
+            >
+              <motion.div
+                className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors"
+                whileTap={{ scale: 0.75 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              >
+                <Image
+                  src="/assets/ui/arrow-right-blue.svg"
+                  alt={prevResep ? "Previous recipe" : "Back to recipes"}
+                  width={20}
+                  height={20}
+                  className="rotate-180"
+                />
+              </motion.div>
+            </Link>
+          </div>
+
+          {/* Next Recipe Button - Only show if nextResep exists */}
+          {nextResep && (
+            <div className="flex justify-end">
+              <Link
+                href={`/artikel/resep-tasty/${nextResep.id}`}
+                className="block"
+              >
+                <motion.div
+                  className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors"
+                  whileTap={{ scale: 0.75 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                >
+                  <Image
+                    src="/assets/ui/arrow-right-blue.svg"
+                    alt="Next recipe"
+                    width={20}
+                    height={20}
+                  />
+                </motion.div>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </article>

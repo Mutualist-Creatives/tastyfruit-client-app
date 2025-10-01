@@ -623,7 +623,7 @@ export default function PerjalananKami() {
             {showBackButton && (
               <motion.button
                 onClick={handlePrev}
-                className="bg-[#B5FE28] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+                className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
                 aria-label="Langkah sebelumnya"
                 whileTap={{ scale: 0.75 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -631,9 +631,9 @@ export default function PerjalananKami() {
                 <Image
                   src={"/assets/ui/arrow-right-blue.svg"}
                   alt="Arrow Left"
-                  width={24}
-                  height={24}
-                  className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px] rotate-180"
+                  width={20}
+                  height={20}
+                  className="rotate-180"
                 />
               </motion.button>
             )}
@@ -662,7 +662,7 @@ export default function PerjalananKami() {
             {showNextButton && (
               <motion.button
                 onClick={handleNext}
-                className="bg-[#B5FE28] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+                className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
                 aria-label={
                   currentIndex === journeyData.length - 1
                     ? "Lihat Inovasi"
@@ -674,9 +674,8 @@ export default function PerjalananKami() {
                 <Image
                   src={"/assets/ui/arrow-right-blue.svg"}
                   alt="Arrow Right"
-                  width={24}
-                  height={24}
-                  className="w-[22px] h-[22px] sm:w-[25px] sm:h-[25px]"
+                  width={20}
+                  height={20}
                 />
               </motion.button>
             )}
