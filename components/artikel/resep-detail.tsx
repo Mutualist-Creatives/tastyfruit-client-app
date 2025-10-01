@@ -8,8 +8,8 @@ import { ResepTastyData } from "@/lib/resep-tasty-data";
 
 interface ResepDetailProps {
   resep: ResepTastyData;
-  nextResep?: ResepTastyData;
-  prevResep?: ResepTastyData;
+  nextResep?: ResepTastyData | null;
+  prevResep?: ResepTastyData | null;
 }
 
 export default function ResepDetail({

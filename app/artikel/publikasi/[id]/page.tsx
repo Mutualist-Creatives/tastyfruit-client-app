@@ -17,13 +17,12 @@ export function generateStaticParams() {
 /**
  * Komponen Halaman Detail Publikasi.
  */
-// PERBAIKAN 1: `params` bukan Promise. Hapus `async` dan `await`.
-export default function PublikasiDetailPage({
+export default async function PublikasiDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
 
   // Cari artikel saat ini
   const artikel = publikasiData.find((p) => p.id === id);
