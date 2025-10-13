@@ -77,12 +77,12 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-4">
+            <nav className="hidden lg:flex items-center space-x-4 gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors whitespace-nowrap ${
+                  className={`py-2 rounded-md text-sm font-semibold transition-colors whitespace-nowrap ${
                     isActiveLink(item.href)
                       ? "text-[#B5FE28]" // Active link color
                       : "text-white hover:text-gray-200"
