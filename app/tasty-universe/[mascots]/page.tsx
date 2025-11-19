@@ -43,7 +43,7 @@ export default async function Mascots({
             {/* Left column: texts */}
             <div className="w-full lg:w-[40%] space-y-6">
               <div className="flex justify-start">
-                <CtaButton px="2" py="0" href="/" color="blue">
+                <CtaButton px="2" py="0" href="/tasty-universe" color="blue">
                   MEET THE PACK!
                 </CtaButton>
               </div>
