@@ -114,13 +114,13 @@ export default async function Mascots({
             </div>
 
             {/* Middle column: character image only (no holder/bg) */}
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <Image
                 src={character.image}
                 alt={character.name}
                 width={560}
                 height={560}
-                className="object-contain drop-shadow-xl w-[auto] h-[30em] lg:h-[35em] -z-50"
+                className="object-contain drop-shadow-xl w-[auto] h-[30em] lg:h-[35em]"
                 priority
               />
             </div>
