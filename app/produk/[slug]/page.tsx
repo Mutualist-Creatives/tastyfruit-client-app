@@ -424,7 +424,7 @@ function OtherProductsSection({
             {otherProducts.map((item) => (
               <Link
                 key={item.id}
-                href={`/${item.slug.toLowerCase()}`}
+                href={`/produk/${item.slug.toLowerCase()}`}
                 className="flex-1 min-w-0"
               >
                 <div className="w-full max-w-[5rem] sm:max-w-[6rem] md:max-w-[8rem] lg:max-w-[10rem] xl:max-w-[15rem] mx-auto relative aspect-[4/5] transform-gpu hover:scale-105 transition-transform duration-150">
