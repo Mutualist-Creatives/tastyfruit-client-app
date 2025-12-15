@@ -64,13 +64,13 @@ export const produkData: ProdukData[] = [
         description:
           "Dua pisang Cavendish premium dikemas dalam Tasty Fruit® Twin untuk konsumsi snack sehat Anda! Kami memastikan buah kami bebas residu pestisida dan ditumbuhkan di dataran tinggi dengan tanah vulkanik yang menghasilkan buah dengan tekstur dan rasa yang unik.",
       },
-      {
-        name: "Tasty Fruit Max",
-        slug: "tasty-fruit-max",
-        image: "/assets/produk/pisang/Tasty Fruit Max.png",
-        description:
-          "Tasty Fruit® Max berisikan tiga buah pisang Cavendish premium yang dibudidayakan secara etis di dataran tinggi dengan tanah vulkanik dan bebas residu pestisida, sebuah komitmen untuk menjaga keberlanjutan <br><br><b>Three</b>'s the charm, keeps you from <b>harm!</b>",
-      },
+      // {
+      //   name: "Tasty Fruit Max",
+      //   slug: "tasty-fruit-max",
+      //   image: "/assets/produk/pisang/Tasty Fruit Max.png",
+      //   description:
+      //     "Tasty Fruit® Max berisikan tiga buah pisang Cavendish premium yang dibudidayakan secara etis di dataran tinggi dengan tanah vulkanik dan bebas residu pestisida, sebuah komitmen untuk menjaga keberlanjutan <br><br><b>Three</b>'s the charm, keeps you from <b>harm!</b>",
+      // },
       {
         name: "Tasty Fruit One",
         slug: "tasty-fruit-one",
@@ -134,37 +134,37 @@ export const produkData: ProdukData[] = [
     bgGradient: "#B5FE28",
     fruitCardImage: "/assets/produk/melon/melon-card.png", // <<--- DATA BARU
   },
-  {
-    id: 3,
-    slug: "alpukat",
-    description:
-      "Alpukat Hass Tasty Fruit® memiliki <b>tekstur lembut</b> dan <b>rasa gurih</b> yang segar. Cari tahu dan rasakan alpukat haas yang tak tertandingi!",
-    layoutType: "layout-a",
-    fruit: "Alpukat",
-    characterSlug: "nami",
-    gesture: "/assets/mascots/alpukat/alpukat-gesture-03.png",
-    fruitType: [
-      {
-        name: "Hass Avocado",
-        slug: "hass-avocado",
-        image: "/assets/produk/alpukat/Hass Avocado.png",
-        description:
-          "Tasty Fruit® Alpukat Hass Grade A adalah pilihan terbaik untuk melengkapi menu sehat Anda. Dibudidayakan secara cermat di dataran tinggi dengan tanah vulkanik, alpukat ini kaya akan lemak tak jenuh tunggal yang baik bagi tubuh.",
-      },
-    ],
-    nutrition: {
-      energy: "160 kcal",
-      totalFat: "14.7g",
-      cholesterol: "0mg",
-      fiber: "6.7g",
-      carbohydrates: "8.5g",
-      protein: "2g",
-      sodium: "7mg",
-      magnesium: "29mg",
-      potassium: "485mg",
-    },
-    fruitCardType: "layout-b",
-    bgGradient: "",
-    fruitCardImage: "/assets/produk/alpukat/alpukat-card.png", // <<--- DATA BARU
-  },
+  // {
+  //   id: 3,
+  //   slug: "alpukat",
+  //   description:
+  //     "Alpukat Hass Tasty Fruit® memiliki <b>tekstur lembut</b> dan <b>rasa gurih</b> yang segar. Cari tahu dan rasakan alpukat haas yang tak tertandingi!",
+  //   layoutType: "layout-a",
+  //   fruit: "Alpukat",
+  //   characterSlug: "nami",
+  //   gesture: "/assets/mascots/alpukat/alpukat-gesture-03.png",
+  //   fruitType: [
+  //     {
+  //       name: "Hass Avocado",
+  //       slug: "hass-avocado",
+  //       image: "/assets/produk/alpukat/Hass Avocado.png",
+  //       description:
+  //         "Tasty Fruit® Alpukat Hass Grade A adalah pilihan terbaik untuk melengkapi menu sehat Anda. Dibudidayakan secara cermat di dataran tinggi dengan tanah vulkanik, alpukat ini kaya akan lemak tak jenuh tunggal yang baik bagi tubuh.",
+  //     },
+  //   ],
+  //   nutrition: {
+  //     energy: "160 kcal",
+  //     totalFat: "14.7g",
+  //     cholesterol: "0mg",
+  //     fiber: "6.7g",
+  //     carbohydrates: "8.5g",
+  //     protein: "2g",
+  //     sodium: "7mg",
+  //     magnesium: "29mg",
+  //     potassium: "485mg",
+  //   },
+  //   fruitCardType: "layout-b",
+  //   bgGradient: "",
+  //   fruitCardImage: "/assets/produk/alpukat/alpukat-card.png", // <<--- DATA BARU
+  // },
 ];

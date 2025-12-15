@@ -14,13 +14,13 @@ function LandingPageFooter() {
         <div className="w-full h-[1em] bg-[#003CE9] mt-10"></div>
         {/* Blue top border */}
         {/* Banana Image Mobile */}
-        <div className="w-full h-full -z-10 absolute -right-[12em] top-[10em] md:hidden flex justify-center items-center pointer-events-none overflow-visible">
+        <div className="w-full h-full -z-10 absolute -right-[12em] top-[10em]  md:hidden">
           <Image
-            src="/assets/ui/pisang-mobile.svg"
+            src="/assets/ui/pisang-mobile.png"
             alt="Pisang"
-            width={800}
+            width={900}
             height={900}
-            className="w-[180%] max-w-none h-auto object-contain translate-x-[10%] translate-y-[10%]"
+            className="w-full h-full object-contain scale-200"
             unoptimized
           />
         </div>
@@ -30,7 +30,7 @@ function LandingPageFooter() {
           <Image
             src="/assets/ui/pisang.svg"
             alt="Pisang"
-            width={800}
+            width={900}
             height={900}
             className="object-contain w-[40rem] lg:w-[55rem] translate-x-[50vw]"
             unoptimized
@@ -54,7 +54,12 @@ function LandingPageFooter() {
             <div className="mt-8 w-[50%] md:w-full max-w-2xl">
               <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                 {/* Address Section */}
-                <div className="flex flex-col items-start flex-1">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Jl.+Pulo+Ayang+Kav.+OR3+Kawasan+Industri+Pulogadung+Cakung"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-start flex-1 hover:opacity-80 transition-opacity"
+                >
                   <div className="w-full flex justify-start items-center">
                     <Image
                       src="/assets/ui/location-blue.svg"
@@ -72,7 +77,7 @@ function LandingPageFooter() {
                     Jl. Pulo Ayang Kav. OR3 Kawasan Industri Pulogadung Cakung,
                     Jakarta Timur DKI Jakarta, 13260
                   </div>
-                </div>
+                </a>
 
                 {/* Vertical Line for Tablet & Desktop */}
                 <div className="hidden md:block w-px rounded-full bg-[#003CE9]/50 mx-4"></div>
@@ -81,7 +86,10 @@ function LandingPageFooter() {
 
                 {/* Contact Section */}
                 <div className="flex flex-col items-start flex-1 gap-2">
-                  <div className="flex items-center">
+                  <a
+                    href="tel:+62214618135"
+                    className="flex items-center hover:opacity-80 transition-opacity"
+                  >
                     <Image
                       src="/assets/ui/telephone-blue.svg"
                       alt="Phone"
@@ -93,8 +101,13 @@ function LandingPageFooter() {
                     <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg font-normal ml-2">
                       (021) 4618135
                     </div>
-                  </div>
-                  <div className="flex items-center">
+                  </a>
+                  <a
+                    href="https://www.instagram.com/tastyfruit.id/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center hover:opacity-80 transition-opacity"
+                  >
                     <Image
                       src="/assets/ui/instagram-blue.svg"
                       alt="Instagram"
@@ -106,8 +119,11 @@ function LandingPageFooter() {
                     <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg font-normal ml-2">
                       tastyfruit.id
                     </div>
-                  </div>
-                  <div className="flex items-center">
+                  </a>
+                  <a
+                    href="mailto:halo@tastyfruit.com"
+                    className="flex items-center hover:opacity-80 transition-opacity"
+                  >
                     <Image
                       src="/assets/ui/email-blue.svg"
                       alt="Email"
@@ -119,7 +135,7 @@ function LandingPageFooter() {
                     <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg font-normal ml-2">
                       halo@tastyfruit.com
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -138,10 +154,26 @@ function DefaultFooter() {
   const currentYear = new Date().getFullYear();
 
   const socialIcons = [
-    { src: "/assets/ui/location-white.svg", alt: "Location" },
-    { src: "/assets/ui/telephone-white.svg", alt: "Telephone" },
-    { src: "/assets/ui/email-white.svg", alt: "Email" },
-    { src: "/assets/ui/instagram-white.svg", alt: "Instagram" },
+    {
+      src: "/assets/ui/location-white.svg",
+      alt: "Location",
+      href: "https://www.google.com/maps/search/?api=1&query=Jl.+Pulo+Ayang+Kav.+OR3+Kawasan+Industri+Pulogadung+Cakung",
+    },
+    {
+      src: "/assets/ui/telephone-white.svg",
+      alt: "Telephone",
+      href: "tel:+62214618135",
+    },
+    {
+      src: "/assets/ui/email-white.svg",
+      alt: "Email",
+      href: "mailto:halo@tastyfruit.com",
+    },
+    {
+      src: "/assets/ui/instagram-white.svg",
+      alt: "Instagram",
+      href: "https://www.instagram.com/tastyfruit.id/",
+    },
   ];
 
   return (
@@ -156,7 +188,21 @@ function DefaultFooter() {
         {/* Kanan: Ikon Sosial Media */}
         <div className="flex items-center gap-4">
           {socialIcons.map((icon) => (
-            <a href="#" key={icon.alt} aria-label={icon.alt}>
+            <a
+              href={icon.href}
+              key={icon.alt}
+              aria-label={icon.alt}
+              target={
+                icon.alt === "Location" || icon.alt === "Instagram"
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                icon.alt === "Location" || icon.alt === "Instagram"
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+            >
               <Image
                 src={icon.src}
                 alt={icon.alt}

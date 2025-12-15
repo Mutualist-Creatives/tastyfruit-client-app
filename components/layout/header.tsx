@@ -72,6 +72,7 @@ export default function Header() {
                   width={70}
                   height={70}
                   className="sm:w-12 sm:h-12 lg:w-16 lg:h-16"
+                  unoptimized
                 />
               </Link>
             </div>
@@ -97,7 +98,7 @@ export default function Header() {
             <div className="lg:hidden">
               <button
                 onClick={toggleMobileMenu}
-                className="py-2 rounded-md text-white hover:bg-white/10 transition-colors"
+                className="p-2 rounded-full text-white hover:bg-white/10 transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg
