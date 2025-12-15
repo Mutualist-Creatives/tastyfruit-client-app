@@ -18,7 +18,7 @@ export default function ResepDetail({
   prevResep,
 }: ResepDetailProps) {
   return (
-    <article className="w-full mx-auto">
+    <article className="w-full mx-auto pb-48">
       {/* ================================================================== */}
       {/* === MOBILE & TABLET LAYOUT (<1024px) ===                         */}
       {/* ================================================================== */}
@@ -210,9 +210,9 @@ export default function ResepDetail({
 
       {/* Fixed Navigation Buttons - Similar to publikasi-detail */}
       <div className="fixed bottom-[15vh] md:bottom-16 left-0 w-full p-4 md:p-8 z-50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center gap-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center gap-4 relative">
           {/* Previous Button - Always show */}
-          <div className="flex justify-start">
+          <div className="flex justify-start z-10">
             <Link
               href={
                 prevResep
@@ -237,9 +237,27 @@ export default function ResepDetail({
             </Link>
           </div>
 
+          {/* Middle Button - Back to List */}
+          <div className="pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+            <Link href="/artikel/resep-tasty" aria-label="Kembali ke Resep">
+              <motion.div
+                className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors"
+                whileTap={{ scale: 0.75 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              >
+                <Image
+                  src="/assets/ui/grid-blue.svg"
+                  alt="Back to recipes"
+                  width={20}
+                  height={20}
+                />
+              </motion.div>
+            </Link>
+          </div>
+
           {/* Next Recipe Button - Only show if nextResep exists */}
           {nextResep && (
-            <div className="flex justify-end">
+            <div className="flex justify-end z-10">
               <Link
                 href={`/artikel/resep-tasty/${nextResep.id}`}
                 className="block"

@@ -5,8 +5,6 @@ import SectionBadge from "@/components/ui/section-badge";
 import ArtikelCard from "@/components/artikel/artikel-card";
 import { publikasiData } from "@/lib/publikasi-data";
 
-import StarDecorations from "@/components/ui/star-decorations";
-
 export default function Publikasi() {
   return (
     <Container>

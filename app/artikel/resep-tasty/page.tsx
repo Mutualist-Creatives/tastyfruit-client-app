@@ -4,7 +4,6 @@ import Container from "@/components/layout/container";
 import ArtikelCard from "@/components/artikel/artikel-card";
 import { resepTastyData } from "@/lib/resep-tasty-data";
 
-import StarDecorations from "@/components/ui/star-decorations";
 import SectionBadge from "@/components/ui/section-badge";
 
 export default function ResepTastyPage() {

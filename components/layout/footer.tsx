@@ -21,6 +21,7 @@ function LandingPageFooter() {
             width={800}
             height={900}
             className="w-full h-full object-contain scale-200"
+            unoptimized
           />
         </div>
 
@@ -32,6 +33,7 @@ function LandingPageFooter() {
             width={800}
             height={900}
             className="object-contain w-[40rem] lg:w-[55rem] translate-x-[50vw]"
+            unoptimized
           />
         </div>
 

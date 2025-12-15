@@ -38,7 +38,7 @@ export default function ArtikelDetail({
   sanitizedContent,
 }: ArtikelDetailProps) {
   return (
-    <section className="w-full h-auto">
+    <section className="w-full h-auto pb-48">
       {/* Page Titles (Aligned left) */}
       <div className="flex flex-col items-start gap-2 mb-8 relative">
         <SectionBadge
@@ -90,10 +90,9 @@ export default function ArtikelDetail({
 
         {/* Fixed Navigation Buttons */}
         <div className="fixed bottom-[15vh] md:bottom-16 left-0 w-full p-4 md:p-8 z-50 pointer-events-none">
-          <div className="max-w-7xl mx-auto flex justify-between items-center gap-4">
+          <div className="max-w-7xl mx-auto flex justify-between items-center gap-4 relative">
             {/* Previous Button - Always show, but link changes */}
-            <div className="flex justify-start pointer-events-auto">
-              {/* PERBAIKAN: href sekarang benar-benar dinamis berdasarkan keberadaan prevArtikel */}
+            <div className="flex justify-start pointer-events-auto z-10">
               <Link
                 href={
                   prevArtikel
@@ -121,9 +120,27 @@ export default function ArtikelDetail({
               </Link>
             </div>
 
-            {/* Next Article Button - PERBAIKAN: Hanya muncul jika nextArtikel ada (bukan null/undefined) */}
+            {/* Middle Button - Back to List */}
+            <div className="pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+              <Link href="/artikel/publikasi" aria-label="Kembali ke Publikasi">
+                <motion.div
+                  className="bg-[#B5FE28] rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-[#003CE2] shadow-md transition-colors"
+                  whileTap={{ scale: 0.75 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                >
+                  <Image
+                    src="/assets/ui/grid-blue.svg"
+                    alt="Back to articles"
+                    width={20}
+                    height={20}
+                  />
+                </motion.div>
+              </Link>
+            </div>
+
+            {/* Next Article Button */}
             {nextArtikel && (
-              <div className="flex justify-end pointer-events-auto">
+              <div className="flex justify-end pointer-events-auto z-10">
                 <Link
                   href={`/artikel/publikasi/${nextArtikel.id}`}
                   className="block"

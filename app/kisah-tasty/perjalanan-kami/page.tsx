@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/layout/container";
 import SectionBadge from "@/components/ui/section-badge";
-import { useRouter } from "next/navigation";
+
 import BasicCard from "@/components/ui/basic-card";
 
 // --- DATA INOVASI BARU ---
@@ -317,7 +317,6 @@ const InovasiContent = () => {
 export default function PerjalananKami() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isJourneyStarted, setIsJourneyStarted] = useState(false);
-  const router = useRouter();
 
   const { width } = useWindowSize();
   const isTabletOrBelow = width ? width < 1024 : false;

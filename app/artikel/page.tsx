@@ -6,8 +6,6 @@ import FullContainer from "@/components/layout/full-container";
 import Publikasi from "@/components/artikel/publikasi";
 import ResepTasty from "@/components/artikel/resep-tasty";
 
-import StarDecorations from "@/components/ui/star-decorations";
-
 export default function ArtikelPage() {
   return (
     <section className="relative w-full h-auto">
