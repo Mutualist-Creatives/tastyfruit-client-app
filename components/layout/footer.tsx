@@ -14,13 +14,13 @@ function LandingPageFooter() {
         <div className="w-full h-[1em] bg-[#003CE9] mt-10"></div>
         {/* Blue top border */}
         {/* Banana Image Mobile */}
-        <div className="w-full h-full -z-10 absolute -right-[12em] top-[10em]  md:hidden">
+        <div className="w-full h-full -z-10 absolute -right-[12em] top-[10em] md:hidden flex justify-center items-center pointer-events-none overflow-visible">
           <Image
             src="/assets/ui/pisang-mobile.svg"
             alt="Pisang"
             width={800}
             height={900}
-            className="w-full h-full object-contain scale-200"
+            className="w-[180%] max-w-none h-auto object-contain translate-x-[10%] translate-y-[10%]"
             unoptimized
           />
         </div>
@@ -62,6 +62,7 @@ function LandingPageFooter() {
                       width={24}
                       height={24}
                       className="hidden md:block w-6 h-6"
+                      unoptimized
                     />
                     <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg font-bold ml-0 md:ml-2">
                       GRAHA DSN
@@ -87,6 +88,7 @@ function LandingPageFooter() {
                       width={20}
                       height={20}
                       className="w-3 h-3 md:w-5 md:h-5"
+                      unoptimized
                     />
                     <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg font-normal ml-2">
                       (021) 4618135
@@ -99,6 +101,7 @@ function LandingPageFooter() {
                       width={20}
                       height={20}
                       className="w-3 h-3 md:w-5 md:h-5"
+                      unoptimized
                     />
                     <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg font-normal ml-2">
                       tastyfruit.id
@@ -111,6 +114,7 @@ function LandingPageFooter() {
                       width={20}
                       height={20}
                       className="w-3 h-3 md:w-5 md:h-5"
+                      unoptimized
                     />
                     <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg font-normal ml-2">
                       halo@tastyfruit.com
@@ -159,6 +163,7 @@ function DefaultFooter() {
                 width={24}
                 height={24}
                 className="w-5 h-5"
+                unoptimized
               />
             </a>
           ))}
