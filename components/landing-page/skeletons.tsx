@@ -1,6 +1,4 @@
 import { Skeleton } from "@/components/ui/skeleton";
-import Container from "@/components/layout/container";
-import FullContainer from "@/components/layout/full-container";
 
 export function HeroSkeleton() {
   return (
