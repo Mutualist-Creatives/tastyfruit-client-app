@@ -48,7 +48,7 @@ export default function MedsosTastyFruit() {
   }, [emblaApi]);
 
   return (
-    <section className="w-full h-auto bg-linear-to-t from-[#B4FC28] to-transparent mt-20 py-0 md:py-10 -mb-12">
+    <section className="w-full h-auto bg-linear-to-t from-[#B4FC28] to-transparent mt-20 py-0 -mb-12">
       <div className="w-full h-auto mx-auto">
         <div className="w-full h-auto flex justify-center items-center px-4">
           <Image

@@ -8,7 +8,7 @@ export default function HubungiTasty() {
         {/* Banana Image Mobile */}
         <div className="w-full h-full -z-10 absolute -right-[12em] top-[10em]  md:hidden">
           <Image
-            src="/assets/ui/pisang-mobile.svg"
+            src="/assets/ui/pisang-mobile.png"
             alt="Pisang"
             width={800}
             height={900}

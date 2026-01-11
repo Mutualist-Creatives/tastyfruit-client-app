@@ -8,6 +8,12 @@ import HtmlContent from "@/components/ui/html-content";
 import SectionBadge from "@/components/ui/section-badge";
 import * as motion from "framer-motion/client";
 
+export async function generateStaticParams() {
+  return produkData.map((product) => ({
+    slug: product.slug,
+  }));
+}
+
 export default async function ProdukDetailPage({
   params,
 }: {

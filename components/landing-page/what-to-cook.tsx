@@ -110,7 +110,7 @@ export default function WhatToCook() {
           {/* CTA But
             ton */}
           <div className="flex justify-start pt-2">
-            <CtaButton href="/kisah-tasty" color="blue" py="0">
+            <CtaButton href="/artikel/resep-tasty" color="blue" py="0">
               LANJUT BERKREASI
             </CtaButton>
           </div>
