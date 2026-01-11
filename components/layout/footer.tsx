@@ -14,14 +14,13 @@ function LandingPageFooter() {
         <div className="w-full h-[1em] bg-[#003CE9] mt-10"></div>
         {/* Blue top border */}
         {/* Banana Image Mobile */}
-        <div className="w-full h-full -z-10 absolute -right-[12em] top-[10em]  md:hidden">
+        <div className="w-full h-full -z-10 absolute -right-[14em] top-[10em]  md:hidden">
           <Image
-            src="/assets/ui/pisang-mobile.png"
+            src="/assets/ui/pisang-mobile.svg"
             alt="Pisang"
             width={900}
             height={900}
             className="w-full h-full object-contain scale-200"
-            unoptimized
           />
         </div>
 
@@ -32,8 +31,7 @@ function LandingPageFooter() {
             alt="Pisang"
             width={900}
             height={900}
-            className="object-contain w-[40rem] lg:w-[55rem] translate-x-[50vw]"
-            unoptimized
+            className="object-contain w-[40rem] lg:w-[48rem] translate-x-[55vw] mt-10"
           />
         </div>
 

@@ -23,8 +23,8 @@ export default function Publikasi() {
           {/* Tetap di tengah (default) pada mobile */}
           <div className="relative w-full h-[250px] sm:h-full sm:col-start-2 sm:row-start-1 sm:row-span-2 lg:max-w-[475px] lg:ml-auto rounded-3xl lg:rounded-4xl overflow-hidden">
             <Image
-              src="/assets/artikel/farmer.jpg"
-              alt="Tasty Fruit Farmer"
+              src="/assets/artikel/publikasi.jpg"
+              alt="Tasty Fruit Publikasi"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 475px, 50vw, 100vw"

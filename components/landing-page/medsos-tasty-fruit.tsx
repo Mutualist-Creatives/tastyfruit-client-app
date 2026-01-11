@@ -31,6 +31,10 @@ const carouselImages = [
     src: "/assets/landing-page/medsos-tasty-fruit/png/post-6.png",
     alt: "Post 6",
   },
+  {
+    src: "/assets/landing-page/medsos-tasty-fruit/png/post-7.png",
+    alt: "Post 7",
+  },
 ];
 
 export default function MedsosTastyFruit() {
@@ -70,15 +74,20 @@ export default function MedsosTastyFruit() {
                     key={index}
                     className="flex-grow-0 flex-shrink-0 w-[75%] sm:w-1/2 md:w-1/3 lg:w-1/5 pl-4 sm:pl-6 py-6"
                   >
-                    <div className="aspect-[4/5] rounded-2xl overflow-hidden drop-shadow-lg/50 my-2 sm:my-4">
+                    <a
+                      href="https://www.instagram.com/tastyfruit.id/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="aspect-[4/5] rounded-2xl overflow-hidden drop-shadow-lg/50 my-2 sm:my-4 cursor-pointer hover:opacity-90 transition-opacity block group"
+                    >
                       <Image
                         src={img.src}
                         alt={img.alt}
                         width={300}
                         height={375}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
-                    </div>
+                    </a>
                   </div>
                 ))}
               </div>
@@ -87,7 +96,7 @@ export default function MedsosTastyFruit() {
             {/* Previous Button */}
             <motion.button
               onClick={scrollPrev}
-              className="absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+              className="absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10 cursor-pointer"
               aria-label="Previous slide"
               whileTap={{ scale: 0.75 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -104,7 +113,7 @@ export default function MedsosTastyFruit() {
             {/* Next Button */}
             <motion.button
               onClick={scrollNext}
-              className="absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10"
+              className="absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-[#B4FC28] backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#003CE2] shadow-md transition-colors z-10 cursor-pointer"
               aria-label="Next slide"
               whileTap={{ scale: 0.75 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}

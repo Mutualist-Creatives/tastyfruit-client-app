@@ -11,26 +11,26 @@ import BasicCard from "@/components/ui/basic-card";
 // --- DATA INOVASI BARU ---
 const innovations = [
   {
-    image: "/assets/kisah-tasty/photo-2.jpg",
+    image: "/assets/kisah-tasty/photo-1.jpg",
     title: "Sistem irigasi tetes",
     footerText: "Dengan air alami dari mata air pegunungan",
     category: "Inovasi",
   },
   {
-    image: "/assets/kisah-tasty/photo-1.jpg",
+    image: "/assets/kisah-tasty/photo-2.jpg",
     title: "Pengendalian hama berbasis drone",
     footerText: "Untuk perlindungan taman",
     category: "Inovasi",
   },
   {
-    image: "/assets/kisah-tasty/photo-2.jpg",
+    image: "/assets/kisah-tasty/photo-3.jpg",
     title: "Sistem kabel (cableway)",
     footerText:
       "Yang terintegrasi untuk sistem pengangkutan buah dari kebun ke Packing House",
     category: "Inovasi",
   },
   {
-    image: "/assets/landing-page/komitmen-tasty/jpg/photo-3.jpg",
+    image: "/assets/kisah-tasty/photo-4.jpg",
     title: "Biosecurity",
     footerText:
       "Ketat untuk mencegah kontaminasi dan menjamin mutu buah serta tanaman",

@@ -26,7 +26,7 @@ export default function BasicCard({
   return (
     <div className="block h-full">
       <div
-        className={`${cardStyles.bgColor} rounded-2xl p-3 sm:p-4 h-full flex flex-col group`}
+        className={`${cardStyles.bgColor} rounded-3xl p-3 sm:p-4 h-full flex flex-col group`}
       >
         {/* Kontainer Gambar */}
         <div className="relative mb-3 sm:mb-4">
@@ -35,7 +35,7 @@ export default function BasicCard({
             alt={title}
             width={400}
             height={300}
-            className="w-full aspect-[4/3] object-cover rounded-xl"
+            className="w-full aspect-[4/3] object-cover rounded-2xl"
           />
         </div>
 

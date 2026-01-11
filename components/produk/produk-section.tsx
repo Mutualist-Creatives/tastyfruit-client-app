@@ -258,7 +258,7 @@ export default function ProdukSection({ item }: ProdukSectionProps) {
                     alt={`${f.name} card`}
                     width={360}
                     height={430}
-                    className={`w-full h-auto object-contain transition-all duration-300 ${glowClass}`}
+                    className={`w-full h-auto object-contain transition-all duration-300 rounded-4xl ${glowClass}`}
                     priority={isActive}
                   />
                 </div>

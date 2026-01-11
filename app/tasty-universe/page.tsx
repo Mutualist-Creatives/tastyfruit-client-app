@@ -62,7 +62,7 @@ export default function TastyUniverse() {
 
         {/* Main content container with proper padding */}
         {/* Main content flex container */}
-        <div className="w-full h-full mx-auto max-w-[1280px] flex flex-col lg:flex-row md:items-end justify-between gap-6 lg:gap-8">
+        <div className="w-full h-full mx-auto max-w-[1280px] flex flex-col lg:flex-row md:items-center justify-between gap-6 lg:gap-8">
           {/* Left Section - Content */}
           <div className="w-full h-full lg:w-1/2 lg:pr-4 xl:pr-8 mb-8 lg:mb-0">
             {/* Title using your original asset */}

@@ -14,7 +14,7 @@ export interface PublikasiData {
 export const publikasiData: PublikasiData[] = [
   {
     id: "1",
-    image: "/assets/artikel/publikasi/houses.jpg",
+    image: "/assets/artikel/publikasi/publikasi-1.jpg",
     title:
       "Pop-up booth Tasty Fruit hadir di Farmer's Market Summarecon Mall Serpong!",
     date: "10 Mei 2025",
@@ -25,7 +25,7 @@ export const publikasiData: PublikasiData[] = [
   },
   {
     id: "2",
-    image: "/assets/artikel/publikasi/farmer.jpg",
+    image: "/assets/artikel/publikasi/publikasi-2.jpg",
     title: "Jalan-jalan ke kebun Tasty Fruit, yuk!",
     date: "21 Juni 2025",
     category: "Aktivitas",
@@ -35,7 +35,7 @@ export const publikasiData: PublikasiData[] = [
   },
   {
     id: "3",
-    image: "/assets/artikel/publikasi/farmer-2.jpg",
+    image: "/assets/artikel/publikasi/publikasi-3.png",
     title: "Produk baru dari Tasty Fruit: Volcana!",
     date: "05 Juni 2025",
     category: "Produk",
