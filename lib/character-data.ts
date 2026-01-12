@@ -113,7 +113,7 @@ export const characterData: Character[] = [
     harvestTime: "Setiap bulan",
     introduction: "Ini dia Endes si Jambu!",
     description:
-      "Paling jago bikin suasana, ia datang dengan sejuta pesona rasa yang bikin ngiler, dan dijamin bikin kunjunganmu jadi happy dan penuh kelezatan!",
+      "Paling jago bikin suasana, ia datang dengan sejuta pesona rasa yang bikin ngiler, dan dijamin bikin aktivitasmu jadi happy dan penuh kelezatan!",
     tabsColor: ["#FF00B7", "#308249", "#003CE9", "#FFE600"],
     cardColor: "#9CFF00",
     primaryColor: "#003CE9",
@@ -413,7 +413,7 @@ export const characterData: Character[] = [
     harvestTime: "Musim gugur",
     introduction: "Halo Keko!",
     description:
-      "Jeruk yang satu ini segernya lebih nampol dari es jeruk pas cuaca lagi panas-panasnya! Udah penuh vit. C, seger lagi. Kurang apalagi coba?",
+      "Jeruk yang satu ini segernya lebih nampol dari es jeruk pas cuaca lagi panas-panasnya! Udah penuh Vitamin C, seger lagi. Kurang apalagi coba?",
     tabsColor: ["#FFE600", "#FC6C00", "#308249"],
     cardColor: "#9CFF00",
     primaryColor: "#003CE9",
@@ -461,7 +461,7 @@ export const characterData: Character[] = [
     species: "Carica Papaya",
     characteristic: "Playful",
     harvestTime: "Sepanjang tahun",
-    introduction: "Siap-siap!",
+    introduction: "Siap-siap ketemu Aroi!",
     description:
       "Ini dia Aroi si pepaya yang playful, membawa daya tarik yang semanis rasanya. Setiap gigitannya adalah undangan untuk menikmati keseruan yang tak terlupakan!",
     tabsColor: ["#FC6C00", "#308249", "#FF00B7"],

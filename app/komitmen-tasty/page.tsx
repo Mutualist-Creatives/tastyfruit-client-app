@@ -72,7 +72,7 @@ export default function KomitmenTasty() {
             </div>
 
             <div className="font-nunito text-[#003CE9] font-bold text-xl sm:text-2xl md:text-3xl mt-12 mb-6">
-              Tasty Fruit®&apos;s three commitments:
+              Tasty Fruit®&apos;s Three Commitments
             </div>
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-[2em]">
               <div className="w-full lg:w-1/3">

@@ -28,8 +28,8 @@ export default function HeroSection() {
                 <span className="font-bold">buah tersegar</span> dan{" "}
                 <span className="font-bold">terlezat</span> untuk kebutuhan
                 sehari-hari. Lebih dari sekadar lezat, setiap buah membantu
-                menutrisi tubuh dan pikiran, menjadikan lebih sehat, ceria, dan
-                berseri-seri dari luar dan dalam.
+                menutrisi tubuh dan pikiran, menjadikanmu lebih sehat, ceria,
+                dan berseri-seri dari luar dan dalam.
               </p>
               <p className="text-xs md:text-xl lg:text-lg leading-relaxed text-center lg:text-left font-bold">
                 Tastier, Happier!

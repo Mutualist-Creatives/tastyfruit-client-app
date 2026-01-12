@@ -64,8 +64,11 @@ export default function HubungiTasty() {
                     </div>
                   </div>
                   <div className="text-[#003CE9] text-xs md:text-sm lg:text-base xl:text-lg text-left font-normal ml-0 md:ml-8 mt-1">
-                    Jl. Pulo Ayang Kav. OR3 Kawasan Industri Pulogadung Cakung,
-                    Jakarta Timur DKI Jakarta, 13260
+                    Jl. Pulo Ayang, Kav. OR 3, Kawasan Industri Pulogadung
+                    <br />
+                    Cakung, Jakarta Timur,
+                    <br />
+                    DKI Jakarta, 13260
                   </div>
                 </a>
 

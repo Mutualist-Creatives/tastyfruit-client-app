@@ -12,28 +12,30 @@ import BasicCard from "@/components/ui/basic-card";
 const innovations = [
   {
     image: "/assets/kisah-tasty/photo-1.jpg",
-    title: "Sistem irigasi tetes",
-    footerText: "Dengan air alami dari mata air pegunungan",
+    title: "Sistem Irigasi Tetes",
+    footerText:
+      "Reservoir air alami dari mata air pegunungan, memastikan kontinuitas produsi dan ketersediaan produk",
     category: "Inovasi",
   },
   {
     image: "/assets/kisah-tasty/photo-2.jpg",
-    title: "Pengendalian hama berbasis drone",
-    footerText: "Untuk perlindungan taman",
+    title: "Pengendalian Hama Berbasis Drone",
+    footerText:
+      "Dirancang untuk perlindungan tanaman di kebun Tasty Fruit, memastikan produk yang sehat dan prima",
     category: "Inovasi",
   },
   {
     image: "/assets/kisah-tasty/photo-3.jpg",
-    title: "Sistem kabel (cableway)",
+    title: "Sistem Kabel (Cableway)",
     footerText:
-      "Yang terintegrasi untuk sistem pengangkutan buah dari kebun ke Packing House",
+      "Infrastruktur kabel terintegrasi sebagai metode pengangkutan buah dari kebun Tasty Fruit ke Packing House",
     category: "Inovasi",
   },
   {
     image: "/assets/kisah-tasty/photo-4.jpg",
     title: "Biosecurity",
     footerText:
-      "Ketat untuk mencegah kontaminasi dan menjamin mutu buah serta tanaman",
+      "Prosedur ketat untuk mencegah kontaminasi dan menjamin mutu buah serta tanaman",
     category: "Inovasi",
   },
 ];
@@ -100,7 +102,7 @@ const journeyData: Journey[] = [
     year: "2024",
     title: "PANEN PERDANA, REJUVENASI BRAND, \nDAN DIVERSIFIKASI PRODUK",
     description:
-      "Panen perdana dari kebun baru di Sukabumi menjadi bukti keberhasilan ekspansi kami. Di tahun ini pula, kami melakukan rejuvenasi brand untuk menghadirkan citra Tasty Fruit yang lebih modern, dinamis, dan dekat dengan konsumen Indonesia. Selain itu, kami juga mulai merambah ke berbagai buah-buahan lainnya seperti melon, alpukat, buah naga, dan lain-lain untuk memperkaya pilihan produk Tasty Fruit bagi konsumen.",
+      "Panen perdana dari kebun baru di Sukabumi menjadi bukti keberhasilan ekspansi kami. Di tahun ini pula, kami melakukan rejuvenasi brand untuk menghadirkan citra Tasty Fruit yang lebih modern, dinamis, dan dekat dengan konsumen Indonesia. Selain itu, kami juga mulai merambah ke berbagai buah-buahan lainnya seperti melon, alpukat, dan buah naga untuk memperkaya pilihan produk Tasty Fruit bagi konsumen.",
     layout: "layout-c",
   },
   {
@@ -287,8 +289,9 @@ const InovasiContent = () => {
             </div>
             <div className="w-full lg:w-[40%] text-start mb-0 md:mb-5">
               <p className="font-nunito text-[#003CE9] text-xs md:text-lg">
-                Di Tasty Fruit®, kami menerapkan praktik pertanian yang ramah
-                lingkungan:
+                Di Tasty Fruit, kami menerapkan praktik pertanian yang ramah
+                lingkungan, agar dapat memberikan produk buah-buahan dengan
+                kualitas terbaik ke rumahmu.
               </p>
             </div>
           </div>

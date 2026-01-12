@@ -98,7 +98,7 @@ export const produkData: ProdukData[] = [
     id: 2,
     slug: "melon",
     description:
-      "<b>Manis lembut atau manis renyah?</b> <br><br>Tasty Fruit® memiliki dua melon yang istimewa dengan sensasi berbeda. Yuk, cari tahu dan pilih melon Tasty Fruit® yang sesuai dengan seleramu!",
+      "<b>Manis lembut atau manis renyah?</b> <br><br>Tasty Fruit® memiliki varian melon yang istimewa dengan sensasi berbeda. Yuk, cari tahu dan pilih melon Tasty Fruit® yang sesuai dengan seleramu!",
     layoutType: "layout-b",
     fruit: "Melon",
     characterSlug: "oishi-maru",

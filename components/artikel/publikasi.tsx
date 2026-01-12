@@ -43,9 +43,9 @@ export default function Publikasi() {
               <p className="text-xs md:text-lg leading-relaxed">
                 Dari acara pop-up booth Tasty Fruit®, tips memilih pisang
                 terbaik, hingga{" "}
-                <span className="italic">behind the scenes</span>, pastikan kamu
-                selalu terhubung agar tidak ketinggalan informasi terbaru dari
-                Tasty Fruit®.
+                <span className="italic">behind the scenes</span> di kebun kami,
+                pastikan kamu selalu terhubung agar tidak ketinggalan informasi
+                terbaru dari Tasty Fruit®.
               </p>
             </div>
 

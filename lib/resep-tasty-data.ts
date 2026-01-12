@@ -32,7 +32,7 @@ export const resepTastyData: ResepTastyData[] = [
     name: "Banana Bread",
     servings: "6-8",
     time: "60 minutes",
-    author: "John Doe",
+    author: "Arya Bimantara",
     ingredients: [
       {
         name: "Pisang Matang",
@@ -78,7 +78,7 @@ export const resepTastyData: ResepTastyData[] = [
     name: "Banoffee Pie",
     servings: "4",
     time: "30 minutes",
-    author: "Jane Smith",
+    author: "Safira Afifah",
     ingredients: [
       {
         name: "Biskuit (digestive)",
@@ -119,7 +119,7 @@ export const resepTastyData: ResepTastyData[] = [
     name: "Smoothie Bowl",
     servings: "1",
     time: "10 minutes",
-    author: "Alex Johnson",
+    author: "Dhawy Rasyid",
     ingredients: [
       { name: "Aneka Beri Beku", amount: "1 1/2 cangkir" },
       { name: "Pisang Beku", amount: "1 buah", note: "Potong-potong" },
@@ -150,7 +150,7 @@ export const resepTastyData: ResepTastyData[] = [
     name: "Banana Oat Muffin",
     servings: "9",
     time: "35 minutes",
-    author: "Maria Garcia",
+    author: "Maura Anindya",
     ingredients: [
       { name: "Tepung Terigu", amount: "1 1/2 cangkir" },
       { name: "Rolled Oats", amount: "1 cangkir" },
@@ -187,7 +187,7 @@ export const resepTastyData: ResepTastyData[] = [
     name: "Bana-berry Smoothie",
     servings: "2",
     time: "15 minutes",
-    author: "Chris Lee",
+    author: "Kalya Arinda",
     ingredients: [
       { name: "Pisang", amount: "1 buah", note: "Potong-potong" },
       { name: "Aneka Beri Beku", amount: "1 cangkir" },
@@ -223,7 +223,7 @@ export const resepTastyData: ResepTastyData[] = [
     name: "Banana Biscoff Pie",
     servings: "8",
     time: "45 minutes",
-    author: "Emily White",
+    author: "Kaina Gavina",
     ingredients: [
       { name: "Biskuit Biscoff", amount: "250 gr", note: "Hancurkan" },
       { name: "Mentega", amount: "100 gr", note: "Lelehkan" },

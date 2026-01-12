@@ -99,13 +99,10 @@ export default function WhatToCook() {
             <p>Pusing? Males ribet? Tenang!</p>
             <p>
               Tasty Fruit® punya jawabannya. Di rubrik ini, ada banyak
-              resep-resep yang gak cuma bikin dapurmu rame, tapi juga lidahmu
-              bergoyang gembira.
+              resep-resep yang gak cuma bikin dapurmu rame, tapi juga buat
+              lidahmu bergoyang gembira.
             </p>
-            <p>
-              Yuk, coba kreasi buah-buahan yang unik dari Tasty Fruit® sekarang
-              juga!
-            </p>
+            <p>Yuk, coba kreasiin buah-buahan yang unik dari Tasty Fruit®</p>
           </div>
           {/* CTA But
             ton */}
