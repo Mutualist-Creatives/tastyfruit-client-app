@@ -16,7 +16,7 @@ function LandingPageFooter() {
         {/* Banana Image Mobile */}
         <div className="w-full h-full -z-10 absolute -right-[14em] top-[10em]  md:hidden">
           <Image
-            src="/assets/ui/pisang-mobile.svg"
+            src="/assets/ui/pisang-mobile.png"
             alt="Pisang"
             width={900}
             height={900}
@@ -27,7 +27,7 @@ function LandingPageFooter() {
         {/* Banana Image Desktop */}
         <div className="w-full h-full -z-10 absolute top-0 hidden md:block">
           <Image
-            src="/assets/ui/pisang.svg"
+            src="/assets/ui/pisang.png"
             alt="Pisang"
             width={900}
             height={900}

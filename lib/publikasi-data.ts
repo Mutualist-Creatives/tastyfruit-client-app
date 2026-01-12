@@ -14,7 +14,7 @@ export interface PublikasiData {
 export const publikasiData: PublikasiData[] = [
   {
     id: "1",
-    image: "/assets/artikel/publikasi/publikasi-1.jpg",
+    image: "/assets/landing-page/medsos-tasty-fruit/png/post-3.png",
     title:
       "Pop-up booth Tasty Fruit hadir di Farmer's Market Summarecon Mall Serpong!",
     date: "10 Mei 2025",
