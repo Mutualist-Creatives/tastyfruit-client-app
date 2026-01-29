@@ -105,18 +105,18 @@ export const produkData: ProdukData[] = [
     gesture: "/assets/mascots/melon/melon-gesture-03.png",
     fruitType: [
       {
-        name: "Aurora Melon",
-        slug: "aurora-melon",
-        image: "/assets/produk/melon/Aurora Melon.png",
+        name: "Snowball Melon",
+        slug: "snowball-melon",
+        image: "/assets/produk/melon/Snowball Melon.png",
         description:
-          "Tasty Fruit® Aurora melon terkenal dengan teksturnya yang renyah dan juicy. Dibudidayakan di dataran tinggi dengan tanah vulkanik, melon ini memiliki keseimbangan sempurna antara rasa manis dan keharuman yang alami. ",
+          "Varietas Ivory Gaya ini bukan cuma juara di kerenyahannya, tapi juga juara dalam hal kemurnian produk karena 100% bebas residu pestisida. <br> <br> Kami percaya bahwa kualitas premium dimulai dari cara kita merawat tanaman. Melalui teknik budidaya modern, kami menghasilkan daging buah yang putih bersih dan aman dikonsumsi langsung. Just pure goodness, zero worries!",
       },
       {
-        name: "Fujisawa Melon",
-        slug: "fujisawa-melon",
-        image: "/assets/produk/melon/Fujisawa Melon.png",
+        name: "Sweetball Melon",
+        slug: "sweetball-melon",
+        image: "/assets/produk/melon/Sweetball Melon.png",
         description:
-          "Tasty Fruit® Fujisawa Melon adalah hasil dari keseimbangan sempurna antara alam dan budidaya yang presisi. Melon kami memiliki tekstur yang renyah dan rasa manis yang terukur dengan baik, bukan kebetulan, melainkan perpaduan dari tanah vulkanik dataran tinggi dan perawatan buah ahli dan dari hati. ",
+          "Tasty Fruit® menghadirkan Sweetball Melon, varietas Sprite Melon yang dipilih khusus untuk para penikmat buah dengan kadar air tinggi. Daging buahnya yang berwarna putih-kren mencerminkan kemurnian proses budidaya kami yang bebas residu pestisida. ",
       },
     ],
     nutrition: {

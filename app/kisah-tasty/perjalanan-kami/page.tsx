@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/layout/container";
 import SectionBadge from "@/components/ui/section-badge";
@@ -202,7 +202,7 @@ const LayoutCContent = ({
   isLastItem?: boolean;
 }) => {
   const { leftContent, rightContent } = splitDescriptionForLayoutC(
-    journey.description
+    journey.description,
   );
 
   return (
@@ -321,8 +321,17 @@ export default function PerjalananKami() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isJourneyStarted, setIsJourneyStarted] = useState(false);
 
-  const { width } = useWindowSize();
+  const { width, height } = useWindowSize();
   const isTabletOrBelow = width ? width < 1024 : false;
+
+  const targetWrapperRef = useRef<HTMLDivElement>(null);
+  const [lineEndPos, setLineEndPos] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (currentIndex === journeyData.length - 1 && targetWrapperRef.current) {
+      setLineEndPos(targetWrapperRef.current.getBoundingClientRect().left);
+    }
+  }, [currentIndex, width]);
 
   // Cek apakah sudah di konten inovasi (tahap akhir)
   const isFinalContent = currentIndex === journeyData.length;
@@ -573,7 +582,7 @@ export default function PerjalananKami() {
                             currentIndex === journeyData.length - 1
                               ? isTabletOrBelow // Logic: mobile 10%, desktop 20%
                                 ? "10%"
-                                : "20%"
+                                : (lineEndPos ?? "20%") // Logic: dynamic fit to element
                               : "100%"
                           }
                           y2="25"
@@ -588,7 +597,10 @@ export default function PerjalananKami() {
                     </div>
 
                     <div className="w-full flex justify-center relative z-10">
-                      <div className="w-full lg:w-4/5 flex flex-col justify-start">
+                      <div
+                        ref={targetWrapperRef}
+                        className="w-full lg:w-4/5 flex flex-col justify-start"
+                      >
                         <AnimatePresence mode="wait">
                           <motion.div key={currentIndex} {...revealAnimation}>
                             {currentJourney.layout === "layout-b" &&
